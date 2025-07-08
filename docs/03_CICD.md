@@ -1010,384 +1010,550 @@ spec:
 
 ### Tekton with Terraform
 
-File: task-terraform.
+:file_folder: File: task-terraform.yml
 
-apiVersion: tekton.dev/v1beta1 kind: Task metadata: name: terraform-task spec: steps: - name: terraform-apply image: hashicorp/terraform:latest script: | #!/bin/sh terraform init terraform apply -auto-approve
+```yaml
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: terraform-task
+spec:
+  steps:
+  - name: terraform-apply
+    image: hashicorp/terraform:latest
+    script: | 
+      #!/bin/sh
+      terraform init
+      terraform apply -auto-approve
+```
 
-## Security Scanning with Trivy
+### Security Scanning with Trivy
 
-File: task-trivy.
+:file_folder: File: task-trivy.yml
 
-apiVersion: tekton.dev/v1beta1 kind: Task metadata: name: trivy-scan spec: steps:
+```yaml
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: trivy-scan
+spec:
+  steps:
+  - name: run-trivy
+    image: aquasec/trivy:latest
+    script: |
+      #!/bin/sh
+      trivy image docker.io/myrepo/myapp:latest
+```
 
-- name: run-trivy image: aquasec/trivy:latest script: | #!/bin/sh trivy image docker.io/myrepo/myapp:latest
+### SonarQube Code Analysis
 
-## SonarQube Code Analysis
+:file_folder: File: task-sonarqube.yml
 
-File: task-sonarqube.
+```yaml
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: sonarqube-task
+spec:
+  steps:
+  - name: sonar-scan
+    image: maven:3.8.7
+    script: |
+      #!/bin/sh
+      mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN
+```
 
-apiVersion: tekton.dev/v1beta1 kind: Task metadata: name:sonarqube-task spec: steps: - name: sonar-scan image: maven:3.8.7 script: | #!/bin/sh mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN
+### Notify on Slack
 
-## Notify on Slack
+:file_folder: File: task-slack.yml
 
-apiVersion: tekton.dev/v1beta1 kind: Task metadata: name:slack-notify spec: steps:
+```yaml
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: slack-notify
+spec:
+  steps:
+  - name: send-slack-message
+    image: curlimages/curl:latest
+    script: |
+    #!/bin/sh
+    curl -X POST -H 'Content-type: application/json' --data '{"text":"Deployment completed successfully!"}' $SLACK_WEBHOOK_URL
+```
+___
 
-- name: send-slack-message image: curlimages/curl:latest script: | #!/bin/sh
+## CircleCI
 
-curl -X POST -H 'Content-type: application/json' --data '{"text":"Deployment completed successfully!"}' $SLACK_WEBHOOK_URL
+!!! note "What is CircleCI?"
 
-## Circle CI
+    CircleCI is a cloud-based CI/CD tool that automates software testing and deployment. It provides seamless integration with GitHub, Bitbucket, and other version control systems, enabling automated builds, tests, and deployments.
 
-## Introduction
-
-CircleCI is a cloud-based CI/CD tool that automates software testing and deployment. It provides seamless integration with GitHub, Bitbucket, and other version control systems, enabling automated builds, tests, and deployments.
-
-## Installation
+### Installation
 
 - Sign up at CircleCI
 - Connect your repository (GitHub, Bitbucket)
-- Configure the .circleci/config.yml file in your project
+- Configure the `.circleci/config.yml` file in your project
 
-## CircleCI Commands (Pipeline Example)
+### CircleCI Commands (Pipeline Example)
 
-circleci checkout - Check out the repository to the current directory circleci sphere list - List all the available workspaces in your account circleci config process - Process the CircleCI config file and output the final configuration
-
-circleci step halt - Halt the current job execution, useful in workflows circleci job follow <job_id> - Stream the logs of a specific job in real-time circleci pipeline trigger <pipeline_id> - Trigger a pipeline by its ID circleci pipeline list - List all the pipelines for your project circleci project status <project_slug> - View the status of the project circleci sphere create <sphere_name> - Create a new workspace circleci sphere remove <sphere_name> - Remove a workspace
-
-circleci sync - Sync CircleCI configuration for a given project circleci orb publish <orb_name> <version> <path_to_orb> - Publish a new version of an orb
+- `circleci checkout` - Check out the repository to the current directory
+- `circleci sphere list` - List all the available workspaces in your account
+- `circleci config process` - Process the CircleCI config file and output the final configuration
+- `circleci step halt` - Halt the current job execution, useful in workflows
+- `circleci job follow <job_id>` - Stream the logs of a specific job in real-time
+- `circleci pipeline trigger <pipeline_id>` - Trigger a pipeline by its ID
+- `circleci pipeline list` - List all the pipelines for your project
+- `circleci project status <project_slug>` - View the status of the project
+- `circleci sphere create <sphere_name>` - Create a new workspace
+- `circleci sphere remove <sphere_name>` - Remove a workspace
+- `circleci sync` - Sync CircleCI configuration for a given project
+- `circleci orb publish <orb_name> <version> <path_to_orb>` - Publish a new version of an orb
 
 ### CircleCI Pipeline Script Example
 
-### Basic CircleCI Pipeline Configuration
+#### Basic CircleCI Pipeline Configuration
 
 version: 2.1 - Define the CircleCI version
 
+```yaml
 # Define jobs
-
 jobs:
+  build:
+    docker:
+    - image: circleci/python:3.8 # Use a Python 3.8 Docker image
+    steps:
+    - checkout # Check out the code
+    - run:
+      name: Install dependencies
+      command: pip install -r requirements.txt
+    - run:
+      name: Run tests
+      command: pytest
+  deploy:
+    docker:
+    - image: circleci/python:3.8
+    steps:
+    - checkout
+    - run:
+      name: Deploy application
+      command: ./deploy.sh # Custom deploy script
 
-build:
-
-docker:
-
-- image: circleci/python:3.8 - Use a Python 3.8 Docker image
-
-steps:
-
+# Define workflows (Job execution order)
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+    - build
+    - deploy:
+      requires:
+      - build # Ensure deployment happens after build succeeds
 ```
-- checkout - Check out the code
-```
-- run:
-
-name: Install dependencies command: pip install -r requirements.txt
-
-- run:
-
-name: Run tests command: pytest
-
-deploy:
-
-docker:
-
-```
-- image: circleci/python:3.8
-```
-steps:
-
-```
-- checkout
-```
-- run:
-
-name: Deploy application command: ./deploy.sh - Custom deploy script - Define workflows (Job execution order) workflows: version: 2 build_and_deploy: jobs: - build - deploy: requires: - build - Ensure deployment happens after build succeeds
 
 ### Advanced CircleCI Features
 
-### 1. Running Jobs Based on Branches
+#### 1. Running Jobs Based on Branches
 
-jobs: deploy: docker: - image: circleci/python:3.8 steps: - checkout - run: name: Deploy to Production command: ./deploy_production.sh workflows: version: 2 deploy_to_production: jobs: - deploy: filters: branches: only: main - Deploy only on the 'main' branch
-
-## 2. Caching Dependencies to Speed Up Builds
-
+```yaml
 jobs:
-
-build: docker: - image: circleci/python:3.8 steps: - checkout - restore_cache: keys: - v1-dependencies-{{ checksum "requirements.txt" }} - run: name: Install dependencies command: pip install -r requirements.txt - save_cache: paths: - ~/.cache/pip - Save pip cache key: v1-dependencies-{{ checksum "requirements.txt" }}
-
-## 3. Using Environment Variables for Sensitive Data
-
-jobs:
-
-deploy:
-
-docker:
-
+  deploy:
+    docker:
+    - image: circleci/python:3.8
+    steps:
+    - checkout
+    - run:
+      name: Deploy to Production
+      command: ./deploy_production.sh
+workflows:
+  version: 2
+  deploy_to_production:
+    jobs:
+    - deploy:
+      filters:
+        branches:
+          only: main # Deploy only on the 'main' branch
 ```
-- image: circleci/python:3.8
+
+#### 2. Caching Dependencies to Speed Up Builds
+
+```yaml
+jobs:
+  build:
+    docker:
+    - image: circleci/python:3.8
+    steps:
+    - checkout
+    - restore_cache:
+      keys:
+      - v1-dependencies-{{ checksum "requirements.txt" }}
+    - run:
+      name: Install dependencies
+      command: pip install -r requirements.txt
+    - save_cache:
+      paths:
+      - ~/.cache/pip # Save pip cache
+      key: v1-dependencies-{{ checksum "requirements.txt" }}
 ```
-steps:
 
-- checkout
+#### 3. Using Environment Variables for Sensitive Data
 
-- run:
-
-name: Deploy using environment variables command: ./deploy.sh
-
-environment:
-
-API_KEY: $API_KEY - Use stored API keys
-
-### 4. Running Jobs Conditionally Based on File Changes
-
-jobs: deploy: docker: - image: circleci/python:3.8 steps: - checkout - run: name: Deploy Application command: ./deploy.sh filters: branches: only: main requires: - build when: changes:
-
-- Dockerfile - Only run deploy if the Dockerfile changes
-
-### 5. Running Tests in Parallel
-
+```yaml
 jobs:
+  deploy:
+    docker:
+    - image: circleci/python:3.8
+    steps:
+    - checkout
+    - run:
+      name: Deploy using environment variables
+      command: ./deploy.sh
+    environment:
+      API_KEY: $API_KEY # Use stored API keys
+```
 
-test:
+#### 4. Running Jobs Conditionally Based on File Changes
 
-docker:
-
-- image: circleci/python:3.8
-
-parallelism: 4 - Run 4 test jobs in parallel steps:
-
-- checkout - run: name: Run tests command: pytest
-
-## 6. Using Multiple Docker Containers
-
+```yaml
 jobs:
+  deploy:
+    docker:
+    - image: circleci/python:3.8
+    steps:
+    - checkout
+    - run:
+      name: Deploy Application
+      command: ./deploy.sh
+    filters:
+      branches:
+        only: main
+    requires:
+    - build
+    when:
+      changes:
+      - Dockerfile # Only run deploy if the Dockerfile changes
+```
 
-build:
+#### 5. Running Tests in Parallel
 
-docker:
+```yaml
+jobs:
+  test:
+    docker:
+    - image: circleci/python:3.8
+    parallelism: 4 # Run 4 test jobs in parallel
+    steps:
+    - checkout
+    - run:
+      name: Run tests
+      command: pytest
+```
 
-- image: circleci/python:3.8
+#### 6. Using Multiple Docker Containers
 
--image: circleci/postgres:13 - Additional container for PostgreSQL
+```yaml
+jobs:
+  build:
+    docker:
+    - image: circleci/python:3.8
+    - image: circleci/postgres:13 # Additional container for PostgreSQL
+      environment:
+        POSTGRES_USER: circleci
+    steps:
+    - checkout
+    - run:
+      name: Install dependencies
+      command: pip install -r requirements.txt
+    - run:
+      name: Run database migrations
+      command: python manage.py migrate
+    - run:
+      name: Run tests
+      command: pytest
+```
 
-environment:
+#### 7. Running Jobs Manually (Manual Approvals)
 
-POSTGRES_USER: circleci
+```yaml
+jobs:
+  manual_deploy:
+  docker:
+  - image: circleci/python:3.8
+  steps:
+  - checkout
+  - run:
+    name: Deploy to Production
+    command: ./deploy.sh
+  when: manual # Only run when triggered manually
+```
 
-steps:
+#### 8. Sending Notifications on Job Failure
 
-- checkout
+```yaml
+workflows:
+  version: 2
+  notify_on_failure:
+    jobs:
+    - build
+    notification:
+      email:
+      - user@example.com # Send email notifications on failures
+```
 
-- run:
+#### 9. Running Multiple Jobs in Parallel
 
-name: Install dependencies
+```yaml
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+    - build
+    - deploy:
+      requires:
+      - build # Deploy after build completes
+      filters:
+        branches:
+          only: main
+```
 
-command: pip install -r requirements.txt
+___
 
-- run:
+## ArgoCD (GitOps)
 
-name: Run database migrations
+!!! note "What is ArgoCD?"
 
-command: python manage.py migrate
-
-- run:
-
-name: Run tests command: pytest
-
-## 7. Running Jobs Manually (Manual Approvals)
-
-jobs: manual_deploy: docker: - image: circleci/python:3.8 steps:
-
-- checkout
-
-- run:
-
-name: Deploy to Production command: ./deploy.sh when: manual - Only run when triggered manually
-
-### 8. Sending Notifications on Job Failure
-
-workflows: version: 2 notify_on_failure: jobs: - build notification: email: - [user@example.com](mailto:user@example.com) - Send email notifications on failures
-
-### 9. Running Multiple Jobs in Parallel
-
-workflows: version: 2 build_and_deploy: jobs: - build - deploy: requires: - build - Deploy after build completes filters: branches: only: main
-
-ArgoCD (GitOps)
-
-### Introduction
-
-Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It enables the deployment of applications from Git repositories to Kubernetes clusters, ensuring that the live state of the cluster matches the desired state defined in Git.
+    Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. It enables the deployment of applications from Git repositories to Kubernetes clusters, ensuring that the live state of the cluster matches the desired state defined in Git.
 
 ### Installation
 
 1. Install Argo CD CLI 
 
-macOS: brew install argocd
+#### macOS:
 
-### Linux:
+```bash
+brew install argocd
+```
 
+#### Linux:
+
+```bash
 curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v2.5.4/argocd-linux-amd64 chmod +x /usr/local/bin/argocd
+```
 
-### Install Argo CD on Kubernetes
+#### Install Argo CD on Kubernetes:
 
+```bash
 kubectl create namespace argocd kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.
+```
 
 ### Accessing the Argo CD UI
 
-Access the Argo CD API Server (Local Port Forwarding) kubectl port-forward svc/argocd-server -n argocd 8080:443
+- Access the Argo CD API Server (Local Port Forwarding)
 
-1. Login to the Argo CD UI
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
 
-Initial Password (default is admin and the password is the name of the pod running Argo CD): kubectl get pods -n argocd kubectl logs <argocd-server-pod-name> -n argocd | grep "admin"
+### Login to the Argo CD UI
 
-Argo CD Commands 
+- Initial Password (default is admin and the password is the name of the pod running Argo CD):
 
-Login to Argo CD via CLI argocd login <ARGOCD_SERVER> --username admin --password <password>
+```bash
+kubectl get pods -n argocd
+kubectl logs <argocd-server-pod-name> -n argocd | grep "admin"
+```
+
+### Argo CD Commands 
+
+- Login to Argo CD via CLI
+
+```bash
+argocd login <ARGOCD_SERVER> --username admin --password <password>
+```
 
 ### View the current applications
 
+```bash
 argocd app list
+```
 
 #### 1. Sync an Application
 
-○ Syncs the application with the desired state from the Git repository.
+- Syncs the application with the desired state from the Git repository.
 
+```bash
 argocd app sync <app-name>
+```
 
-### Get Application Status
+- Get Application Status
 
+```bash
 argocd app get <app-name>
+```
 
 #### 2. Create an Application
 
-○ Creates an app in Argo CD by specifying the Git repository, target namespace, and project.
+- Creates an app in Argo CD by specifying the Git repository, target namespace, and project.
 
+```bash
 argocd app create <app-name> \
-
 --repo <git-repository-url> \
-
 --path <path-to-k8s-manifests> \
-
 --dest-server https://kubernetes.default.svc \
-
-```
 --dest-namespace <namespace>
 ```
-### Delete an Application
 
+- Delete an Application
+
+```bash
 argocd app delete <app-name>
+```
 
 #### 3. Refresh Application
 
-○ Refreshes the application state from the Git repository.
+- Refreshes the application state from the Git repository.
 
+```bash
 argocd app refresh <app-name>
+```
 
 ### Application Resources and Syncing
 
-### Sync Status Check
+- Sync Status Check
 
+```bash
 argocd app sync <app-name> --prune
+```
 
 #### 1. Compare with Live
 
-○ Compare the live state of an application with the Git repository.
-
+- Compare the live state of an application with the Git repository.
+```bash
 argocd app diff <app-name>
+```
 
 #### 2. Manual Sync
 
-○ Manually sync the application state.
+- Manually sync the application state.
 
+```bash
 argocd app sync <app-name> --force
+```
 
 ### Managing Projects
 
-### Create a Project
+- Create a Project
 
+```bash
 argocd proj create <project-name> \
-
 - --description "<description>" \
 - --dest-namespace <namespace> \
 - --dest-server <server-url>
+```
 
-## List Projects
+- List Projects
 
+```bash
 argocd proj list
+```
 
-## Add a Git Repo to a Project
+- Add a Git Repo to a Project
 
+```bash
 argocd proj add-repo <project-name> --repo <git-repository-url>
+```
 
 ### GitOps and Source Repositories
 
-### Add a Git Repository
+- Add a Git Repository
 
+```bash
 argocd repo add <git-repo-url> --username <username> --password <password> --type git
+```
 
-## List Repositories
+- List Repositories
 
+```bash
 argocd repo list
+```
 
-### Remove a Git Repository
+- Remove a Git Repository
 
+```bash
 argocd repo rm <git-repo-url>
+```
 
 ### Notifications and Alerts
 
 #### 1. Enable Notifications
 
-○ Install Argo CD Notifications to integrate with Slack, email, etc.
+- Install Argo CD Notifications to integrate with Slack, email, etc.
 
+```bash
 kubectl apply -k github.com/argoproj-labs/argocd-notifications/manifests/install
+```
 
 #### 2. Set Up Notification Settings
 
-○ Configure notification settings in the Argo CD UI.
+- Configure notification settings in the Argo CD UI.
 
 ### Application Health and Troubleshooting
 
-### Check Application Health
+- Check Application Health
 
+```bash
 argocd app health <app-name>
+```
 
 #### 1. Check Logs
 
-○ View logs for troubleshooting.
+- View logs for troubleshooting.
 
+```bash
 kubectl logs <pod-name> -n argocd
+```
 
 #### 2. App Rollback
 
-○ Rollback to a previous revision of an application.
+- Rollback to a previous revision of an application.
 
+```bash
 argocd app rollback <app-name> <revision>
+```
 
 ### Argo CD in CI/CD Pipelines
 
-#### ● Integrate with CI/CD
+#### Integrate with CI/CD
 
-○ Add Argo CD commands in Jenkins, GitLab CI, or GitHub Actions pipelines to automatically deploy updates to Kubernetes based on changes in Git repositories.
+- Add Argo CD commands in Jenkins, GitLab CI, or GitHub Actions pipelines to automatically deploy updates to Kubernetes based on changes in Git repositories.
 
 ### Best Practices
 
-- Declarative GitOps: Keep all manifests in Git, and let Argo CD automatically synchronize and deploy them.
-- Namespaces and Projects: Use projects to group applications and limit resource access across environments.
-- RBAC: Use Role-Based Access Control (RBAC) to secure Argo CD's access and resource usage.
+- **Declarative GitOps**: Keep all manifests in Git, and let Argo CD automatically synchronize and deploy them.
+- **Namespaces and Projects**: Use projects to group applications and limit resource access across environments.
+- **RBAC**: Use Role-Based Access Control (RBAC) to secure Argo CD's access and resource usage.
 
-### Flux CD
+---
 
-### Introduction
+## Flux CD
 
-Flux CD is a GitOps tool for Kubernetes that automates deployment, updates, and rollback of applications using Git as the source of truth.
+!!! note "What is FluxCD?"
 
-Installation Install Flux CLI curl -s https://fluxcd.io/install.sh | sudo
+    Flux CD is a GitOps tool for Kubernetes that automates deployment, updates, and rollback of applications using Git as the source of truth.
+
+### Installation Install Flux CLI
+
+```bash
+curl -s https://fluxcd.io/install.sh | sudo
+```
 
 ### Verify Installation
 
+```bash
 flux --version
+```
 
 ### Bootstrap Flux in a Cluster
 
-```
+```bash
 flux bootstrap github \
  --owner=<GITHUB_USER_OR_ORG> \
  --repository=<REPO_NAME> \
@@ -1395,78 +1561,68 @@ flux bootstrap github \
  --path=clusters/my-cluster \
  --personal
 ```
+
 ### Key Flux CD Commands
 
-### General Commands
+#### General Commands
 
-| fluxcheck         | #CheckFluxinstallation                   |
-|-----------------------|------------------------------------------------------|
-| flux install          | - Install Flux components in a cluster               |
-| flux bootstrap github | #SetupFluxinGitHubrepository |
-| flux version          | - Show Flux CLI version                              |
+- `fluxcheck` - CheckFluxinstallation
+- `flux install` - Install Flux components in a cluster
+- `flux bootstrap github` - SetupFluxinGitHubrepository
+- `flux version` - Show Flux CLI version
 
-### Managing Deployments
+#### Managing Deployments
 
-| flux           | -              |
-|----------------|----------------|
-| get            | List           |
-| sources        | Git            |
-| git            | sources        |
-| flux           | -              |
-| get            | List           |
-| kustomizations | kustomizations |
+- `flux get sources git` - List Git sources
+- `flux get kustomizations` - List kustomizations
+- `flux reconcile kustomization <name>` - Force sync a kustomization
+- `flux suspend kustomization <name>` - Pause updates for a kustomization
+- `flux resume kustomization <name>` - Resume updates for a kustomization
 
-flux reconcile kustomization <name> - Force sync a kustomization flux suspend kustomization <name> - Pause updates for a kustomization flux resume kustomization <name> - Resume updates for a kustomization
+#### Git Repository Management
 
-### Git Repository Management
-
-```
+```bash
 flux create source git my-app \
- --url=https://github.com/my-org/my-app \
- --branch=main \
- --interval=1m
+--url=https://github.com/my-org/my-app \
+--branch=main \
+--interval=1m
 ```
 
-```
+```bash
 flux create kustomization my-app \
-```
-
-```
 --source=my-app \
 --path="./deploy" \
-```
 --prune=true \
-
 --interval=5m
-
-## Helm Chart Management
-
 ```
+
+#### Helm Chart Management
+
+```bash
 flux create source helm my-chart \
- --url=https://charts.bitnami.com/bitnami \
- --interval=1h
+--url=https://charts.bitnami.com/bitnami \
+--interval=1h
 ```
 
-```
+```bash
 flux create helmrelease my-app \
-```
-
-```
 --source=my-chart \
 --chart=nginx \
 --values=./values. \
 --interval=5m
 ```
-# Monitoring and Debugging
 
-| fluxlogs                   | #ViewFluxlogs                                               |
-|--------------------------------|-------------------------------------------------------------------------|
-| fluxgetsourceshelm | #ListHelmsources                                            |
-| fluxgethelmreleases    | #ListdeployedHelmreleases                               |
-| fluxtracekustomization | <name>#Traceerrorsinakustomization</name> |
+#### Monitoring and Debugging
 
-flux suspend source git <name> - Suspend Git syncing flux resume source git <name> - Resume Git syncing
+- `fluxlogs` - View Flux logs
+- `flux get sources helm` - List Helm sources
+- `flux get helm releases` - List deployed Helm releases
+- `flux trace kustomization <name>` - Trace errors in a kustomization
+- `flux suspend source git <name>` - Suspend Git syncing
+- `flux resume source git <name>` - Resume Git syncing
 
-### Uninstall Flux
+#### Uninstall Flux
 
+```bash
 flux uninstall --silent
+```

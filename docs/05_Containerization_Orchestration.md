@@ -119,11 +119,10 @@ USER appuser
 CMD ["python", "app.py"]
 ```
 
-#### Best Practices:
-
-- --no-cache-dir to prevent caching Python packages.
-- Copy requirements.txt first to leverage Docker cache.
-- Use a non-root user (appuser).
+!!! note "Best Practices"
+    - --no-cache-dir to prevent caching Python packages.
+    - Copy requirements.txt first to leverage Docker cache.
+    - Use a non-root user (appuser).
 
 ### 2. Node.js
 
@@ -153,11 +152,10 @@ USER app
 CMD ["node", "app.js"]
 ```
 
-#### Best Practices:
-
-- Use --production to avoid installing devDependencies.
-- Multi-stage builds for optimized images.
-- Use a non-root user (app).
+!!! note "Best Practices"
+    - Use --production to avoid installing devDependencies.
+    - Multi-stage builds for optimized images.
+    - Use a non-root user (app).
 
 ### 3. Java (Spring Boot)
 
@@ -181,11 +179,10 @@ USER app
 CMD ["java", "-jar", "myapp.jar"]
 ```
 
-#### Best Practices:
-
-- Multi-stage builds for separating build and runtime.
-- Use -jdk-slim for smaller images.
-- Non-root user (app).
+!!! note "Best Practices"
+    - Multi-stage builds for separating build and runtime.
+    - Use -jdk-slim for smaller images.
+    - Non-root user (app).
 
 ### 4. Ruby on Rails
 
@@ -219,11 +216,10 @@ USER app
 CMD ["rails", "server", "-b", "0.0.0.0"]
 ```
 
-#### Best Practices:
-
-- Install dependencies in one RUN statement.
-- Avoid devDependencies in production.
-- Use non-root user (app).
+!!! note "Best Practices"
+    - Install dependencies in one RUN statement.
+    - Avoid devDependencies in production.
+    - Use non-root user (app).
 
 ### 5. Go
 
@@ -265,11 +261,10 @@ USER app
 CMD ["./myapp"]
 ```
 
-#### Best Practices:
-
-- Multi-stage build to separate build and runtime.
-- alpine for smaller runtime images.
-- Non-root user (app).
+!!! note "Best Practices"
+    - Multi-stage build to separate build and runtime.
+    - alpine for smaller runtime images.
+    - Non-root user (app).
 
 ### 6. Angular (Frontend)
 
@@ -299,11 +294,10 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-#### Best Practices:
-
-- Multi-stage build: separate build and serving phases.
-- Use nginx:alpine for a minimal serving environment.
-- Copy only production build files.
+!!! note "Best Practices"
+    - Multi-stage build: separate build and serving phases.
+    - Use nginx:alpine for a minimal serving environment.
+    - Copy only production build files.
 
 ### 7. PHP (Laravel)
 
@@ -341,11 +335,10 @@ USER appuser
 CMD ["php-fpm"]
 ```
 
-#### Best Practices:
-
-- Use Composer for PHP dependency management.
-- Avoid dev dependencies in production (--no-dev).
-- Run PHP-FPM as a non-root user.
+!!! note "Best Practices"
+    - Use Composer for PHP dependency management.
+    - Avoid dev dependencies in production (--no-dev).
+    - Run PHP-FPM as a non-root user.
 
 ### 8. Best Practices for Security and Optimization:
 

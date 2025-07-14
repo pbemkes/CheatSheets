@@ -537,7 +537,7 @@ datadog-agent trace-agent config
 datadog-agent trace-agent restart
 ```
 
-# Datadog CI/CD Monitoring
+### Datadog CI/CD Monitoring
 
 ```bash title="Track CI/CD pipeline duration"
 curl -X POST "https://api.datadoghq.com/api/v1/series" \
@@ -622,6 +622,8 @@ curl -X POST "https://api.datadoghq.com/api/v1/incidents" \
   }
 }'
 ```
+
+---
 
 ## New Relic
 

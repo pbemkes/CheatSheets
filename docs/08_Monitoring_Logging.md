@@ -3,6 +3,7 @@
 - [Prometheus & Grafana](#prometheus--grafana)
 - [ELK Stack (Elasticsearch, Logstash, Kibana)](#elk-stack-elasticsearch-logstash-kibana)
 - [Datadog](#datadog)
+- [New Relic](#new-relic)
 
 ---
 
@@ -412,153 +413,163 @@ systemctl restart datadog-agent
 systemctl enable datadog-agent
 ```
 
-# Metric Queries
+### Metric Queries
 
-| avg:system.cpu.user{*}                  | # CPU usage        |
-|-----------------------------------------|--------------------|
-| top(avg:system.disk.used{*}, 5, 'mean') | # Top 5 disk users |
+```bash title="CPU usage"
+avg:system.cpu.user{*}
+```
+```bash title="Top 5 disk users"
+top(avg:system.disk.used{*}, 5, 'mean')
+```
 
-# Datadog API Commands
+### Datadog API Commands
 
-curl -X GET "https://api.datadoghq.com/api/v1/metrics" -H "DD-API-KEY: <API_KEY>" # List all metrics
+```bash title="List all metrics"
+curl -X GET "https://api.datadoghq.com/api/v1/metrics" -H "DD-API-KEY:<API_KEY>"
+```
 
+```bash title="Submit a custom metric"
 curl -X POST "https://api.datadoghq.com/api/v1/series" \
-
-#### -H "DD-API-KEY: <API_KEY>" \
-
+-H "DD-API-KEY: <API_KEY>" \
 -H "Content-Type: application/json" \
+--data '{ "series": [{ "metric": "custom.metric", "points": [[1633000000, 10]],"type": "gauge", "tags": ["env:prod"] }] }'
+```
 
---data '{ "series": [{ "metric": "custom.metric", "points": [[1633000000, 10]], "type": "gauge", "tags": ["env:prod"] }] }' # Submit a custom metric
+### Datadog Configuration
 
-# Datadog Configuration (/etc/datadog-agent/datadog.yaml)
-
+```yaml title="/etc/datadog-agent/datadog.yaml"
 api_key: "<YOUR_API_KEY>"
-
 site: "datadoghq.com"
-
-logs_enabled: true
-
 apm_config:
+  enabled: true
+```
 
-enabled: true
+### Datadog Log Collection Setup
 
-# Datadog Log Collection Setup
-
-sudo nano /etc/datadog-agent/datadog.yaml
-
+```yaml title="/etc/datadog-agent/datadog.yaml"
 logs_enabled: true
-
+```
+```bash
 systemctl restart datadog-agent
+```
 
-# Monitor Logs in Datadog UI
+### Monitor Logs in Datadog UI
 
-- # 1. Go to Datadog → Logs → Live Tail
-- # 2. Filter logs by service, environment, or host
+1. Go to Datadog → Logs → Live Tail
+2. Filter logs by service, environment, or host
 
-# Datadog Monitoring Commands
+### Datadog Monitoring Commands
 
-| datadog-agent configcheck | # Check configuration validity                    |
-|------------------------------|------------------------------------------------------------|
-| datadog-agent hostname       | # Get the hostname recognized by Datadog |
-| datadog-agent health         | # Check agent health                                       |
+```bash title="Check configuration validity"
+datadog-agent configcheck
+```
+```bash title="Get the hostname recognized by Datadog"
+datadog-agent hostname
+```
+```bash title="Check agent health"
+datadog-agent health
+```
 
-# Datadog Kubernetes Agent Installation
+### Datadog Kubernetes Agent Installation
 
+```bash
 kubectl create secret generic datadog-secret --from-literal=api-key=<YOUR_API_KEY>
+```
+```bash
+kubectl apply -f https://raw.githubusercontent.com/DataDog/datadog-agent/main/Dockerfiles/manifests/agent.yaml
+```
 
-kubectl apply -f https://raw.githubusercontent.com/DataDog/datadog-agent/main/Dockerfiles/manif ests/agent.yaml
+### Datadog Kubernetes Monitoring
 
-# Datadog Kubernetes Monitoring
+```bash title="List Datadog agent pods"
+kubectl get pods -n datadog
+```
+```bash title="Check logs of a Datadog agent pod"
+kubectl logs -n datadog <pod-name>
+```
+```bash title="Describe Datadog agent pod"
+kubectl describe pod <pod-name> -n datadog
+```
 
-kubectl get pods -n datadog # List Datadog agent pods kubectl logs -n datadog <pod-name> # Check logs of a Datadog agent pod kubectl describe pod <pod-name> -n datadog # Describe Datadog agent pod
+### Datadog Integrations for DevOps
 
-# Datadog Integrations for DevOps
+```bash title="Install Docker integration"
+datadog-agent integration install -t docker
+```
+```bash title="Install Kubernetes integration"
+datadog-agent integration install -t kubernetes
+```
+```bash title="Install AWS integration"
+datadog-agent integration install -t aws
+```
+```bash title="Install Prometheus integration"
+datadog-agent integration install -t prometheus
+```
+```bash title="Install Jenkins integration"
+datadog-agent integration install -t jenkins
+```
+```bash title="Install GitLab integration"
+datadog-agent integration install -t gitlab
+```
 
-datadog-agent integration install -t docker # Install Docker integration datadog-agent integration install -t kubernetes # Install Kubernetes integration datadog-agent integration install -t aws # Install AWS integration datadog-agent integration install -t prometheus # Install Prometheus integration datadog-agent integration install -t jenkins # Install Jenkins integration datadog-agent integration install -t gitlab # Install GitLab integration
+### Datadog Log Collection for Docker
 
-# Datadog Log Collection for Docker
-
+```bash
 docker run -d --name datadog-agent \
-
 -e DD_API_KEY=<YOUR_API_KEY> \
-
 -e DD_LOGS_ENABLED=true \
-
 -e DD_CONTAINER_EXCLUDE="name:datadog-agent" \
-
 -v /var/run/docker.sock:/var/run/docker.sock:ro \
-
 -v /proc/:/host/proc/:ro \
-
 -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-
 datadog/agent
+```
 
-# Datadog APM (Application Performance Monitoring)
+### Datadog APM (Application Performance Monitoring)
 
-| datadog-agent trace-agent status  | # Check trace agent status                   |
-|-----------------------------------|----------------------------------------------|
-| datadog-agent trace-agent config  | # Show trace agent configuration |
-| datadog-agent trace-agent restart | # Restart the trace agent                    |
+```bash title="Check trace agent status"
+datadog-agent trace-agent status
+```
+```bash title="Show trace agent configuration"
+datadog-agent trace-agent config
+```
+```bash title="Restart the trace agent"
+datadog-agent trace-agent restart
+```
 
 # Datadog CI/CD Monitoring
 
+```bash title="Track CI/CD pipeline duration"
 curl -X POST "https://api.datadoghq.com/api/v1/series" \
-
 -H "DD-API-KEY: <API_KEY>" \
-
 -H "Content-Type: application/json" \
+--data '{ "series": [{ "metric": "ci.pipeline.duration", "points": [[1633000000, 30]], "type": "gauge", "tags": ["pipeline:deploy"] }] }'
+```
 
---data '{ "series": [{ "metric": "ci.pipeline.duration", "points": [[1633000000, 30]], "type": "gauge", "tags": ["pipeline:deploy"] }] }' # Track CI/CD pipeline duration
+### Datadog Synthetic Monitoring (API Tests)
 
-# Datadog Synthetic Monitoring (API Tests)
-
+```bash
 curl -X POST "https://api.datadoghq.com/api/v1/synthetics/tests" \
-
 -H "DD-API-KEY: <API_KEY>" \
-
 -H "Content-Type: application/json" \
-
 --data '{
-
-```
-"config": { "request": { "method": "GET", "url": "https://example.com" },
-"assertions": [{ "operator": "is", "type": "statusCode", "target": 200 }] },
-```
-
-```
-"locations": ["aws:us-east-1"],
-```
-"message": "Website should be reachable",
-
-```
-"name": "Website Availability Test",
-```
-
-```
-"options": { "monitor_options": { "renotify_interval": 0 } },
-```
-
-```
-"tags": ["env:prod"],
-```
-
-```
-"type": "api"
-```
-
-```
+  "config": { "request": { "method": "GET", "url": "https://example.com" },
+  "assertions": [{ "operator": "is", "type": "statusCode", "target": 200 }] },
+  "locations": ["aws:us-east-1"],
+  "message": "Website should be reachable",
+  "name": "Website Availability Test",
+  "options": { "monitor_options": { "renotify_interval": 0 } },
+  "tags": ["env:prod"],
+  "type": "api"
 }'
 ```
-# Datadog Dashboard & Alerts
 
-# Create a new dashboard
+### Datadog Dashboard & Alerts
 
-```
+#### Create a new dashboard
+
+```bash
 curl -X POST "https://api.datadoghq.com/api/v1/dashboard" \
-```
-
-```
 -H "Content-Type: application/json" \
 -H "DD-API-KEY: <API_KEY>" \
 --data '{
@@ -575,128 +586,126 @@ curl -X POST "https://api.datadoghq.com/api/v1/dashboard" \
  ]
 }'
 ```
-# Create an alert
 
+#### Create an alert
+
+```bash
 curl -X POST "https://api.datadoghq.com/api/v1/monitor" \
-
 -H "Content-Type: application/json" \
-
-```
 -H "DD-API-KEY: <API_KEY>" \
-```
-
-```
 --data '{
- "name": "High CPU Usage", 
- "type": "query alert",
- "query": "avg(last_5m):avg:system.cpu.user{*} > 80", 
- "message": "CPU usage is too high!",
- "tags": ["env:prod"]
+  "name": "High CPU Usage", 
+  "type": "query alert",
+  "query": "avg(last_5m):avg:system.cpu.user{*} > 80", 
+  "message": "CPU usage is too high!",
+  "tags": ["env:prod"]
 }'
 ```
-# Datadog Incident Management
 
+#### Datadog Incident Management
+
+```bash
 curl -X POST "https://api.datadoghq.com/api/v1/incidents" \
-
-```
 -H "Content-Type: application/json" \
-```
-
-```
 -H "DD-API-KEY: <API_KEY>" \
-```
 --data '{
-
-"data": {
-
-```
-"type": "incidents",
-```
-"attributes": {
-
-"title": "Production Outage",
-
-"customer_impact_scope": "global",
-
-"customer_impact_duration": 30,
-
-"severity": "critical",
-
-```
-"state": "active",
-```
-
-```
-"commander": "DevOps Team"
+  "data": {
+  "type": "incidents",
+  "attributes": {
+    "title": "Production Outage",
+    "customer_impact_scope": "global",
+    "customer_impact_duration": 30,
+    "severity": "critical",
+    "state": "active",
+    "commander": "DevOps Team"
+    }
   }
- }
 }'
 ```
-### New Relic
+
+## New Relic
 
 ### Install New Relic Agent
 
-For Linux Servers curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | newrelic install
+```bash title="For Linux Servers"
+curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | newrelic install
+```
 
-● Query Logs & Metrics
+### Query Logs & Metrics
 
-### NRQL Queries (New Relic Query Language)
+#### NRQL Queries (New Relic Query Language)
 
-SELECT average(cpuPercent) FROM SystemSample SINCE 30 minutes ago SELECT count(\*) FROM Transaction WHERE appName = 'my-app'
+```sql
+SELECT average(cpuPercent) FROM SystemSample SINCE 30 minutes ago
+```
+```sql
+SELECT count(*) FROM Transaction WHERE appName = 'my-app'
+```
 
 ### New Relic Agent CLI Commands
 
-| newrelic-daemon -v               | # Check New Relic agent version                         |
-|----------------------------------|---------------------------------------------------------|
-| systemctl start newrelic-infra   | # Start New Relic infrastructure agent                  |
-| systemctl stop newrelic-infra    | # Stop New Relic infrastructure agent                   |
-| systemctl restart newrelic-infra | # Restart New Relic infrastructure agent |
-| systemctl enable newrelic-infra  | # Enable agent on boot                                  |
-
-journalctl -u newrelic-infra -f # View New Relic agent logs
+```bash title="Check New Relic agent version"
+newrelic-daemon -v
+```
+```bash title="Start New Relic infrastructure agent"
+systemctl start newrelic-infra
+```
+```bash title="Stop New Relic infrastructure agent"
+systemctl stop newrelic-infra
+```
+```bash title="Restart New Relic infrastructure agent"
+systemctl restart newrelic-infra
+```
+```bash title="Enable agent on boot"
+systemctl enable newrelic-infra
+```
+```bash title="View New Relic agent logs"
+journalctl -u newrelic-infra -f
+```
 
 ### New Relic API Commands
 
-curl -X GET "https://api.newrelic.com/v2/applications.json" -H "X-Api-Key:<API_KEY>" -H "Content-Type: application/json" # List all applications
+```bash title="List all applications"
+curl -X GET "https://api.newrelic.com/v2/applications.json" -H "X-Api-Key:<API_KEY>" -H "Content-Type: application/json"
+```
+```bash title="List monitored servers"
+curl -X GET "https://api.newrelic.com/v2/servers.json" -H "X-Api-Key:<API_KEY>"
+```
+```bash title="Record a deployment"
+curl -X POST "https://api.newrelic.com/v2/applications/<APP_ID>/deployments.json" -H "X-Api-Key:<API_KEY>" -H "Content-Type: application/json" -d '{ "deployment": { "revision": "1.0.1", "description": "New deployment", "user": "DevOps Team" } }'
+```
 
-curl -X GET "https://api.newrelic.com/v2/servers.json" -H "X-Api-Key:<API_KEY>" # List monitored servers
+### New Relic Configuration
 
-curl -X POST "https://api.newrelic.com/v2/applications/<APP_ID>/deployments.json" -H "X-Api-Key:<API_KEY>" -H "Content-Type: application/json" -d '{ "deployment": { "revision": "1.0.1", "description": "New deployment", "user": "DevOps Team" } }' # Record a deployment
-
-### New Relic Configuration (/etc/newrelic-infra.yml)
-
+```yaml title="/etc/newrelic-infra.yml"
 license_key: "<YOUR_LICENSE_KEY>"
-
 log_file: /var/log/newrelic-infra.log
-
 custom_attributes:
-
-environment: production
+  environment: production
+```
 
 ### New Relic Log Monitoring Setup
 
-#### 1. Enable Log Forwarding
+#### Enable Log Forwarding
 
-### Edit /etc/newrelic-infra.yml:
-
+```yaml title="Edit: /etc/newrelic-infra.yml:"
 logs:
+  enabled: true
+  include:
+  - /var/log/syslog
+  - /var/log/nginx/access.log
+```
 
-enabled: true
-
-include:
-
-- /var/log/syslog
-- /var/log/nginx/access.log
-
-Restart the agent:
-
+```bash title="Restart the agent:"
 systemctl restart newrelic-infra
+```
 
-- 2. View Logs in New Relic UI
-	- Go to New Relic → Logs
-	- Filter logs by application, environment, or tags
+#### View Logs in New Relic UI
 
-### New Relic Monitoring Commands
+- Go to New Relic → Logs
+- Filter logs by application, environment, or tags
+
+#### New Relic Monitoring Commands
 
 ```bash title="Check agent status"
 newrelic-infra --status

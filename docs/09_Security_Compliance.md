@@ -42,7 +42,7 @@ bin\windows-x86-64\StartSonar.bat
 
 - Set the SonarQube server URL in the `sonar-scanner.properties` file
 
-??? Example
+!!! Example
     sonar.host.url=http://localhost:9000
 
 ### 6. Run analysis with SonarScanner

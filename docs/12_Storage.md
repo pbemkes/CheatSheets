@@ -156,9 +156,11 @@ spec:
     claimName: my-pvc
 ```
 
-### Terraform Configurations:
+## Terraform Configurations:
 
-```tf title="AWS S3 Bucket"
+- AWS S3 Bucket
+
+```tf
 provider "aws" { 
   region = "us-east-1"
 }
@@ -171,7 +173,7 @@ output "bucket_name" {
 }
 ```
 
-### Azure Storage Account
+- Azure Storage Account
 
 ```tf
 provider "azurerm" {

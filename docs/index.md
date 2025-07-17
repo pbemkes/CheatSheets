@@ -1,4 +1,4 @@
-# AWS DevOps CheatSheet
+# SRE & DevOps CheatSheet
 
 :open_file_folder: Sheet that covers everything from
 

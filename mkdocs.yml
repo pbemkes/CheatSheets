@@ -1,5 +1,5 @@
-site_name: Handy Cheat Sheat Documentation
-site_url: https://sitename.example
+site_name: Handy CheatSheat Documentation
+site_url: https://pbemkes.github.io/CheatSheets/
 theme:
   name: material
   font:
@@ -9,7 +9,7 @@ theme:
     - navigation.footer
     - content.code.copy
   icon:
-    logo: fontawesome/regular/user
+    logo: material/file-cabinet
   palette:
     # Dark Mode
     - scheme: slate

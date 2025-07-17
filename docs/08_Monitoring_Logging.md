@@ -1,6 +1,6 @@
 # Monitoring & Logging
 
-- [Prometheus & Grafana](#prometheus--grafana)
+- [Prometheus & Grafana](#prometheus-grafana)
 - [ELK Stack (Elasticsearch, Logstash, Kibana)](#elk-stack-elasticsearch-logstash-kibana)
 - [Datadog](#datadog)
 - [New Relic](#new-relic)

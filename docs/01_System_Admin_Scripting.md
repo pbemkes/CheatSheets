@@ -175,7 +175,7 @@ sudo mount /dev/sdb1 /mnt
 - `awk` - Process text with patterns.
 - `sed` - Edit text in streams.
 
-```Search for 'error' in syslog"
+```bash title="Search for 'error' in syslog"
 grep "error" /var/log/syslog
 ```
 
@@ -1478,33 +1478,23 @@ zip -r docs.zip docs/
 
 ### 46. Crontab
 
-- List all cron jobs
-
-```bash
+```bash title="List all cron jobs"
 crontab -l
 ```
 
-- Edit cron jobs
-
-```bash
+```bash title="Edit cron jobs"
 crontab -e
 ```
 
-- Remove all cron jobs
-
-```bash
+```bash title="Remove all cron jobs"
 crontab -r
 ```
 
-- Use a specific editor (e.g., nano)
-
-```bash
+```bash title="Use a specific editor (e.g., nano)"
 EDITOR=nano crontab -e
 ```
 
-- Cron Job Syntax
-
-```bash
+```bash title="Cron Job Syntax"
 * * * * * command_to_execute
 │ │ │ │ └─── Day of the week (0-6, Sunday=0)
 │ │ │ └───── Month (1-12 or JAN-DEC)
@@ -1513,129 +1503,87 @@ EDITOR=nano crontab -e
 └─────────── Minute (0-59)
 ```
 
-- Run a script every minute
-
-```bash
+```bash title="Run a script every minute"
 * * * * * /path/to/script.sh
 ```
 
-- Run a script every 5 minutes
-
-```bash
+```bash title="Run a script every 5 minutes"
 */5 * * * * /path/to/script.sh
 ```
 
-- Run a script every 10 minutes
-
-```bash
+```bash title="Run a script every 10 minutes"
 */10 * * * * /path/to/script.sh
 ```
 
-- Run a script at midnight
-
-```bash
+```bash title="Run a script at midnight"
 0 0 * * * /path/to/script.sh
 ```
 
-- Run a script every hour
-
-```bash
+```bash title="Run a script every hour"
 0 * * * * /path/to/script.sh
 ```
 
-- Run a script every 2 hours
-
-```bash
+```bash title="Run a script every 2 hours"
 0 */2 * * * /path/to/script.sh
 ```
 
-- Run a script every Sunday at 3 AM
-
-```bash
+```bash title="Run a script every Sunday at 3 AM"
 0 3 * * 0 /path/to/script.sh
 ```
 
-- Run a script at 9 AM on the 1st of every month
-
-```bash
+```bash title="Run a script at 9 AM on the 1st of every month"
 0 9 1 * * /path/to/script.sh
 ```
 
-- Run a script every Monday to Friday at 6 PM
-
-```bash
+```bash title="Run a script every Monday to Friday at 6 PM"
 0 18 * * 1-5 /path/to/script.sh
 ```
 
-- Run a script on the first Monday of every month
-
-```bash
+```bash title="Run a script on the first Monday of every month"
 0 9 * * 1 [ "$(date +\%d)" -le 7 ] && /path/to/script.sh
 ```
 
-- Run a script on specific dates (e.g., 1st and 15th of the month)
-
-```bash
+```bash title="Run a script on specific dates (e.g., 1st and 15th of the month)"
 0 12 1,15 * * /path/to/script.sh
 ```
 
-- Run a script between 9 AM and 5 PM, every hour
-
-```bash
+```bash title="Run a script between 9 AM and 5 PM, every hour"
 0 9-17 * * * /path/to/script.sh
 ```
 
-- Run a script every reboot
-
-```bash
+```bash title="Run a script every reboot"
 @reboot /path/to/script.sh
 ```
 
-- Run a script daily at midnight 
-
-```bash  
+```bash   title="Run a script daily at midnight "
 @daily /path/to/script.sh
 ```
 
-- Run a script weekly at midnight on Sunday
-
-```bash
+```bash title="Run a script weekly at midnight on Sunday"
 @weekly /path/to/script.sh
 ```
 
-- Run a script monthly at midnight on the 1st
-
-```bash
+```bash title="Run a script monthly at midnight on the 1st"
 @monthly /path/to/script.sh
 ```
 
-- Run a script yearly at midnight on January 1st
-
-```bash
+```bash title="Run a script yearly at midnight on January 1st"
 @yearly /path/to/script.sh
 ```
 
-- Redirect cron job output to a log file
-
-```bash
+```bash title="Redirect cron job output to a log file"
 0 0 * * * /path/to/script.sh >> /var/log/script.log 2>&1
 ```
 
-- Run a job only if the previous instance is not running
-
-```bash
+```bash title="Run a job only if the previous instance is not running"
 0 * * * * flock -n /tmp/job.lock /path/to/script.sh
 ```
 
-- Run a script with a random delay (0-59 minutes)
-
-```bash
+```bash title="Run a script with a random delay (0-59 minutes)"
 RANDOM_DELAY=$((RANDOM % 60)) && sleep $RANDOM_DELAY && /path/to/script.sh
 ```
 
-- Run a script with environment variables
-
-```bash
+```bash title="Run a script with environment variables"
 SHELL=/bin/bash
 
 PATH=/usr/local/bin:/usr/bin:/bin
@@ -1643,27 +1591,19 @@ PATH=/usr/local/bin:/usr/bin:/bin
 0 5 * * * /path/to/script.sh
 ```
 
-- Check cron logs (Ubuntu/Debian)
-
-```bash
+```bash title="Check cron logs (Ubuntu/Debian)"
 grep CRON /var/log/syslog
 ```
 
-- Check cron logs (Red Hat/CentOS)
-
-```bash
+```bash title="Check cron logs (Red Hat/CentOS)"
 grep CRON /var/log/cron
 ```
 
-- Restart cron service (Linux)
-
-```bash
+```bash title="Restart cron service (Linux)"
 sudo systemctl restart cron
 ```
 
-- Check if cron service is running
-
-```bash
+```bash title="Check if cron service is running"
 sudo systemctl status cron
 ```
 
@@ -1680,37 +1620,27 @@ sudo systemctl status cron
 
 ### Create a virtual environment:
 
-- On Linux/macOS
-
-```bash
+```bash title="On Linux/macOS"
 python -m venv venv source venv/bin/activate
 ```
 
-- On Windows
- 
-```bash
+```bash title="On Windows"
 venv\Scripts\activate
 ```
 
-- Deactivate virtual environment
-
-```bash 
+```bash title="Deactivate virtual environment"
 deactivate
 ```
 
 ### 1. File Operations
 
-- Read a file:
-
-```py
+```py title="Read a file:"
 python
 
 with open('file.txt', 'r') as file: content = file.read() print(content)
 ```
 
-- Write to a file:
-
-```py
+```py title="Write to a file:"
 python
 
 with open('output.txt', 'w') as file: file.write('Hello, DevOps!')
@@ -1718,9 +1648,7 @@ with open('output.txt', 'w') as file: file.write('Hello, DevOps!')
 
 ### 2. Environment Variables
 
-- Get an environment variable:
-
-```py
+```py title="Get an environment variable:"
 python
 
 import os
@@ -1728,9 +1656,7 @@ import os
 db_user = os.getenv('DB_USER') print(db_user)
 ```
 
-- Set an environment variable:
-
-```py
+```py title="Set an environment variable:"
 python
 
 import os
@@ -1740,9 +1666,7 @@ os.environ['NEW_VAR'] = 'value'
 
 ### 3. Subprocess Management
 
-- Run shell commands:
-
-```py
+```py title="Run shell commands:"
 python
 
 import subprocess
@@ -1752,9 +1676,7 @@ result = subprocess.run(['ls', '-l'], capture_output=True, text=True) print(resu
 
 ### 4. API Requests
 
-- Make a GET request:
-
-```py
+```py title="Make a GET request:"
 python
 
 import requests
@@ -1764,9 +1686,7 @@ response = requests.get('https://api.example.com/data') print(response.json())
 
 ### 5. JSON Handling
 
-- Read JSON from a file:
-
-```py
+```py title="Read JSON from a file:"
 python
 
 import json
@@ -1774,9 +1694,7 @@ import json
 with open('data.json', 'r') as file: data = json.load(file) print(data)
 ```
 
-- Write JSON to a file:
-
-```py
+```py title="Write JSON to a file:"
 python
 
 import json
@@ -1786,9 +1704,7 @@ data = {'name': 'DevOps', 'type': 'Workflow'} with open('output.json', 'w') as f
 
 ### 6. Logging
 
-- Basic logging setup:
-
-```py
+```py title="Basic logging setup:"
 python
 
 import logging
@@ -1798,9 +1714,7 @@ logging.basicConfig(level=logging.INFO) logging.info('This is an informational m
 
 ### 7. Working with Databases
 
-- Connect to a SQLite database:
-
-```py
+```py title="Connect to a SQLite database:"
 python
 
 importsqlite3
@@ -1815,9 +1729,7 @@ conn.close()
 
 ### 8. Automation with Libraries
 
-- Using Paramiko for SSH connections:
-
-```py
+```py title="Using Paramiko for SSH connections:"
 python
 
 import paramiko
@@ -1833,9 +1745,7 @@ ssh.close()
 
 ### 9. Error Handling
 
-- Try-except block:
-
-```py
+```py title="Try-except block:"
 python
 
 try: # code that may raise an exception risky_code() except Exception as e: print(f'Error occurred: {e}')
@@ -1843,11 +1753,7 @@ try: # code that may raise an exception risky_code() except Exception as e: prin
 
 ### 10. Docker Integration
 
-- Using the docker package to interact with Docker:
-
-```py
-python
-
+```py title="Using the docker package to interact with Docker:"
 import docker
 
 client = docker.from_env() containers = client.containers.list() for container in containers: print(container.name)
@@ -1855,11 +1761,7 @@ client = docker.from_env() containers = client.containers.list() for container i
 
 ### 11. Working with YAML Files
 
-- Read a YAML file:
-
-```
-python
-
+```py title="Read a YAML file:"
 import yaml
 
 - with open('config.yaml', 'r') as file: config = yaml.safe_load(file) print(config)
@@ -1867,8 +1769,6 @@ import yaml
 ```
 
 ```py
-python
-
 import yaml
 
 data = {'name': 'DevOps', 'version': '1.0'} with open('output.yaml', 'w') as file: yaml.dump(data, file)
@@ -1876,11 +1776,7 @@ data = {'name': 'DevOps', 'version': '1.0'} with open('output.yaml', 'w') as fil
 
 ### 12. Parsing Command-Line Arguments
 
-- Using argparse:
-
-```py
-python
-
+```py title="Using argparse:"
 import argparse
 
 parser = argparse.ArgumentParser(description='Process some integers.') parser.add_argument('--num', type=int, help='an integer for the accumulator')
@@ -1891,11 +1787,7 @@ print(args.num)
 
 ### 13. Monitoring System Resources
 
-- Using psutil to monitor system resources:
-
-```py
-python
-
+```py title="Using psutil to monitor system resources:"
 import psutil
 
 print(f"CPU Usage: {psutil.cpu_percent()}%") 
@@ -1904,11 +1796,7 @@ print(f"Memory Usage: {psutil.virtual_memory().percent}%")
 
 ### 14. Handling HTTP Requests with Flask
 
-- Basic Flask API:
-
-```py
-python
-
+```py title="Basic Flask API:"
 from flask import Flask, jsonify
 
 app = Flask( name )
@@ -1920,11 +1808,7 @@ if name == ' main ': app.run(host='0.0.0.0', port=5000)
 
 ### 15. Creating Docker Containers
 
-- Using the Docker SDK to create a container:
-
-```py
-python
-
+```py title="Using the Docker SDK to create a container:"
 import docker
 
 client = docker.from_env()
@@ -1934,11 +1818,7 @@ print(container.logs())
 
 ### 16. Scheduling Tasks
 
-- Using schedule for task scheduling:
-
-```py
-python
-
+```py title="Using schedule for task scheduling:"
 importschedule import time
 
 def job(): print("Running scheduled job...")
@@ -1950,11 +1830,7 @@ while True: schedule.run_pending() time.sleep(1)
 
 ### 17. Version Control with Git
 
-- Using GitPython to interact with Git repositories:
-
-```py
-python
-
+```py title="Using GitPython to interact with Git repositories:"
 import git
 
 repo = git.Repo('/path/to/repo') 
@@ -1964,11 +1840,7 @@ repo.index.commit('Added file.txt')
 
 ### 18. Email Notifications
 
-- Sending emails using smtplib:
-
-```py
-python
-
+```py title="Sending emails using smtplib:"
 import smtplib from email.mime.text import MIMEText
 
 msg = MIMEText('This is the body of the email') 
@@ -1981,11 +1853,7 @@ with smtplib.SMTP('smtp.example.com', 587) as server: server.starttls() server.l
 
 ### 19. Creating Virtual Environments
 
-- Creating and activating a virtual environment:
-
-```py
-python
-
+```py title="Creating and activating a virtual environment:"
 import os import subprocess # Create virtual environment
 subprocess.run(['python3', '-m', 'venv', 'myenv'])
 
@@ -1998,10 +1866,7 @@ os.system('source myenv/bin/activate')
 
 ### 20. Integrating with CI/CD Tools
 
-- Using the requests library to trigger a Jenkins job:
-```py
-python
-
+```py title="Using the requests library to trigger a Jenkins job:"
 import requests
 
 url = ['http://your-jenkins-url/job/your-job-name/build'](http://your-jenkins-url/job/your-job-name/build%27) response = requests.post(url, auth=('user', 'token')) print(response.status_code)
@@ -2009,21 +1874,13 @@ url = ['http://your-jenkins-url/job/your-job-name/build'](http://your-jenkins-ur
 
 ### 21. Database Migration
 
-- Using Alembic for database migrations:
-
-```py
-bash
-
+```bash title="Using Alembic for database migrations:"
 alembic revision -m "initial migration" alembic upgrade head
 ```
 
 ### 22. Testing Code
 
-- Using unittest for unit testing:
-
-```py
-python
-
+```py title="Using unittest for unit testing:"
 import unittest
 
 def add(a, b): 
@@ -2037,11 +1894,7 @@ if name == ' main ':
 
 ### 23. Data Transformation with Pandas
 
-- Using pandas for data manipulation:
-
-```py
-python
-
+```py title="Using pandas for data manipulation:"
 import pandas as pd
 
 df = pd.read_csv('data.csv') df['new_column'] = df['existing_column'] \* 2 df.to_csv('output.csv', index=False)
@@ -2049,11 +1902,7 @@ df = pd.read_csv('data.csv') df['new_column'] = df['existing_column'] \* 2 df.to
 
 ### 24. Using Python for Infrastructure as Code
 
-- Using boto3 for AWS operations:
-
-```py
-python
-
+```py title="Using boto3 for AWS operations:"
 import boto3
 
 ec2 = boto3.resource('ec2')
@@ -2065,23 +1914,18 @@ for instance in instances:
 
 ### 25. Web Scraping
 
-- Using BeautifulSoup to scrape web pages:
+```py title="Using BeautifulSoup to scrape web pages:"
+import requests
+from bs4 import BeautifulSoup
 
-```py
-python
-
-import requests from bs4 import BeautifulSoup
-
-response = requests.get[\('http://example.com'\)](http://example.com/) soup = BeautifulSoup(response.content, 'html.parser') print(soup.title.string)
+response = requests.get('http://example.com')
+soup = BeautifulSoup(response.content, 'html.parser')
+print(soup.title.string)
 ```
 
 ### 26. Using Fabric for Remote Execution
 
-- Running commands on a remote server:
-
-```py
-python
-
+```py title="Running commands on a remote server:"
 from fabric import Connection
 
 conn = Connection(host='user@hostname', connect_kwargs={'password': 
@@ -2091,11 +1935,7 @@ conn.run('uname -s')
 
 ### 27. Automating AWS S3 Operations
 
-- Upload and download files using boto3:
-
-```py
-python
-
+```py title="Upload and download files using boto3:"
 import boto3
 
 s3 = boto3.client('s3')
@@ -2109,25 +1949,25 @@ s3.download_file('bucket_name', 's3_file.txt', 'local_file.txt')
 
 ### 28. Monitoring Application Logs
 
-- Tail logs using tail -f equivalent in Python:
-
-```py
-python
-
+```py title="Tail logs using tail -f equivalent in Python:"
 import time
 
-def tail_f(file): file.seek(0, 2) # Move to the end of the file while True: line = file.readline() if not line: time.sleep(0.1) # Sleep briefly continue print(line)
+def tail_f(file):
+  file.seek(0, 2) # Move to the end of the file
+  while True:
+    line = file.readline()
+    if not line:
+      time.sleep(0.1) # Sleep briefly
+      continue
+    print(line)
 
-with open('app.log', 'r') as log_file: tail_f(log_file)
+with open('app.log', 'r') as log_file:
+  tail_f(log_file)
 ```
 
 ### 29. Container Health Checks
 
-- Check the health of a running Docker container:
-
-```py
-python
-
+```py title="Check the health of a running Docker container:"
 import docker
 
 client = docker.from_env()
@@ -2137,11 +1977,7 @@ print(container.attrs['State']['Health']['Status'])
 
 ### 30. Using requests for Rate-Limited APIs
 
-- Handle rate limiting in API requests:
-
-```py
-python
-
+```py title="Handle rate limiting in API requests:"
 import requests
 import time
 url = 'https://api.example.com/data'
@@ -2159,11 +1995,7 @@ while True:
 
 ### 31. Docker Compose Integration
 
-- Using docker-compose in Python:
-
-```py
-python
-
+```py title="Using docker-compose in Python:"
 import os
 import subprocess
 
@@ -2176,11 +2008,7 @@ subprocess.run(['docker-compose', 'down'])
 
 ### 32. Terraform Execution
 
-- Executing Terraform commands with subprocess:
-
-```py
-python
-
+```py title="Executing Terraform commands with subprocess:"
 import subprocess
 
 # Initialize Terraform
@@ -2192,11 +2020,7 @@ subprocess.run(['terraform', 'apply', '-auto-approve'])
 
 ### 33. Working with Prometheus Metrics
 
-- Scraping and parsing Prometheus metrics:
-
-```py
-python
-
+```py title="Scraping and parsing Prometheus metrics:"
 import requests
 
 response = requests.get('http://localhost:9090/metrics')
@@ -2208,11 +2032,7 @@ for metric in metrics:
 
 ### 34. Using pytest for Testing
 
-- Simple test case with pytest:
-
-```py
-python
-
+```py title="Simple test case with pytest:"
 def add(a, b):
   return a + b
 
@@ -2222,11 +2042,7 @@ def test_add():
 
 ### 35. Creating Webhooks
 
-- Using Flask to create a simple webhook:
-
-```py
-python
-
+```py title="Using Flask to create a simple webhook:"
 from flask import Flask, request
 
 app = Flask( name )
@@ -2243,11 +2059,7 @@ if name == ' main ':
 
 ### 36. Using Jinja2 for Configuration Templates
 
-- Render configuration files with Jinja2:
-
-```py
-python
-
+```py title="Render configuration files with Jinja2:"
 from jinja2 import Template
 
 template = Template('Hello, {{ name }}!')
@@ -2257,11 +2069,7 @@ print(rendered)
 
 ### 37. Encrypting and Decrypting Data
 
-- Using cryptography to encrypt and decrypt:
-
-```py
-python
-
+```py title="Using cryptography to encrypt and decrypt:"
 from cryptography.fernet import Fernet
 
 # Generate a key
@@ -2278,11 +2086,7 @@ print(decrypted_text.decode())
 
 ### 38. Error Monitoring with Sentry
 
-- Sending error reports to Sentry:
-
-```py
-python
-
+```py title="Sending error reports to Sentry:"
 import sentry_sdk
 
 sentry_sdk.init('your_sentry_dsn')
@@ -2298,11 +2102,7 @@ except ZeroDivisionError as e:
 
 ### 39. Setting Up Continuous Integration with GitHub Actions
 
-- Sample workflow file (.github/workflows/ci.yml):
-
-```py
-yaml
-
+```yaml title="Sample workflow file (.github/workflows/ci.yml):"
 name: CI
 
 on: [push]
@@ -2326,11 +2126,7 @@ jobs:
 
 ### 40. Creating a Simple API with FastAPI
 
-- Using FastAPI for high-performance APIs:
-
-```py
-python
-
+```py title="Using FastAPI for high-performance APIs:"
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -2346,11 +2142,7 @@ if name == ' main ':
 
 ### 41. Log Aggregation with ELK Stack
 
-- Sending logs to Elasticsearch:
-
-```py
-python
-
+```py title="Sending logs to Elasticsearch:"
 from elasticsearch import Elasticsearch
 
 es = Elasticsearch([\['http://localhost:9200'\]](http://localhost:9200/))
@@ -2361,11 +2153,7 @@ es.index(index='logs', body=log)
 
 ### 42. Using pandas for ETL Processes
 
-- Performing ETL with pandas:
-
-```py
-python
-
+```py title="Performing ETL with pandas:"
 import pandas as pd
 
 # Extract
@@ -2380,10 +2168,7 @@ data.to_csv('destination.csv', index=False)
 
 ### 43. Serverless Applications with AWS Lambda
 
-- Deploying a simple AWS Lambda function:
-
-```py
-python 
+```py title=" Deploying a simple AWS Lambda function:"
 import json
 def lambda_handler(event, context): 
   return {
@@ -2393,11 +2178,7 @@ def lambda_handler(event, context):
 ```
 ### 44. Working with Redis
 
-- Basic operations with Redis using redis-py:
-
-```py
-python
-
+```py title="Basic operations with Redis using redis-py:"
 import redis
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -2411,11 +2192,7 @@ print(r.get('foo'))
 
 ### 45. Using pyngrok for Tunneling
 
-- Create a tunnel to expose a local server:
-
-```py
-python
-
+```py title="Create a tunnel to expose a local server:"
 from pyngrok import ngrok
 
 # Start the tunnel
@@ -2428,11 +2205,7 @@ input('Press Enter to exit...')
 
 ### 46. Creating a REST API with Flask-RESTful
 
-- Building REST APIs with Flask-RESTful:
-
-```py
-python
-
+```py title="Building REST APIs with Flask-RESTful:"
 from flask import Flask
 from flask_restful import Resource, Api
 
@@ -2451,11 +2224,7 @@ if name == ' main ':
 
 ### 47. Using asyncio for Asynchronous Tasks
 
-- Running asynchronous tasks in Python:
-
-```py
-python
-
+```py title="Running asynchronous tasks in Python:"
 import asyncio
 
 async def main():
@@ -2468,11 +2237,7 @@ asyncio.run(main())
 
 ### 48. Network Monitoring with scapy
 
-- Packet sniffing using scapy:
-
-```py
-python
-
+```py title="Packet sniffing using scapy:"
 from scapy.all import sniff
 
 def packet_callback(packet):
@@ -2483,11 +2248,7 @@ sniff(prn=packet_callback, count=10)
 
 ### 49. Handling Configuration Files with configparser
 
-- Reading and writing to INI configuration files:
-
-```py
-python
-
+```py title="Reading and writing to INI configuration files:"
 import configparser
 
 config = configparser.ConfigParser() 
@@ -2501,11 +2262,7 @@ with open('config.ini', 'w') as configfile:
 
 ### 50. WebSocket Client Example
 
-- Creating a WebSocket client with websocket-client:
-
-```py
-python
-
+```py title="Creating a WebSocket client with websocket-client:"
 import websocket
 
 def on_message(ws, message): 
@@ -2518,11 +2275,7 @@ ws.run_forever()
 
 ### 51. Creating a Docker Image with Python
 
-- Using docker library to build an image:
-
-```py
-python
-
+```py title="Using docker library to build an image:"
 import docker
 
 client = docker.from_env()
@@ -2546,11 +2299,7 @@ for line in build_logs:
 
 ### 52. Using psutil for System Monitoring
 
-- Retrieve system metrics such as CPU and memory usage:
-
-```py
-python
-
+```py title="Retrieve system metrics such as CPU and memory usage:"
 import psutil
 
 print("CPU Usage:", psutil.cpu_percent(interval=1), "%")
@@ -2559,11 +2308,7 @@ print("Memory Usage:", psutil.virtual_memory().percent, "%")
 
 ### 53. Database Migration with Alembic
 
-- Script to initialize Alembic migrations:
-
-```py
-python
-
+```py title="Script to initialize Alembic migrations:"
 from alembic import command
 from alembic import config
 
@@ -2573,11 +2318,7 @@ command.upgrade(alembic_cfg, "head")
 
 ### 54. Using paramiko for SSH Connections
 
-- Execute commands on a remote server via SSH:
-
-```py
-python
-
+```py title="Execute commands on a remote server via SSH:"
 import paramiko
 
 client = paramiko.SSHClient() 
@@ -2591,11 +2332,7 @@ client.close()
 
 ### 55. CloudFormation Stack Creation with boto3
 
-- Creating an AWS CloudFormation stack:
-
-```py
-python
-
+```py title="Creating an AWS CloudFormation stack:"
 import boto3
 
 cloudformation = boto3.client('cloudformation')
@@ -2620,11 +2357,7 @@ print(response)
 
 ### 56. Automating EC2 Instance Management
 
-- Starting and stopping EC2 instances:
-
-```py
-python
-
+```py title="Starting and stopping EC2 instances:"
 import boto3
 
 ec2 = boto3.resource('ec2')
@@ -2639,24 +2372,21 @@ instance.stop()
 
 ### 57. Automated Backup with shutil
 
-- Backup files to a specific directory:
+```py title="Backup files to a specific directory:"
+import shutil
+import os
 
-python
-
-importshutil import os
-
-source_dir = '/path/to/source' backup_dir = '/path/to/backup'
+source_dir = '/path/to/source'
+backup_dir = '/path/to/backup'
 
 shutil.copytree(source_dir, backup_dir)
+```
 
 ### 58. Using watchdog for File System Monitoring
 
-- Monitor changes in a directory:
-
-```py
-python
-
-from watchdog.observers import Observer from watchdog.events import FileSystemEventHandler
+```py title="Monitor changes in a directory:"
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
 class MyHandler(FileSystemEventHandler): 
   def on_modified(self, event):
@@ -2677,11 +2407,7 @@ observer.join()
 
 ### 59. Load Testing with locust
 
-- Basic Locust load testing setup:
-
-```py
-python
-
+```py title="Basic Locust load testing setup:"
 from locust import HttpUser, task, between
 
 class MyUser(HttpUser):
@@ -2690,17 +2416,14 @@ class MyUser(HttpUser):
   @task
   def load_test(self): 
     self.client.get('/')
-
-# To run, save this as locustfile.py and run: locust
 ```
+
+!!! note ""
+    To run, save this as locustfile.py and run: locust
 
 ### 60. Integrating with GitHub API
 
-- Fetching repository details using GitHub API:
-
-```py
-python
-
+```py title="Fetching repository details using GitHub API:"
 import requests
 
 url = 'https://api.github.com/repos/user/repo'
@@ -2711,11 +2434,7 @@ print(repo_info)
 
 ### 61. Managing Kubernetes Resources with kubectl
 
-- Using subprocess to interact with Kubernetes:
-
-```py
-python
-
+```py title="Using subprocess to interact with Kubernetes:"
 importsubprocess
 
 # Get pods
@@ -2727,11 +2446,7 @@ subprocess.run(['kubectl', 'apply', '-f', 'deployment.yaml'])
 
 ### 62. Using pytest for CI/CD Testing
 
-- Integrate tests in your CI/CD pipeline:
-
-```py
-python
-
+```py title="Integrate tests in your CI/CD pipeline:"
 # test_example.py
 def test_addition():
   assert 1 + 1 == 2
@@ -2742,11 +2457,7 @@ subprocess.run(['pytest'])
 
 ### 63. Creating a Simple CLI Tool with argparse
 
-- Build a command-line interface:
-
-```py
-python
-
+```py title="Build a command-line interface:"
 import argparse
 
 parser = argparse.ArgumentParser(description='Process some integers.') 
@@ -2761,11 +2472,7 @@ print(args.accumulate(args.integers))
 
 ### 64. Using dotenv for Environment Variables
 
-- Load environment variables from a .env file:
-
-```py
-python
-
+```py title="Load environment variables from a .env file:"
 from dotenv import load_dotenv
 import os
 
@@ -2777,15 +2484,11 @@ print(database_url)
 
 ### 65. Implementing Web Scraping with BeautifulSoup
 
-- Scraping a web page for data:
-
-```py
-python
-
+```py title="Scraping a web page for data:"
 import requests
 from bs4 import BeautifulSoup
 
-response = requests.get[\('http://example.com'\)](http://example.com/)
+response = requests.get('http://example.com')
 soup = BeautifulSoup(response.text, 'html.parser')
 
 for item in soup.find_all('h1'):
@@ -2794,11 +2497,7 @@ for item in soup.find_all('h1'):
 
 ### 66. Using PyYAML for YAML Configuration Files
 
-- Load and dump YAML files:
-
-```py
-python
-
+```py title="Load and dump YAML files:"
 import yaml
 
 # Load YAML file
@@ -2813,11 +2512,7 @@ with open('output.yaml', 'w') as file:
 
 ### 67. Creating a Simple Message Queue with RabbitMQ
 
-- Send and receive messages using pika:
-
-```py
-python
-
+```py title="Send and receive messages using pika:"
 import pika
 
 # Sending messages 
@@ -2826,8 +2521,7 @@ pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel() 
 channel.queue_declare(queue='hello')
 
-channel.basic_publish(exchange='', routing_key='hello', body='Hello 
-World!')
+channel.basic_publish(exchange='', routing_key='hello', body='Hello World!')
 connection.close()
 
 # Receiving messages
@@ -2846,11 +2540,7 @@ channel.start_consuming()
 
 ### 68. Using sentry_sdk for Monitoring
 
-- Integrate Sentry for error tracking:
-
-```py
-python
-
+```py title="Integrate Sentry for error tracking:"
 import sentry_sdk
 
 sentry_sdk.init("YOUR_SENTRY_DSN")
@@ -2864,11 +2554,7 @@ except Exception as e:
 
 ### 69. Using openpyxl for Excel File Manipulation
 
-- Read and write Excel files:
-
-```py
-python
-
+```py title="Read and write Excel files:"
 from openpyxl import Workbook, load_workbook
 
 # Create a new workbook
@@ -2885,11 +2571,7 @@ print(ws['A1'].value)
 
 ### 70. Using sqlalchemy for Database Interaction
 
-- Define a model and perform CRUD operations:
-
-```py
-python
-
+```py title="Define a model and perform CRUD operations:"
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm importsessionmaker
@@ -2915,11 +2597,7 @@ session.add(new_user)
 
 ### 71. Monitoring Docker Containers with docker-py
 
-- Fetch and print the status of running containers:
-
-```py
-python
-
+```py title="Fetch and print the status of running containers:"
 import docker
 
 client = docker.from_env()
@@ -2931,11 +2609,7 @@ for container in containers:
 
 ### 72. Using flask to Create a Simple API
 
-- Basic API setup with Flask:
-
-```py
-python
-
+```py title="Basic API setup with Flask:"
 from flask import Flask, jsonify
 
 app = Flask( name )
@@ -2951,11 +2625,7 @@ if __name__ == '__main__':
 
 ### 73. Automating Certificate Renewal with certbot
 
-- Script to renew Let's Encrypt certificates:
-
-```py
-python
-
+```py title="Script to renew Let's Encrypt certificates:"
 import subprocess
 
 # Renew certificates
@@ -2964,11 +2634,7 @@ subprocess.run(['certbot', 'renew'])
 
 ### 74. Using numpy for Data Analysis
 
-- Performing basic numerical operations:
-
-```py
-python
-
+```py title="Performing basic numerical operations:"
 import numpy as np
 
 data = np.array([1, 2, 3, 4, 5])
@@ -2978,11 +2644,7 @@ print("Mean Value:", mean_value)
 
 ### 75. Creating and Sending Emails with smtplib
 
-- Send an email using Python:
-
-```py
-python
-
+```py title="Send an email using Python:"
 import smtplib
 from email.mime.text import MIMEText
 
@@ -3000,11 +2662,7 @@ with smtplib.SMTP('smtp.example.com') as server:
 
 ### 76. Using schedule for Task Scheduling
 
-- Schedule tasks at regular intervals:
-
-```py
-python
-
+```py title="Schedule tasks at regular intervals:"
 importschedule import time
 
 def job():
@@ -3019,11 +2677,7 @@ while True:
 
 ### 77. Using matplotlib for Data Visualization
 
-- Plotting a simple graph:
-
-```py
-python
-
+```py title="Plotting a simple graph:"
 import matplotlib.pyplot as plt
 
 x = [1, 2, 3, 4, 5]
@@ -3038,20 +2692,14 @@ plt.show()
 
 ### 78. Creating a Custom Python Package
 
-- Structure your project as a package:
-
-```md
+```md title="Structure your project as a package:"
 my_package/
  ├── init .py
  ├── module1.py
  └── module2.py
 ```
 
-- setup.py for packaging:
-
-```py
-python
-
+```py title="setup.py for packaging:"
 from setuptools import setup, find_packages
 
 
@@ -3068,11 +2716,7 @@ setup(
 
 ### 79. Using pytest for Unit Testing
 
-- Writing a simple unit test:
-
-```py
-python
-
+```py title="Writing a simple unit test:"
 # test_sample.py
 def add(a, b):
   return a + b
@@ -3083,11 +2727,7 @@ def test_add():
 
 ### 80. Implementing OAuth with requests-oauthlib
 
-- Authenticate with an API using OAuth:
-
-```py
-python
-
+```py title="Authenticate with an API using OAuth:"
 from requests_oauthlib import OAuth1Session
 
 oauth = OAuth1Session(client_key='YOUR_CLIENT_KEY', 
@@ -3098,11 +2738,7 @@ print(response.json())
 
 ### 81. Using pandas for Data Manipulation
 
-- Load and manipulate data in a CSV file:
-
-```py
-python
-
+```py title="Load and manipulate data in a CSV file:"
 import pandas as pd
 
 df = pd.read_csv('data.csv') 
@@ -3115,11 +2751,7 @@ print(filtered_df)
 
 ### 82. Using requests for HTTP Requests
 
-- Making a GET and POST request:
-
-```py
-python
-
+```py title="Making a GET and POST request:"
 import requests
 
 # GET request
@@ -3134,11 +2766,7 @@ print(response.json())
 
 ### 83. Creating a Basic Web Server with http.server
 
-- Simple HTTP server to serve files:
-
-```py
-python
-
+```py title="Simple HTTP server to serve files:"
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 
 PORT = 8000 handler = SimpleHTTPRequestHandler
@@ -3150,11 +2778,7 @@ with HTTPServer(('', PORT), handler) as httpd:
 
 ### 84. Using Flask for Webhooks
 
-- Handling incoming webhook requests:
-
-```py
-python
-
+```py title="Handling incoming webhook requests:"
 from flask import Flask, request
 
 app = Flask( name )
@@ -3169,11 +2793,7 @@ if name == ' main ': app.run(port=5000)
 
 ### 85. Creating a Bash Script with subprocess
 
-- Run shell commands from Python:
-
-```py
-python
-
+```py title="Run shell commands from Python:"
 import subprocess
 
 subprocess.run(['echo', 'Hello, World!'])
@@ -3181,11 +2801,7 @@ subprocess.run(['echo', 'Hello, World!'])
 
 ### 86. Using docker-compose with Python
 
-- Programmatically run Docker Compose commands:
-
-```py
-python
-
+```py title="Programmatically run Docker Compose commands:"
 import subprocess
 
 subprocess.run(['docker-compose', 'up', '-d'])
@@ -3193,11 +2809,7 @@ subprocess.run(['docker-compose', 'up', '-d'])
 
 ### 87. Using moto for Mocking AWS Services in Tests
 
-- Mocking AWS S3 for unit testing:
-
-```py
-python
-
+```py title="Mocking AWS S3 for unit testing:"
 import boto3 from moto import mock_s3
 
 @mock_s3
@@ -3210,11 +2822,7 @@ def test_s3_upload():
 
 ### 88. Using asyncio for Asynchronous Tasks
 
-- Run multiple tasks concurrently:
-
-```py
-python
-
+```py title="Run multiple tasks concurrently:"
 import asyncio
 
 async defsay_hello(): 
@@ -3231,11 +2839,7 @@ asyncio.run(main())
 
 ### 89. Using flask-cors for Cross-Origin Resource Sharing
 
-- Allow CORS in a Flask app:
-
-```py
-python
-
+```py title="Allow CORS in a Flask app:"
 from flask import Flask
 from flask_cors import CORS
 
@@ -3251,11 +2855,7 @@ if name == ' main ': app.run()
 
 ### 90. Using pytest Fixtures for Setup and Teardown
 
-- Create a fixture to manage resources:
-
-```py
-python
-
+```py title="Create a fixture to manage resources:"
 import pytest
 
 @pytest.fixture
@@ -3270,11 +2870,7 @@ def test_sample_data(sample_data):
 
 ### 91. Using http.client for Low-Level HTTP Requests
 
-- Make a raw HTTP GET request:
-
-```py
-python
-
+```py title="Make a raw HTTP GET request:"
 import http.client
 
 conn = http.client.HTTPSConnection("www.example.com") 
@@ -3287,11 +2883,7 @@ conn.close()
 
 ### 92. Implementing Redis Caching with redis-py
 
-- Basic operations with Redis:
-
-```py
-python
-
+```py title="Basic operations with Redis:"
 import redis
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -3303,11 +2895,7 @@ print(r.get('key').decode('utf-8'))
 
 ### 93. Using json for Data Serialization
 
-- Convert Python objects to JSON:
-
-```py
-python
-
+```py title="Convert Python objects to JSON:"
 import json
 
 data = {"key": "value"}
@@ -3317,11 +2905,7 @@ print(json_data)
 
 ### 94. Using xml.etree.ElementTree for XML Processing
 
-- Parse an XML file:
-
-```py
-python
-
+```py title="Parse an XML file:"
 import xml.etree.ElementTree as ET
 
 tree = ET.parse('data.xml')
@@ -3333,11 +2917,7 @@ for child in root:
 
 ### 95. Creating a Virtual Environment with venv
 
-- Programmatically create a virtual environment:
-
-```py
-python
-
+```py title="Programmatically create a virtual environment:"
 import venv
 
 venv.create('myenv', with_pip=True)
@@ -3345,11 +2925,7 @@ venv.create('myenv', with_pip=True)
 
 ### 96. Using psutil for System Monitoring
 
-- Get system memory usage:
-
-```py
-python
-
+```py title="Get system memory usage:"
 import psutil
 
 memory = psutil.virtual_memory()
@@ -3359,11 +2935,7 @@ print(f'Total Memory: {memory.total}, Available Memory:
 
 ### 97. Using sqlite3 for Lightweight Database Management
 
-- Basic SQLite operations:
-
-```py
-python
-
+```py title="Basic SQLite operations:"
 importsqlite3
 
 conn = sqlite3.connect('example.db') 
@@ -3382,19 +2954,13 @@ conn.close()
 
 ### 98. Using pytest to Run Tests in Parallel
 
-- Run tests concurrently:
-
-```bash
+```bash title="Run tests concurrently:"
 pytest -n 4 # Run tests in parallel with 4 workers
 ```
 
 ### 99. Using argparse for Command-Line Arguments
 
-- Parse command-line arguments:
-
-```py
-python
-
+```py title="Parse command-line arguments:"
 import argparse
 
 parser = argparse.ArgumentParser(description='Process some integers.') 
@@ -3410,11 +2976,7 @@ print(args.accumulate(args.integers))
 
 ### 100. Using jsonschema for JSON Validation
 
-- Validate JSON against a schema:
-
-```py
-python
-
+```py title="Validate JSON against a schema:"
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 

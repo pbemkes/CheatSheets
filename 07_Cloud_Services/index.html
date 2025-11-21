@@ -1,0 +1,3428 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pbemkes.github.io/CheatSheets/07_Cloud_Services/">
+      
+      
+        <link rel="prev" href="../06_Kubernetes/">
+      
+      
+        <link rel="next" href="../08_Configuration_Management/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Cloud Services - Handy CheatSheet Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Recursive:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Recursive";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cloud-services" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Handy CheatSheet Documentation" class="md-header__button md-logo" aria-label="Handy CheatSheet Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 8h-4V6h4zm6-4v16c0 1.11-.89 2-2 2H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2m-2 9H6v7h12zm0-9H6v7h12zm-4 11h-4v2h4z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Handy CheatSheet Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cloud Services
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-purple"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Handy CheatSheet Documentation" class="md-nav__button md-logo" aria-label="Handy CheatSheet Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 8h-4V6h4zm6-4v16c0 1.11-.89 2-2 2H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2m-2 9H6v7h12zm0-9H6v7h12zm-4 11h-4v2h4z"/></svg>
+
+    </a>
+    Handy CheatSheet Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SRE &amp; DevOps CheatSheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_System_Admin_Scripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Administration &amp; Scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Version_Control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Integration (CI) &amp; Continuous Deployment (CD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_IaC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code (IaC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Containerization_Orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containerization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Services
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ec2-elastic-compute-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 (Elastic Compute Cloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-simple-storage-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 (Simple Storage Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iam-identity-and-access-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM (Identity and Access Management)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpc-virtual-private-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC (Virtual Private Cloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda-serverless-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lambda (Serverless Computing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-eks-elastic-kubernetes-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EKS (Elastic Kubernetes Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ecs-elastic-container-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon ECS (Elastic Container Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-cloudformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CloudFormation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-codepipeline-codebuild-codedeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD (CodePipeline, CodeBuild, CodeDeploy)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CI/CD (CodePipeline, CodeBuild, CodeDeploy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-codepipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CodePipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codebuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CodeBuild
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codedeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CodeDeploy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security &amp; Compliance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-logging-cloudwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring &amp; Logging (CloudWatch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking-vpc-elb-route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking (VPC, ELB, Route 53)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Networking (VPC, ELB, Route 53)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amazon-vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon VPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-load-balancer-elb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elastic Load Balancer (ELB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Route 53
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ecr-elastic-container-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon ECR (Elastic Container Registry)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-systems-manager-ssm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Systems Manager (SSM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-auto-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Auto Scaling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-elastic-beanstalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Elastic Beanstalk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-step-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Step Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-glue-etl-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Glue (ETL Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-sns-simple-notification-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS SNS (Simple Notification Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-sqs-simple-queue-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS SQS (Simple Queue Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-outpostsmanaged-on-prem-cloudon-premises-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Outposts(Managed on-prem cloud/On-premises AWS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS Outposts(Managed on-prem cloud/On-premises AWS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-and-describe-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List and Describe Outposts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-outpost-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manage Outpost Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-and-configure-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy and Configure Outposts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking-and-storage-on-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking and Storage on Outposts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-ec2-instances-in-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy EC2 Instances in Outposts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automate-outpost-deployments-with-cloudformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automate Outpost Deployments with CloudFormation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-outposts-with-cloudwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Outposts with CloudWatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrate-outposts-with-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrate Outposts with CI/CD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-and-compliance-for-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security and Compliance for Outposts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-or-deactivate-an-outpost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete or Deactivate an Outpost
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-virtual-machines-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Virtual Machines (VMs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-kubernetes-service-aks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Kubernetes Service (AKS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Networking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtual-network-vnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual Network (VNet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-security-group-nsg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Security Group (NSG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-devopscicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure DevOps(CI/CD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure DevOps(CI/CD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-devops-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure DevOps Projects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-repos-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Repos (Git)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Pipelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-monitor-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Monitor &amp; Logging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Monitor &amp; Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Monitor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-log-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Log Analytics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-compliance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security &amp; Compliance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security &amp; Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-security-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Security Center
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-key-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Key Vault
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-policies-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Policies &amp; Governance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-active-directory-aad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Active Directory (AAD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-backup-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Backup &amp; Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compute-engine-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute Engine (VMs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-kubernetes-engine-gke" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Kubernetes Engine (GKE)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-run-serverless-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Run (Serverless Containers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-storage-gcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Storage (GCS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-iam-identity-access-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud IAM (Identity &amp; Access Management)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-sql-managed-database-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud SQL (Managed Database Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-build-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Build (CI/CD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-deploy-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Deploy (CI/CD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-logging-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Logging &amp; Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Cloud Logging &amp; Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Networking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Cloud Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpc-virtual-private-cloud_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC (Virtual Private Cloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firewall Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Cloud Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-identity-aware-proxy-iap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Identity-Aware Proxy (IAP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-key-management-service-kms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Key Management Service (KMS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-artifact-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Artifact Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-pubsub-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Pub/Sub (Messaging)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-backup-disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Backup &amp; Disaster Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-policies-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Policies &amp; Governance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-scheduler-cron-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Scheduler (Cron Jobs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Configuration_Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Monitoring_Logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring &amp; Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_Security_Compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security &amp; Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_Networking_Ports_Load_Balancing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking, Ports &amp; Load Balancing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_Databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_Storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_Helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helm Chart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15_Scenario_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scenario #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ec2-elastic-compute-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 (Elastic Compute Cloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-simple-storage-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 (Simple Storage Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iam-identity-and-access-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM (Identity and Access Management)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpc-virtual-private-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC (Virtual Private Cloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda-serverless-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lambda (Serverless Computing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-eks-elastic-kubernetes-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon EKS (Elastic Kubernetes Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ecs-elastic-container-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon ECS (Elastic Container Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-cloudformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CloudFormation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-codepipeline-codebuild-codedeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD (CodePipeline, CodeBuild, CodeDeploy)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CI/CD (CodePipeline, CodeBuild, CodeDeploy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-codepipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CodePipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codebuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CodeBuild
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codedeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS CodeDeploy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security &amp; Compliance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-logging-cloudwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring &amp; Logging (CloudWatch)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking-vpc-elb-route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking (VPC, ELB, Route 53)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Networking (VPC, ELB, Route 53)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amazon-vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon VPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-load-balancer-elb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elastic Load Balancer (ELB)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon Route 53
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ecr-elastic-container-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon ECR (Elastic Container Registry)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-systems-manager-ssm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Systems Manager (SSM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-auto-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Auto Scaling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-elastic-beanstalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Elastic Beanstalk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-step-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Step Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-glue-etl-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Glue (ETL Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-sns-simple-notification-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS SNS (Simple Notification Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-sqs-simple-queue-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS SQS (Simple Queue Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-outpostsmanaged-on-prem-cloudon-premises-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Outposts(Managed on-prem cloud/On-premises AWS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS Outposts(Managed on-prem cloud/On-premises AWS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-and-describe-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List and Describe Outposts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-outpost-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manage Outpost Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-and-configure-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy and Configure Outposts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking-and-storage-on-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking and Storage on Outposts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-ec2-instances-in-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy EC2 Instances in Outposts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automate-outpost-deployments-with-cloudformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automate Outpost Deployments with CloudFormation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-outposts-with-cloudwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Outposts with CloudWatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrate-outposts-with-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrate Outposts with CI/CD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-and-compliance-for-outposts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security and Compliance for Outposts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-or-deactivate-an-outpost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete or Deactivate an Outpost
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#azure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-virtual-machines-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Virtual Machines (VMs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-kubernetes-service-aks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Kubernetes Service (AKS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Networking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtual-network-vnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual Network (VNet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-security-group-nsg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Security Group (NSG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-devopscicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure DevOps(CI/CD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure DevOps(CI/CD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-devops-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure DevOps Projects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-repos-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Repos (Git)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Pipelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-monitor-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Monitor &amp; Logging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Monitor &amp; Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Monitor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-log-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Log Analytics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-compliance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security &amp; Compliance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security &amp; Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#azure-security-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Security Center
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-key-vault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Key Vault
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-policies-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Policies &amp; Governance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-active-directory-aad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Active Directory (AAD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure-backup-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure Backup &amp; Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compute-engine-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute Engine (VMs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-kubernetes-engine-gke" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Kubernetes Engine (GKE)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-run-serverless-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Run (Serverless Containers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-storage-gcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Storage (GCS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-iam-identity-access-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud IAM (Identity &amp; Access Management)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-sql-managed-database-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud SQL (Managed Database Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-build-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Build (CI/CD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-deploy-cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Deploy (CI/CD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-logging-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Logging &amp; Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Cloud Logging &amp; Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Networking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Cloud Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpc-virtual-private-cloud_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC (Virtual Private Cloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firewall Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Cloud Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-identity-aware-proxy-iap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Identity-Aware Proxy (IAP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-key-management-service-kms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Key Management Service (KMS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-artifact-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Artifact Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-pubsub-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Pub/Sub (Messaging)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-backup-disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Backup &amp; Disaster Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-policies-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Policies &amp; Governance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-scheduler-cron-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Cloud Scheduler (Cron Jobs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cloud-services">Cloud Services</h1>
+<ul>
+<li><a href="#aws">AWS</a></li>
+<li><a href="#azure">Azure</a></li>
+<li><a href="#gcp">GCP</a></li>
+</ul>
+<hr />
+<h2 id="aws">AWS</h2>
+<h3 id="ec2-elastic-compute-cloud">EC2 (Elastic Compute Cloud)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all instances</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start an instance</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>start-instances<span class="w"> </span>--instance-ids<span class="w"> </span>&lt;id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Stop an instance</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>stop-instances<span class="w"> </span>--instance-ids<span class="w"> </span>&lt;id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Terminate an instance</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>terminate-instances<span class="w"> </span>--instance-ids<span class="w"> </span>&lt;id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a key pair</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>create-key-pair<span class="w"> </span>--key-name<span class="w"> </span>&lt;name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List security groups</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-security-groups
+</span></code></pre></div></p>
+<h3 id="s3-simple-storage-service">S3 (Simple Storage Service)</h3>
+<p><div class="language-bash highlight"><span class="filename">List buckets</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>ls
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a bucket</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://&lt;bucket&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Upload a file</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>&lt;file&gt;<span class="w"> </span>s3://&lt;bucket&gt;/
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a file</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>rm<span class="w"> </span>s3://&lt;bucket&gt;/&lt;file&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a bucket</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>rb<span class="w"> </span>s3://&lt;bucket&gt;<span class="w"> </span>--force
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Sync local and S3</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>&lt;local-dir&gt;<span class="w"> </span>s3://&lt;bucket&gt;/
+</span></code></pre></div></p>
+<h3 id="iam-identity-and-access-management">IAM (Identity and Access Management)</h3>
+<p><div class="language-bash highlight"><span class="filename">List IAM users</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>aws<span class="w"> </span>iam<span class="w"> </span>list-users
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a user</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-user<span class="w"> </span>--user-name<span class="w"> </span>&lt;name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Attach a policy</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>aws<span class="w"> </span>iam<span class="w"> </span>attach-user-policy<span class="w"> </span>--user-name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>--policy-arn<span class="w"> </span>&lt;policy&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List IAM roles</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>aws<span class="w"> </span>iam<span class="w"> </span>list-roles
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a role</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span>--role-name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>--assume-role-policy-document<span class="w"> </span>file://policy.json
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List policies</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>aws<span class="w"> </span>iam<span class="w"> </span>list-policies
+</span></code></pre></div></p>
+<h3 id="vpc-virtual-private-cloud">VPC (Virtual Private Cloud)</h3>
+<p><div class="language-bash highlight"><span class="filename">List VPCs</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-vpcs
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a VPC</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>create-vpc<span class="w"> </span>--cidr-block<span class="w"> </span>&lt;CIDR&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a VPC</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>delete-vpc<span class="w"> </span>--vpc-id<span class="w"> </span>&lt;id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a subnet</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>create-subnet<span class="w"> </span>--vpc-id<span class="w"> </span>&lt;id&gt;<span class="w"> </span>--cidr-block<span class="w"> </span>&lt;CIDR&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List security groups</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-security-groups
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List internet gateways</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-internet-gateways
+</span></code></pre></div></p>
+<h3 id="lambda-serverless-computing">Lambda (Serverless Computing)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all Lambda functions</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>aws<span class="w"> </span>lambda<span class="w"> </span>list-functions
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a function</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>aws<span class="w"> </span>lambda<span class="w"> </span>create-function<span class="w"> </span>--function-name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>--runtime<span class="w"> </span>&lt;runtime&gt;<span class="w"> </span>--role<span class="w"> </span>&lt;role&gt;<span class="w"> </span>--handler<span class="w"> </span>&lt;handler&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Update function code</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>aws<span class="w"> </span>lambda<span class="w"> </span>update-function-code<span class="w"> </span>--function-name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>--zip-file<span class="w"> </span>fileb://&lt;file&gt;.zip
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a function</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>aws<span class="w"> </span>lambda<span class="w"> </span>delete-function<span class="w"> </span>--function-name<span class="w"> </span>&lt;name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Invoke a function</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>aws<span class="w"> </span>lambda<span class="w"> </span>invoke<span class="w"> </span>--function-name<span class="w"> </span>&lt;name&gt;<span class="w"> </span>output.json
+</span></code></pre></div></p>
+<h3 id="amazon-eks-elastic-kubernetes-service">Amazon EKS (Elastic Kubernetes Service)</h3>
+<p><div class="language-bash highlight"><span class="filename">List EKS clusters</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>aws<span class="w"> </span>eks<span class="w"> </span>list-clusters
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Describe an EKS cluster</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>aws<span class="w"> </span>eks<span class="w"> </span>describe-cluster<span class="w"> </span>--name<span class="w"> </span>my-cluster
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create an EKS cluster</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>aws<span class="w"> </span>eks<span class="w"> </span>create-cluster<span class="w"> </span>--name<span class="w"> </span>my-cluster<span class="w"> </span>--role-arn<span class="w"> </span>arn:aws:iam::account-id:role/EKSRole<span class="w"> </span>--resources-vpc-config<span class="w"> </span><span class="nv">subnetIds</span><span class="o">=</span>subnet-xxxxxxx,securityGroupIds<span class="o">=</span>sg-xxxxxxx
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Configure kubectl to use the EKS cluster</span><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>aws<span class="w"> </span>eks<span class="w"> </span>update-kubeconfig<span class="w"> </span>--name<span class="w"> </span>my-cluster
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Check worker nodes</span><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List running pods</span><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
+</span></code></pre></div></p>
+<h3 id="amazon-ecs-elastic-container-service">Amazon ECS (Elastic Container Service)</h3>
+<p><div class="language-bash highlight"><span class="filename">List ECS clusters</span><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>aws<span class="w"> </span>ecs<span class="w"> </span>list-cluster
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List ECS services</span><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>aws<span class="w"> </span>ecs<span class="w"> </span>list-services<span class="w"> </span>--cluster<span class="w"> </span>my-cluster
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Describe an ECS service</span><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>aws<span class="w"> </span>ecs<span class="w"> </span>describe-services<span class="w"> </span>--cluster<span class="w"> </span>my-cluster<span class="w"> </span>--services<span class="w"> </span>my-service
+</span></code></pre></div></p>
+<h3 id="aws-cloudformation">AWS CloudFormation</h3>
+<p><div class="language-bash highlight"><span class="filename">List all stacks</span><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>aws<span class="w"> </span>cloudformation<span class="w"> </span>list-stacks
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a stack</span><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>aws<span class="w"> </span>cloudformation<span class="w"> </span>create-stack<span class="w"> </span>--stack-name<span class="w"> </span>my-stack<span class="w"> </span>--template-body<span class="w"> </span>file://template.yml
+</span></code></pre></div></p>
+<h3 id="cicd-codepipeline-codebuild-codedeploy">CI/CD (CodePipeline, CodeBuild, CodeDeploy)</h3>
+<h4 id="aws-codepipeline">AWS CodePipeline</h4>
+<p><div class="language-bash highlight"><span class="filename">List all pipelines</span><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>aws<span class="w"> </span>codepipeline<span class="w"> </span>list-pipelines
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start a pipeline execution</span><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>aws<span class="w"> </span>codepipeline<span class="w"> </span>start-pipeline-execution<span class="w"> </span>--name<span class="w"> </span>my-pipeline
+</span></code></pre></div></p>
+<h4 id="aws-codebuild">AWS CodeBuild</h4>
+<p><div class="language-bash highlight"><span class="filename">List all CodeBuild projects</span><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>aws<span class="w"> </span>codebuild<span class="w"> </span>list-projects
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start a build</span><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>aws<span class="w"> </span>codebuild<span class="w"> </span>start-build<span class="w"> </span>--project-name<span class="w"> </span>my-project
+</span></code></pre></div></p>
+<h4 id="aws-codedeploy">AWS CodeDeploy</h4>
+<p><div class="language-bash highlight"><span class="filename">List all CodeDeploy applications</span><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>aws<span class="w"> </span>deploy<span class="w"> </span>list-applications
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Deploy an application</span><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>aws<span class="w"> </span>deploy<span class="w"> </span>create-deployment<span class="w"> </span>--application-name<span class="w"> </span>MyApp<span class="w"> </span>--deployment-group-name<span class="w"> </span>MyDeploymentGroup<span class="w"> </span>--s3-location<span class="w"> </span><span class="nv">bucket</span><span class="o">=</span>my-bucket,key<span class="o">=</span>app.zip,bundleType<span class="o">=</span>zip
+</span></code></pre></div></p>
+<h3 id="security-compliance">Security &amp; Compliance</h3>
+<p><div class="language-bash highlight"><span class="filename">List CloudTrail logs</span><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>aws<span class="w"> </span>cloudtrail<span class="w"> </span>describe-trails
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List CloudTrail logs</span><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>aws<span class="w"> </span>secretsmanager<span class="w"> </span>list-secrets
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Retrieve a secret</span><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>aws<span class="w"> </span>secretsmanager<span class="w"> </span>get-secret-value<span class="w"> </span>--secret-id<span class="w"> </span>my-secret
+</span></code></pre></div></p>
+<h3 id="monitoring-logging-cloudwatch">Monitoring &amp; Logging (CloudWatch)</h3>
+<p><div class="language-bash highlight"><span class="filename">List available metrics</span><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>aws<span class="w"> </span>cloudwatch<span class="w"> </span>list-metrics
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a CloudWatch alarm</span><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>aws<span class="w"> </span>cloudwatch<span class="w"> </span>put-metric-alarm<span class="w"> </span>--alarm-name<span class="w"> </span>cpu-high<span class="w"> </span>--metric-name<span class="w"> </span>CPUUtilization<span class="w"> </span>--namespace<span class="w"> </span>AWS/EC2<span class="w"> </span>--statistic<span class="w"> </span>Average<span class="w"> </span>--period<span class="w"> </span><span class="m">300</span><span class="w"> </span>--threshold<span class="w"> </span><span class="m">80</span><span class="w"> </span>--comparison-operator<span class="w"> </span>GreaterThanThreshold<span class="w"> </span>--dimensions<span class="w"> </span><span class="nv">Name</span><span class="o">=</span>InstanceId,Value<span class="o">=</span>i-xxxxxxxxxx<span class="w"> </span>--evaluation-periods<span class="w"> </span><span class="m">2</span><span class="w"> </span>--alarm-actions<span class="w"> </span>arn:aws:sns:region:account-id:my-topic
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all log groups</span><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>aws<span class="w"> </span>logs<span class="w"> </span>describe-log-groups
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Retrieve log events</span><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>aws<span class="w"> </span>logs<span class="w"> </span>get-log-events<span class="w"> </span>--log-group-name<span class="w"> </span>my-log-group<span class="w"> </span>--log-stream-name<span class="w"> </span>my-log-stream
+</span></code></pre></div></p>
+<h3 id="networking-vpc-elb-route-53">Networking (VPC, ELB, Route 53)</h3>
+<h4 id="amazon-vpc">Amazon VPC</h4>
+<p><div class="language-bash highlight"><span class="filename">List all VPCs</span><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-vpcs
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all subnets</span><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-subnets
+</span></code></pre></div></p>
+<h4 id="elastic-load-balancer-elb">Elastic Load Balancer (ELB)</h4>
+<div class="language-bash highlight"><span class="filename">List all load balancers</span><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>aws<span class="w"> </span>elbv2<span class="w"> </span>describe-load-balancers
+</span></code></pre></div>
+<h4 id="amazon-route-53">Amazon Route 53</h4>
+<div class="language-bash highlight"><span class="filename">List hosted zones</span><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>aws<span class="w"> </span>route53<span class="w"> </span>list-hosted-zones
+</span></code></pre></div>
+<h3 id="amazon-ecr-elastic-container-registry">Amazon ECR (Elastic Container Registry)</h3>
+<p><div class="language-bash highlight"><span class="filename">Authenticate Docker with ECR</span><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>aws<span class="w"> </span>ecr<span class="w"> </span>get-login-password<span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>--username<span class="w"> </span>AWS<span class="w"> </span>--password-stdin<span class="w"> </span>&lt;aws_account_id&gt;.dkr.ecr.&lt;region&gt;.amazonaws.com
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all ECR repositories</span><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>aws<span class="w"> </span>ecr<span class="w"> </span>list-repositories
+</span></code></pre></div></p>
+<h3 id="aws-systems-manager-ssm">AWS Systems Manager (SSM)</h3>
+<div class="language-bash highlight"><span class="filename">List managed instances</span><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>aws<span class="w"> </span>ssm<span class="w"> </span>describe-instances
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run a command on an EC2 instance</span><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>aws<span class="w"> </span>ssm<span class="w"> </span>send-command<span class="w"> </span>--document-name<span class="w"> </span><span class="s2">&quot;AWS-RunShellScript&quot;</span><span class="w"> </span>--targets<span class="w"> </span><span class="s2">&quot;Key=instanceIds,Values=i-xxxxxxxxxx&quot;</span><span class="w"> </span>--parameters<span class="w"> </span><span class="nv">commands</span><span class="o">=</span><span class="s2">&quot;sudo apt update&quot;</span>
+</span></code></pre></div>
+<h3 id="aws-auto-scaling">AWS Auto Scaling</h3>
+<p><div class="language-bash highlight"><span class="filename">List Auto Scaling groups</span><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>aws<span class="w"> </span>autoscaling<span class="w"> </span>describe-auto-scaling-groups
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Update the desired capacity</span><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>aws<span class="w"> </span>autoscaling<span class="w"> </span>update-auto-scaling-group<span class="w"> </span>--auto-scaling-group-name<span class="w"> </span>my-asg<span class="w"> </span>--desired-capacity<span class="w"> </span><span class="m">3</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Manually scale an Auto Scaling group</span><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>aws<span class="w"> </span>autoscaling<span class="w"> </span>set-desired-capacity<span class="w"> </span>--auto-scaling-group-name<span class="w"> </span>my-asg<span class="w"> </span>--desired-capacity<span class="w"> </span><span class="m">2</span>
+</span></code></pre></div></p>
+<h3 id="aws-elastic-beanstalk">AWS Elastic Beanstalk</h3>
+<p><div class="language-bash highlight"><span class="filename">List all environments</span><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>aws<span class="w"> </span>elasticbeanstalk<span class="w"> </span>describe-environments
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create an application</span><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>aws<span class="w"> </span>elasticbeanstalk<span class="w"> </span>create-application<span class="w"> </span>--application-name<span class="w"> </span>my-app
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Deploy a new version</span><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>aws<span class="w"> </span>elasticbeanstalk<span class="w"> </span>update-environment<span class="w"> </span>--environment-name<span class="w"> </span>my-env<span class="w"> </span>--version-label<span class="w"> </span>new-version
+</span></code></pre></div></p>
+<h3 id="aws-step-functions">AWS Step Functions</h3>
+<p><div class="language-bash highlight"><span class="filename">List all state machines</span><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>aws<span class="w"> </span>stepfunctions<span class="w"> </span>list-state-machines
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start a state machine execution</span><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>aws<span class="w"> </span>stepfunctions<span class="w"> </span>start-execution<span class="w"> </span>--state-machine-arn<span class="w"> </span>arn:aws:states:region:account-id:stateMachine:MyStateMachine
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Get execution details</span><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>aws<span class="w"> </span>stepfunctions<span class="w"> </span>describe-execution<span class="w"> </span>--execution-arn<span class="w"> </span>arn:aws:states:region:account-id:execution:MyStateMachine:MyExecution
+</span></code></pre></div></p>
+<h3 id="aws-glue-etl-service">AWS Glue (ETL Service)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all Glue databases</span><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>aws<span class="w"> </span>glue<span class="w"> </span>get-databases
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all tables in a database</span><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>aws<span class="w"> </span>glue<span class="w"> </span>get-tables<span class="w"> </span>--database-name<span class="w"> </span>my-database
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start a Glue job</span><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>aws<span class="w"> </span>glue<span class="w"> </span>start-job-run<span class="w"> </span>--job-name<span class="w"> </span>my-glue-job
+</span></code></pre></div></p>
+<h3 id="aws-sns-simple-notification-service">AWS SNS (Simple Notification Service)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all SNS topics</span><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>aws<span class="w"> </span>sns<span class="w"> </span>list-topics
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Publish a message to an SNS topic</span><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>aws<span class="w"> </span>sns<span class="w"> </span>publish<span class="w"> </span>--topic-arn<span class="w"> </span>arn:aws:sns:region:account-id:MyTopic<span class="w"> </span>--message<span class="w"> </span><span class="s2">&quot;Test Message&quot;</span>
+</span></code></pre></div></p>
+<h3 id="aws-sqs-simple-queue-service">AWS SQS (Simple Queue Service)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all SQS queues</span><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>aws<span class="w"> </span>sqs<span class="w"> </span>list-queues
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Send a message</span><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>aws<span class="w"> </span>sqs<span class="w"> </span>send-message<span class="w"> </span>--queue-url<span class="w"> </span>https://sqs.region.amazonaws.com/account-id/my-queue<span class="w"> </span>--message-body<span class="w"> </span><span class="s2">&quot;Hello World&quot;</span>
+</span></code></pre></div></p>
+<h3 id="aws-outpostsmanaged-on-prem-cloudon-premises-aws">AWS Outposts(Managed on-prem cloud/On-premises AWS)</h3>
+<h4 id="list-and-describe-outposts">List and Describe Outposts</h4>
+<p><div class="language-bash highlight"><span class="filename">List all AWS Outposts</span><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>list-outposts
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Get details of a specific Outpost</span><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>get-outpost<span class="w"> </span>--outpost-id<span class="w"> </span>&lt;outpost-id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List instance types in an Outpost</span><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>get-outpost-instance-types<span class="w"> </span>--outpost-id<span class="w"> </span>&lt;outpost-id&gt;
+</span></code></pre></div></p>
+<h4 id="manage-outpost-resources">Manage Outpost Resources</h4>
+<p><div class="language-bash highlight"><span class="filename">List all Outpost sites</span><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>list-sites
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List Outpost orders</span><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>list-orders
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List EC2 instances in an Outpost</span><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>list-outpost-instances<span class="w"> </span>--outpost-id<span class="w"> </span>&lt;outpost-id&gt;
+</span></code></pre></div></p>
+<h4 id="deploy-and-configure-outposts">Deploy and Configure Outposts</h4>
+<p><div class="language-bash highlight"><span class="filename">Order an Outpost</span><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>create-order<span class="w"> </span>--line-items<span class="w"> </span><span class="s2">&quot;[{\&quot;catalogItemId\&quot;: \&quot;item-id\&quot;, \&quot;quantity\&quot;: 1}]&quot;</span><span class="w"> </span>--outpost-id<span class="w"> </span>&lt;outpost-id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Update Outpost configuration</span><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>update-outpost<span class="w"> </span>--outpost-id<span class="w"> </span>&lt;outpost-id&gt;<span class="w"> </span>--name<span class="w"> </span>&lt;new-name&gt;
+</span></code></pre></div></p>
+<h4 id="networking-and-storage-on-outposts">Networking and Storage on Outposts</h4>
+<p><div class="language-bash highlight"><span class="filename">List network devices in an Outpost</span><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>list-outpost-network-devices<span class="w"> </span>--outpost-id<span class="w"> </span>&lt;outpost-id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List S3 buckets on an Outpost</span><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>--outpost-id<span class="w"> </span>&lt;outpost-id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create an S3 bucket in Outpost</span><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://&lt;bucket-name&gt;<span class="w"> </span>--outpost-id<span class="w"> </span>&lt;outpost-id&gt;
+</span></code></pre></div></p>
+<h4 id="deploy-ec2-instances-in-outposts">Deploy EC2 Instances in Outposts</h4>
+<div class="language-bash highlight"><span class="filename">Launch an EC2 instance in Outpost</span><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>run-instances<span class="w"> </span>--image-id<span class="w"> </span>&lt;ami-id&gt;<span class="w"> </span>--instance-type<span class="w"> </span>&lt;type&gt;<span class="w"> </span>--subnet-id<span class="w"> </span>&lt;outpost-subnet-id&gt;
+</span></code></pre></div>
+<h4 id="automate-outpost-deployments-with-cloudformation">Automate Outpost Deployments with CloudFormation</h4>
+<div class="language-bash highlight"><span class="filename">Deploy Outpost resources using CloudFormation</span><pre><span></span><code><span id="__span-89-1"><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>aws<span class="w"> </span>cloudformation<span class="w"> </span>deploy<span class="w"> </span>--template-file<span class="w"> </span>outpost-config.yml<span class="w"> </span>--stack-name<span class="w"> </span>my-outpost-stack
+</span></code></pre></div>
+<h4 id="monitor-outposts-with-cloudwatch">Monitor Outposts with CloudWatch</h4>
+<p><div class="language-bash highlight"><span class="filename">List Outpost-related CloudWatch metrics</span><pre><span></span><code><span id="__span-90-1"><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>aws<span class="w"> </span>cloudwatch<span class="w"> </span>list-metrics<span class="w"> </span>--namespace<span class="w"> </span>AWS/Outposts
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Monitor CPU usage of Outpost instances</span><pre><span></span><code><span id="__span-91-1"><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>aws<span class="w"> </span>cloudwatch<span class="w"> </span>get-metric-data<span class="w"> </span>--metric-name<span class="w"> </span>CPUUtilization<span class="w"> </span>--namespace<span class="w"> </span>AWS/Outposts
+</span></code></pre></div></p>
+<h4 id="integrate-outposts-with-cicd">Integrate Outposts with CI/CD</h4>
+<p><div class="language-bash highlight"><span class="filename">List all CI/CD pipelines</span><pre><span></span><code><span id="__span-92-1"><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>aws<span class="w"> </span>codepipeline<span class="w"> </span>list-pipelines
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start a deployment pipeline for Outposts</span><pre><span></span><code><span id="__span-93-1"><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a>aws<span class="w"> </span>codepipeline<span class="w"> </span>start-pipeline-execution<span class="w"> </span>--name<span class="w"> </span>&lt;pipeline-name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start a build process for Outposts workloads</span><pre><span></span><code><span id="__span-94-1"><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a>aws<span class="w"> </span>codebuild<span class="w"> </span>start-build<span class="w"> </span>--project-name<span class="w"> </span>&lt;build-project&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Deploy an application to an Outpost</span><pre><span></span><code><span id="__span-95-1"><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a>aws<span class="w"> </span>deploy<span class="w"> </span>create-deployment<span class="w"> </span>--application-name<span class="w"> </span>&lt;app-name&gt;<span class="w"> </span>--deployment-group-name<span class="w"> </span>&lt;group-name&gt;<span class="w"> </span>--s3-location<span class="w"> </span><span class="nv">bucket</span><span class="o">=</span>&lt;bucket-name&gt;,key<span class="o">=</span>&lt;app.zip&gt;,bundleType<span class="o">=</span>zip
+</span></code></pre></div></p>
+<h4 id="security-and-compliance-for-outposts">Security and Compliance for Outposts</h4>
+<p><div class="language-bash highlight"><span class="filename">Create an IAM role for Outpost management</span><pre><span></span><code><span id="__span-96-1"><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a>aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span>--role-name<span class="w"> </span>&lt;role-name&gt;<span class="w"> </span>--assume-role-policy-document<span class="w"> </span>file://policy.json
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List stored secrets for Outposts</span><pre><span></span><code><span id="__span-97-1"><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a>aws<span class="w"> </span>secretsmanager<span class="w"> </span>list-secrets
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Retrieve a stored secret</span><pre><span></span><code><span id="__span-98-1"><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a>aws<span class="w"> </span>secretsmanager<span class="w"> </span>get-secret-value<span class="w"> </span>--secret-id<span class="w"> </span>&lt;secret-name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List AWS CloudTrail logs for security auditing</span><pre><span></span><code><span id="__span-99-1"><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a>aws<span class="w"> </span>cloudtrail<span class="w"> </span>describe-trails
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Detect security threats related to Outposts</span><pre><span></span><code><span id="__span-100-1"><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a>aws<span class="w"> </span>guardduty<span class="w"> </span>list-findings
+</span></code></pre></div></p>
+<h4 id="delete-or-deactivate-an-outpost">Delete or Deactivate an Outpost</h4>
+<p><div class="language-bash highlight"><span class="filename">Delete an Outpost (must be empty)</span><pre><span></span><code><span id="__span-101-1"><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>delete-outpost<span class="w"> </span>--outpost-id<span class="w"> </span>&lt;outpost-id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Cancel an Outpost order before delivery</span><pre><span></span><code><span id="__span-102-1"><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a>aws<span class="w"> </span>outposts<span class="w"> </span>cancel-order<span class="w"> </span>--order-id<span class="w"> </span>&lt;order-id&gt;
+</span></code></pre></div></p>
+<hr />
+<h2 id="azure">Azure</h2>
+<h3 id="azure-virtual-machines-vms">Azure Virtual Machines (VMs)</h3>
+<p><div class="language-bash highlight"><span class="filename">Create a VM</span><pre><span></span><code><span id="__span-103-1"><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a>az<span class="w"> </span>vm<span class="w"> </span>create<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;<span class="w"> </span>--name<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--image<span class="w"> </span>&lt;image&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all VMs</span><pre><span></span><code><span id="__span-104-1"><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a>az<span class="w"> </span>vm<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Stop a VM</span><pre><span></span><code><span id="__span-105-1"><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a>az<span class="w"> </span>vm<span class="w"> </span>stop<span class="w"> </span>--name<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start a VM</span><pre><span></span><code><span id="__span-106-1"><a id="__codelineno-106-1" name="__codelineno-106-1" href="#__codelineno-106-1"></a>az<span class="w"> </span>vm<span class="w"> </span>start<span class="w"> </span>--name<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a VM</span><pre><span></span><code><span id="__span-107-1"><a id="__codelineno-107-1" name="__codelineno-107-1" href="#__codelineno-107-1"></a>az<span class="w"> </span>vm<span class="w"> </span>delete<span class="w"> </span>--name<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Resize a VM</span><pre><span></span><code><span id="__span-108-1"><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a>az<span class="w"> </span>vm<span class="w"> </span>resize<span class="w"> </span>--name<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;<span class="w"> </span>--size<span class="w"> </span>&lt;vm-size&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Show VM details</span><pre><span></span><code><span id="__span-109-1"><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a>az<span class="w"> </span>vm<span class="w"> </span>show<span class="w"> </span>--name<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Open a port on a VM</span><pre><span></span><code><span id="__span-110-1"><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a>az<span class="w"> </span>vm<span class="w"> </span>open-port<span class="w"> </span>--port<span class="w"> </span>&lt;port-number&gt;<span class="w"> </span>--name<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;
+</span></code></pre></div></p>
+<h3 id="azure-storage">Azure Storage</h3>
+<p><div class="language-bash highlight"><span class="filename">Create a storage account</span><pre><span></span><code><span id="__span-111-1"><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a>az<span class="w"> </span>storage<span class="w"> </span>account<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>&lt;storage-name&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;<span class="w"> </span>--location<span class="w"> </span>&lt;region&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a blob container</span><pre><span></span><code><span id="__span-112-1"><a id="__codelineno-112-1" name="__codelineno-112-1" href="#__codelineno-112-1"></a>az<span class="w"> </span>storage<span class="w"> </span>container<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>&lt;container-name&gt;<span class="w"> </span>--account-name<span class="w"> </span>&lt;storage-name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Upload a file to Blob Storage</span><pre><span></span><code><span id="__span-113-1"><a id="__codelineno-113-1" name="__codelineno-113-1" href="#__codelineno-113-1"></a>az<span class="w"> </span>storage<span class="w"> </span>blob<span class="w"> </span>upload<span class="w"> </span>--file<span class="w"> </span>&lt;file-path&gt;<span class="w"> </span>--container-name<span class="w"> </span>&lt;container-name&gt;<span class="w"> </span>--account-name<span class="w"> </span>&lt;storage-name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List blobs in a container</span><pre><span></span><code><span id="__span-114-1"><a id="__codelineno-114-1" name="__codelineno-114-1" href="#__codelineno-114-1"></a>az<span class="w"> </span>storage<span class="w"> </span>blob<span class="w"> </span>list<span class="w"> </span>--container-name<span class="w"> </span>&lt;container-name&gt;<span class="w"> </span>--account-name<span class="w"> </span>&lt;storage-name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a storage account</span><pre><span></span><code><span id="__span-115-1"><a id="__codelineno-115-1" name="__codelineno-115-1" href="#__codelineno-115-1"></a>az<span class="w"> </span>storage<span class="w"> </span>account<span class="w"> </span>delete<span class="w"> </span>--name<span class="w"> </span>&lt;storage-name&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;
+</span></code></pre></div></p>
+<h3 id="azure-kubernetes-service-aks">Azure Kubernetes Service (AKS)</h3>
+<p><div class="language-bash highlight"><span class="filename">Create an AKS cluster</span><pre><span></span><code><span id="__span-116-1"><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a>az<span class="w"> </span>aks<span class="w"> </span>create<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;<span class="w"> </span>--name<span class="w"> </span>&lt;aks-name&gt;<span class="w"> </span>--node-count<span class="w"> </span>&lt;num&gt;<span class="w"> </span>--generate-ssh-keys
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Get kubeconfig for AKS cluster</span><pre><span></span><code><span id="__span-117-1"><a id="__codelineno-117-1" name="__codelineno-117-1" href="#__codelineno-117-1"></a>az<span class="w"> </span>aks<span class="w"> </span>get-credentials<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;<span class="w"> </span>--name<span class="w"> </span>&lt;aks-name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List AKS cluster nodes</span><pre><span></span><code><span id="__span-118-1"><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all pods in AKS</span><pre><span></span><code><span id="__span-119-1"><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Deploy an application in AKS</span><pre><span></span><code><span id="__span-120-1"><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>&lt;file.&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Remove an application from AKS</span><pre><span></span><code><span id="__span-121-1"><a id="__codelineno-121-1" name="__codelineno-121-1" href="#__codelineno-121-1"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>-f<span class="w"> </span>&lt;file.&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete an AKS cluster</span><pre><span></span><code><span id="__span-122-1"><a id="__codelineno-122-1" name="__codelineno-122-1" href="#__codelineno-122-1"></a>az<span class="w"> </span>aks<span class="w"> </span>delete<span class="w"> </span>--name<span class="w"> </span>&lt;aks-name&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;
+</span></code></pre></div></p>
+<h3 id="azure-functions">Azure Functions</h3>
+<p><div class="language-bash highlight"><span class="filename">Create an Azure Function App</span><pre><span></span><code><span id="__span-123-1"><a id="__codelineno-123-1" name="__codelineno-123-1" href="#__codelineno-123-1"></a>az<span class="w"> </span>functionapp<span class="w"> </span>create<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;<span class="w"> </span>--name<span class="w"> </span>&lt;app-name&gt;<span class="w"> </span>--consumption-plan-location<span class="w"> </span>&lt;region&gt;<span class="w"> </span>--runtime<span class="w"> </span>&lt;runtime&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all Function Apps</span><pre><span></span><code><span id="__span-124-1"><a id="__codelineno-124-1" name="__codelineno-124-1" href="#__codelineno-124-1"></a>az<span class="w"> </span>functionapp<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a Function App</span><pre><span></span><code><span id="__span-125-1"><a id="__codelineno-125-1" name="__codelineno-125-1" href="#__codelineno-125-1"></a>az<span class="w"> </span>functionapp<span class="w"> </span>delete<span class="w"> </span>--name<span class="w"> </span>&lt;app-name&gt;<span class="w"> </span>--resource-group<span class="w"> </span>&lt;rg&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Initialize a local Azure Functions project</span><pre><span></span><code><span id="__span-126-1"><a id="__codelineno-126-1" name="__codelineno-126-1" href="#__codelineno-126-1"></a>func<span class="w"> </span>init<span class="w"> </span>&lt;app-name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a new function</span><pre><span></span><code><span id="__span-127-1"><a id="__codelineno-127-1" name="__codelineno-127-1" href="#__codelineno-127-1"></a>func<span class="w"> </span>new
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run functions locally</span><pre><span></span><code><span id="__span-128-1"><a id="__codelineno-128-1" name="__codelineno-128-1" href="#__codelineno-128-1"></a>func<span class="w"> </span>start
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Deploy function to Azure</span><pre><span></span><code><span id="__span-129-1"><a id="__codelineno-129-1" name="__codelineno-129-1" href="#__codelineno-129-1"></a>func<span class="w"> </span>azure<span class="w"> </span>functionapp<span class="w"> </span>publish<span class="w"> </span>&lt;app-name&gt;
+</span></code></pre></div></p>
+<h3 id="azure-networking">Azure Networking</h3>
+<h4 id="virtual-network-vnet">Virtual Network (VNet)</h4>
+<p><div class="language-bash highlight"><span class="filename">List VNets</span><pre><span></span><code><span id="__span-130-1"><a id="__codelineno-130-1" name="__codelineno-130-1" href="#__codelineno-130-1"></a>az<span class="w"> </span>network<span class="w"> </span>vnet<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a VNet</span><pre><span></span><code><span id="__span-131-1"><a id="__codelineno-131-1" name="__codelineno-131-1" href="#__codelineno-131-1"></a>az<span class="w"> </span>network<span class="w"> </span>vnet<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myVNet<span class="w"> </span>--resource-group<span class="w"> </span>myResourceGroup<span class="w"> </span>--subnet-name<span class="w"> </span>mySubnet
+</span></code></pre></div></p>
+<h4 id="network-security-group-nsg">Network Security Group (NSG)</h4>
+<p><div class="language-bash highlight"><span class="filename">List NSGs</span><pre><span></span><code><span id="__span-132-1"><a id="__codelineno-132-1" name="__codelineno-132-1" href="#__codelineno-132-1"></a>az<span class="w"> </span>network<span class="w"> </span>nsg<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create an NSG</span><pre><span></span><code><span id="__span-133-1"><a id="__codelineno-133-1" name="__codelineno-133-1" href="#__codelineno-133-1"></a>az<span class="w"> </span>network<span class="w"> </span>nsg<span class="w"> </span>create<span class="w"> </span>--resource-group<span class="w"> </span>myResourceGroup<span class="w"> </span>--name<span class="w"> </span>myNSG
+</span></code></pre></div></p>
+<h4 id="load-balancer">Load Balancer</h4>
+<p><div class="language-bash highlight"><span class="filename">List load balancers</span><pre><span></span><code><span id="__span-134-1"><a id="__codelineno-134-1" name="__codelineno-134-1" href="#__codelineno-134-1"></a>az<span class="w"> </span>network<span class="w"> </span>lb<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a Load Balancer</span><pre><span></span><code><span id="__span-135-1"><a id="__codelineno-135-1" name="__codelineno-135-1" href="#__codelineno-135-1"></a>az<span class="w"> </span>network<span class="w"> </span>lb<span class="w"> </span>create<span class="w"> </span>--resource-group<span class="w"> </span>myResourceGroup<span class="w"> </span>--name<span class="w"> </span>myLB<span class="w"> </span>--sku<span class="w"> </span>Standard<span class="w"> </span>--frontend-ip-name<span class="w"> </span>myFrontend<span class="w"> </span>--backend-pool-name<span class="w"> </span>myBackendPool
+</span></code></pre></div></p>
+<h3 id="azure-devopscicd">Azure DevOps(CI/CD)</h3>
+<h4 id="azure-devops-projects">Azure DevOps Projects</h4>
+<p><div class="language-bash highlight"><span class="filename">List all DevOps projects</span><pre><span></span><code><span id="__span-136-1"><a id="__codelineno-136-1" name="__codelineno-136-1" href="#__codelineno-136-1"></a>az<span class="w"> </span>devops<span class="w"> </span>project<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a DevOps project</span><pre><span></span><code><span id="__span-137-1"><a id="__codelineno-137-1" name="__codelineno-137-1" href="#__codelineno-137-1"></a>az<span class="w"> </span>devops<span class="w"> </span>project<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myDevOpsProject
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a DevOps project</span><pre><span></span><code><span id="__span-138-1"><a id="__codelineno-138-1" name="__codelineno-138-1" href="#__codelineno-138-1"></a>az<span class="w"> </span>devops<span class="w"> </span>project<span class="w"> </span>delete<span class="w"> </span>--id<span class="w"> </span>PROJECT_ID<span class="w"> </span>--yes
+</span></code></pre></div></p>
+<h4 id="azure-repos-git">Azure Repos (Git)</h4>
+<p><div class="language-bash highlight"><span class="filename">List all repositories</span><pre><span></span><code><span id="__span-139-1"><a id="__codelineno-139-1" name="__codelineno-139-1" href="#__codelineno-139-1"></a>az<span class="w"> </span>repos<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a new repo</span><pre><span></span><code><span id="__span-140-1"><a id="__codelineno-140-1" name="__codelineno-140-1" href="#__codelineno-140-1"></a>az<span class="w"> </span>repos<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myRepo
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a repo</span><pre><span></span><code><span id="__span-141-1"><a id="__codelineno-141-1" name="__codelineno-141-1" href="#__codelineno-141-1"></a>az<span class="w"> </span>repos<span class="w"> </span>delete<span class="w"> </span>--name<span class="w"> </span>myRepo<span class="w"> </span>--yes
+</span></code></pre></div></p>
+<h4 id="azure-pipelines">Azure Pipelines</h4>
+<p><div class="language-bash highlight"><span class="filename">List all pipelines</span><pre><span></span><code><span id="__span-142-1"><a id="__codelineno-142-1" name="__codelineno-142-1" href="#__codelineno-142-1"></a>az<span class="w"> </span>pipelines<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a pipeline</span><pre><span></span><code><span id="__span-143-1"><a id="__codelineno-143-1" name="__codelineno-143-1" href="#__codelineno-143-1"></a>az<span class="w"> </span>pipelines<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myPipeline<span class="w"> </span>--repository<span class="w"> </span>myRepo<span class="w"> </span>--branch<span class="w"> </span>main<span class="w"> </span>--repository-type<span class="w"> </span>gitHub
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run a pipeline</span><pre><span></span><code><span id="__span-144-1"><a id="__codelineno-144-1" name="__codelineno-144-1" href="#__codelineno-144-1"></a>az<span class="w"> </span>pipelines<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>myPipeline
+</span></code></pre></div></p>
+<h3 id="azure-monitor-logging">Azure Monitor &amp; Logging</h3>
+<h4 id="azure-monitor">Azure Monitor</h4>
+<p><div class="language-bash highlight"><span class="filename">List metrics for a resource</span><pre><span></span><code><span id="__span-145-1"><a id="__codelineno-145-1" name="__codelineno-145-1" href="#__codelineno-145-1"></a>az<span class="w"> </span>monitor<span class="w"> </span>metrics<span class="w"> </span>list<span class="w"> </span>--resource<span class="w"> </span>myResourceID
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List metric alerts</span><pre><span></span><code><span id="__span-146-1"><a id="__codelineno-146-1" name="__codelineno-146-1" href="#__codelineno-146-1"></a>az<span class="w"> </span>monitor<span class="w"> </span>metrics<span class="w"> </span>alert<span class="w"> </span>list<span class="w"> </span>--resource-group<span class="w"> </span>myResourceGroup
+</span></code></pre></div></p>
+<h4 id="azure-log-analytics">Azure Log Analytics</h4>
+<p><div class="language-bash highlight"><span class="filename">List log analytics workspaces</span><pre><span></span><code><span id="__span-147-1"><a id="__codelineno-147-1" name="__codelineno-147-1" href="#__codelineno-147-1"></a>az<span class="w"> </span>monitor<span class="w"> </span>log-analytics<span class="w"> </span>workspace<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a Log Analytics workspace</span><pre><span></span><code><span id="__span-148-1"><a id="__codelineno-148-1" name="__codelineno-148-1" href="#__codelineno-148-1"></a>az<span class="w"> </span>monitor<span class="w"> </span>log-analytics<span class="w"> </span>workspace<span class="w"> </span>create<span class="w"> </span>--resource-group<span class="w"> </span>myResourceGroup<span class="w"> </span>--workspace-name<span class="w"> </span>myWorkspace
+</span></code></pre></div></p>
+<h3 id="security-compliance_1">Security &amp; Compliance</h3>
+<h4 id="azure-security-center">Azure Security Center</h4>
+<p><div class="language-bash highlight"><span class="filename">List security assessments</span><pre><span></span><code><span id="__span-149-1"><a id="__codelineno-149-1" name="__codelineno-149-1" href="#__codelineno-149-1"></a>az<span class="w"> </span>security<span class="w"> </span>assessment<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Enable auto-provisioning for Security Center</span><pre><span></span><code><span id="__span-150-1"><a id="__codelineno-150-1" name="__codelineno-150-1" href="#__codelineno-150-1"></a>az<span class="w"> </span>security<span class="w"> </span>setting<span class="w"> </span>update<span class="w"> </span>--name<span class="w"> </span>AutoProvisioning<span class="w"> </span>--value<span class="w"> </span>On
+</span></code></pre></div></p>
+<h3 id="azure-key-vault">Azure Key Vault</h3>
+<p><div class="language-bash highlight"><span class="filename">List Key Vaults</span><pre><span></span><code><span id="__span-151-1"><a id="__codelineno-151-1" name="__codelineno-151-1" href="#__codelineno-151-1"></a>az<span class="w"> </span>keyvault<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a Key Vault</span><pre><span></span><code><span id="__span-152-1"><a id="__codelineno-152-1" name="__codelineno-152-1" href="#__codelineno-152-1"></a>az<span class="w"> </span>keyvault<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myKeyVault<span class="w"> </span>--resource-group<span class="w"> </span>myResourceGroup<span class="w"> </span>--location<span class="w"> </span>eastus
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Store a secret in Key Vault</span><pre><span></span><code><span id="__span-153-1"><a id="__codelineno-153-1" name="__codelineno-153-1" href="#__codelineno-153-1"></a>az<span class="w"> </span>keyvault<span class="w"> </span>secret<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--vault-name<span class="w"> </span>myKeyVault<span class="w"> </span>--name<span class="w"> </span>mySecret<span class="w"> </span>--value<span class="w"> </span><span class="s2">&quot;MySecretValue&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Retrieve a secret</span><pre><span></span><code><span id="__span-154-1"><a id="__codelineno-154-1" name="__codelineno-154-1" href="#__codelineno-154-1"></a>az<span class="w"> </span>keyvault<span class="w"> </span>secret<span class="w"> </span>show<span class="w"> </span>--vault-name<span class="w"> </span>myKeyVault<span class="w"> </span>--name<span class="w"> </span>mySecret
+</span></code></pre></div></p>
+<h3 id="azure-policies-governance">Azure Policies &amp; Governance</h3>
+<p><div class="language-bash highlight"><span class="filename">List all policy assignments</span><pre><span></span><code><span id="__span-155-1"><a id="__codelineno-155-1" name="__codelineno-155-1" href="#__codelineno-155-1"></a>az<span class="w"> </span>policy<span class="w"> </span>assignment<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Assign a policy</span><pre><span></span><code><span id="__span-156-1"><a id="__codelineno-156-1" name="__codelineno-156-1" href="#__codelineno-156-1"></a>az<span class="w"> </span>policy<span class="w"> </span>assignment<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myPolicyAssignment<span class="w"> </span>--policy<span class="w"> </span>myPolicyDefinition
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a policy assignment</span><pre><span></span><code><span id="__span-157-1"><a id="__codelineno-157-1" name="__codelineno-157-1" href="#__codelineno-157-1"></a>az<span class="w"> </span>policy<span class="w"> </span>assignment<span class="w"> </span>delete<span class="w"> </span>--name<span class="w"> </span>myPolicyAssignment
+</span></code></pre></div></p>
+<h3 id="azure-active-directory-aad">Azure Active Directory (AAD)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all users</span><pre><span></span><code><span id="__span-158-1"><a id="__codelineno-158-1" name="__codelineno-158-1" href="#__codelineno-158-1"></a>az<span class="w"> </span>ad<span class="w"> </span>user<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all groups</span><pre><span></span><code><span id="__span-159-1"><a id="__codelineno-159-1" name="__codelineno-159-1" href="#__codelineno-159-1"></a>az<span class="w"> </span>ad<span class="w"> </span>group<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all applications</span><pre><span></span><code><span id="__span-160-1"><a id="__codelineno-160-1" name="__codelineno-160-1" href="#__codelineno-160-1"></a>az<span class="w"> </span>ad<span class="w"> </span>app<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all service principals</span><pre><span></span><code><span id="__span-161-1"><a id="__codelineno-161-1" name="__codelineno-161-1" href="#__codelineno-161-1"></a>az<span class="w"> </span>ad<span class="w"> </span>sp<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div></p>
+<h3 id="azure-backup-recovery">Azure Backup &amp; Recovery</h3>
+<p><div class="language-bash highlight"><span class="filename">List all backup vaults</span><pre><span></span><code><span id="__span-162-1"><a id="__codelineno-162-1" name="__codelineno-162-1" href="#__codelineno-162-1"></a>az<span class="w"> </span>backup<span class="w"> </span>vault<span class="w"> </span>list<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a backup vault</span><pre><span></span><code><span id="__span-163-1"><a id="__codelineno-163-1" name="__codelineno-163-1" href="#__codelineno-163-1"></a>az<span class="w"> </span>backup<span class="w"> </span>vault<span class="w"> </span>create<span class="w"> </span>--resource-group<span class="w"> </span>myResourceGroup<span class="w"> </span>--name<span class="w"> </span>myBackupVault
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List backup items</span><pre><span></span><code><span id="__span-164-1"><a id="__codelineno-164-1" name="__codelineno-164-1" href="#__codelineno-164-1"></a>az<span class="w"> </span>backup<span class="w"> </span>item<span class="w"> </span>list<span class="w"> </span>--resource-group<span class="w"> </span>myResourceGroup<span class="w"> </span>--vault-name<span class="w"> </span>myBackupVault<span class="w"> </span>--output<span class="w"> </span>table
+</span></code></pre></div></p>
+<hr />
+<h2 id="gcp">GCP</h2>
+<h3 id="compute-engine-vms">Compute Engine (VMs)</h3>
+<p><div class="language-bash highlight"><span class="filename">Create a VM instance</span><pre><span></span><code><span id="__span-165-1"><a id="__codelineno-165-1" name="__codelineno-165-1" href="#__codelineno-165-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--zone<span class="o">=</span>&lt;zone&gt;<span class="w"> </span>--machine-type<span class="o">=</span>&lt;type&gt;<span class="w"> </span>--image<span class="o">=</span>&lt;image&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all VM instances</span><pre><span></span><code><span id="__span-166-1"><a id="__codelineno-166-1" name="__codelineno-166-1" href="#__codelineno-166-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start a VM instance</span><pre><span></span><code><span id="__span-167-1"><a id="__codelineno-167-1" name="__codelineno-167-1" href="#__codelineno-167-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>start<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--zone<span class="o">=</span>&lt;zone&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Stop a VM instance</span><pre><span></span><code><span id="__span-168-1"><a id="__codelineno-168-1" name="__codelineno-168-1" href="#__codelineno-168-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>stop<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--zone<span class="o">=</span>&lt;zone&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a VM instance</span><pre><span></span><code><span id="__span-169-1"><a id="__codelineno-169-1" name="__codelineno-169-1" href="#__codelineno-169-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>delete<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--zone<span class="o">=</span>&lt;zone&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">SSH into a VM instance</span><pre><span></span><code><span id="__span-170-1"><a id="__codelineno-170-1" name="__codelineno-170-1" href="#__codelineno-170-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span>&lt;vm-name&gt;<span class="w"> </span>--zone<span class="o">=</span>&lt;zone&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Open a specific port</span><pre><span></span><code><span id="__span-171-1"><a id="__codelineno-171-1" name="__codelineno-171-1" href="#__codelineno-171-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>firewall-rules<span class="w"> </span>create<span class="w"> </span>&lt;rule-name&gt;<span class="w"> </span>--allow<span class="w"> </span>tcp:&lt;port&gt;
+</span></code></pre></div></p>
+<h3 id="google-kubernetes-engine-gke">Google Kubernetes Engine (GKE)</h3>
+<p><div class="language-bash highlight"><span class="filename">Create a GKE cluster</span><pre><span></span><code><span id="__span-172-1"><a id="__codelineno-172-1" name="__codelineno-172-1" href="#__codelineno-172-1"></a>gcloud<span class="w"> </span>container<span class="w"> </span>clusters<span class="w"> </span>create<span class="w"> </span>&lt;cluster-name&gt;<span class="w"> </span>--num-nodes<span class="o">=</span>&lt;num&gt;<span class="w"> </span>--zone<span class="o">=</span>&lt;zone&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Get credentials for the GKE cluster</span><pre><span></span><code><span id="__span-173-1"><a id="__codelineno-173-1" name="__codelineno-173-1" href="#__codelineno-173-1"></a>gcloud<span class="w"> </span>container<span class="w"> </span>clusters<span class="w"> </span>get-credentials<span class="w"> </span>&lt;cluster-name&gt;<span class="w"> </span>--zone<span class="o">=</span>&lt;zone&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List cluster nodes</span><pre><span></span><code><span id="__span-174-1"><a id="__codelineno-174-1" name="__codelineno-174-1" href="#__codelineno-174-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all running pods</span><pre><span></span><code><span id="__span-175-1"><a id="__codelineno-175-1" name="__codelineno-175-1" href="#__codelineno-175-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Deploy an application to GKE</span><pre><span></span><code><span id="__span-176-1"><a id="__codelineno-176-1" name="__codelineno-176-1" href="#__codelineno-176-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>&lt;file.&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Remove an application from GKE</span><pre><span></span><code><span id="__span-177-1"><a id="__codelineno-177-1" name="__codelineno-177-1" href="#__codelineno-177-1"></a>kubectl<span class="w"> </span>delete<span class="w"> </span>-f<span class="w"> </span>&lt;file.&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a GKE cluster</span><pre><span></span><code><span id="__span-178-1"><a id="__codelineno-178-1" name="__codelineno-178-1" href="#__codelineno-178-1"></a>gcloud<span class="w"> </span>container<span class="w"> </span>clusters<span class="w"> </span>delete<span class="w"> </span>&lt;cluster-name&gt;<span class="w"> </span>--zone<span class="o">=</span>&lt;zone&gt;
+</span></code></pre></div></p>
+<h3 id="cloud-run-serverless-containers">Cloud Run (Serverless Containers)</h3>
+<p><div class="language-bash highlight"><span class="filename">Deploy an application to Cloud Run</span><pre><span></span><code><span id="__span-179-1"><a id="__codelineno-179-1" name="__codelineno-179-1" href="#__codelineno-179-1"></a>gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>&lt;service-name&gt;<span class="w"> </span>--image<span class="o">=</span>&lt;gcr.io/project/image&gt;<span class="w"> </span>--platform<span class="o">=</span>managed<span class="w"> </span>--region<span class="o">=</span>&lt;region&gt;<span class="w"> </span>--allow-unauthenticated
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all deployed Cloud Run services</span><pre><span></span><code><span id="__span-180-1"><a id="__codelineno-180-1" name="__codelineno-180-1" href="#__codelineno-180-1"></a>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Update Cloud Run service to the latest image</span><pre><span></span><code><span id="__span-181-1"><a id="__codelineno-181-1" name="__codelineno-181-1" href="#__codelineno-181-1"></a>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>update-traffic<span class="w"> </span>&lt;service-name&gt;<span class="w"> </span>--to-latest
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a Cloud Run service</span><pre><span></span><code><span id="__span-182-1"><a id="__codelineno-182-1" name="__codelineno-182-1" href="#__codelineno-182-1"></a>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>delete<span class="w"> </span>&lt;service-name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Set environment variables in a Cloud Run service</span><pre><span></span><code><span id="__span-183-1"><a id="__codelineno-183-1" name="__codelineno-183-1" href="#__codelineno-183-1"></a>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>update<span class="w"> </span>&lt;service-name&gt;<span class="w"> </span>--set-env-vars<span class="w"> </span><span class="nv">VAR_NAME</span><span class="o">=</span>value
+</span></code></pre></div></p>
+<h3 id="google-cloud-storage-gcs">Google Cloud Storage (GCS)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all storage buckets</span><pre><span></span><code><span id="__span-184-1"><a id="__codelineno-184-1" name="__codelineno-184-1" href="#__codelineno-184-1"></a>gcloud<span class="w"> </span>storage<span class="w"> </span>buckets<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a storage bucket</span><pre><span></span><code><span id="__span-185-1"><a id="__codelineno-185-1" name="__codelineno-185-1" href="#__codelineno-185-1"></a>gcloud<span class="w"> </span>storage<span class="w"> </span>buckets<span class="w"> </span>create<span class="w"> </span>my-bucket<span class="w"> </span>--location<span class="w"> </span>US
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Upload a file</span><pre><span></span><code><span id="__span-186-1"><a id="__codelineno-186-1" name="__codelineno-186-1" href="#__codelineno-186-1"></a>gcloud<span class="w"> </span>storage<span class="w"> </span>cp<span class="w"> </span>file.txt<span class="w"> </span>gs://my-bucket/
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a file</span><pre><span></span><code><span id="__span-187-1"><a id="__codelineno-187-1" name="__codelineno-187-1" href="#__codelineno-187-1"></a>gcloud<span class="w"> </span>storage<span class="w"> </span>rm<span class="w"> </span>gs://my-bucket/file.txt
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a storage bucket</span><pre><span></span><code><span id="__span-188-1"><a id="__codelineno-188-1" name="__codelineno-188-1" href="#__codelineno-188-1"></a>gcloud<span class="w"> </span>storage<span class="w"> </span>buckets<span class="w"> </span>delete<span class="w"> </span>my-bucket
+</span></code></pre></div></p>
+<h3 id="google-cloud-iam-identity-access-management">Google Cloud IAM (Identity &amp; Access Management)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all IAM roles</span><pre><span></span><code><span id="__span-189-1"><a id="__codelineno-189-1" name="__codelineno-189-1" href="#__codelineno-189-1"></a>gcloud<span class="w"> </span>iam<span class="w"> </span>roles<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all service accounts</span><pre><span></span><code><span id="__span-190-1"><a id="__codelineno-190-1" name="__codelineno-190-1" href="#__codelineno-190-1"></a>gcloud<span class="w"> </span>iam<span class="w"> </span>service-accounts<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Assign a role to a user</span><pre><span></span><code><span id="__span-191-1"><a id="__codelineno-191-1" name="__codelineno-191-1" href="#__codelineno-191-1"></a>gcloud<span class="w"> </span>projects<span class="w"> </span>add-iam-policy-binding<span class="w"> </span>PROJECT_ID<span class="w"> </span>--member<span class="o">=</span>user:EMAIL<span class="w"> </span>--role<span class="o">=</span>roles/editor
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Remove a role from a user</span><pre><span></span><code><span id="__span-192-1"><a id="__codelineno-192-1" name="__codelineno-192-1" href="#__codelineno-192-1"></a>gcloud<span class="w"> </span>projects<span class="w"> </span>remove-iam-policy-binding<span class="w"> </span>PROJECT_ID<span class="w"> </span>--member<span class="o">=</span>user:EMAIL<span class="w"> </span>--role<span class="o">=</span>roles/editor
+</span></code></pre></div></p>
+<h3 id="google-cloud-sql-managed-database-service">Google Cloud SQL (Managed Database Service)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all Cloud SQL instances</span><pre><span></span><code><span id="__span-193-1"><a id="__codelineno-193-1" name="__codelineno-193-1" href="#__codelineno-193-1"></a>gcloud<span class="w"> </span>sql<span class="w"> </span>instances<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a Cloud SQL instance</span><pre><span></span><code><span id="__span-194-1"><a id="__codelineno-194-1" name="__codelineno-194-1" href="#__codelineno-194-1"></a>gcloud<span class="w"> </span>sql<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-db<span class="w"> </span>--tier<span class="o">=</span>db-f1-micro<span class="w"> </span>--region<span class="o">=</span>us-central1
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start a Cloud SQL instance</span><pre><span></span><code><span id="__span-195-1"><a id="__codelineno-195-1" name="__codelineno-195-1" href="#__codelineno-195-1"></a>gcloud<span class="w"> </span>sql<span class="w"> </span>instances<span class="w"> </span>start<span class="w"> </span>my-db
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Stop a Cloud SQL instance</span><pre><span></span><code><span id="__span-196-1"><a id="__codelineno-196-1" name="__codelineno-196-1" href="#__codelineno-196-1"></a>gcloud<span class="w"> </span>sql<span class="w"> </span>instances<span class="w"> </span>stop<span class="w"> </span>my-db
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a Cloud SQL instance</span><pre><span></span><code><span id="__span-197-1"><a id="__codelineno-197-1" name="__codelineno-197-1" href="#__codelineno-197-1"></a>gcloud<span class="w"> </span>sql<span class="w"> </span>instances<span class="w"> </span>delete<span class="w"> </span>my-db
+</span></code></pre></div></p>
+<h3 id="google-cloud-build-cicd">Google Cloud Build (CI/CD)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all Cloud Build runs</span><pre><span></span><code><span id="__span-198-1"><a id="__codelineno-198-1" name="__codelineno-198-1" href="#__codelineno-198-1"></a>gcloud<span class="w"> </span>builds<span class="w"> </span>lis
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Build and push an image</span><pre><span></span><code><span id="__span-199-1"><a id="__codelineno-199-1" name="__codelineno-199-1" href="#__codelineno-199-1"></a>gcloud<span class="w"> </span>builds<span class="w"> </span>submit<span class="w"> </span>--tag<span class="w"> </span>gcr.io/PROJECT_ID/my-app
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List Cloud Build triggers</span><pre><span></span><code><span id="__span-200-1"><a id="__codelineno-200-1" name="__codelineno-200-1" href="#__codelineno-200-1"></a>gcloud<span class="w"> </span>builds<span class="w"> </span>triggers<span class="w"> </span>list
+</span></code></pre></div></p>
+<h3 id="google-cloud-deploy-cicd">Google Cloud Deploy (CI/CD)</h3>
+<p><div class="language-bash highlight"><span class="filename">List deployment releases</span><pre><span></span><code><span id="__span-201-1"><a id="__codelineno-201-1" name="__codelineno-201-1" href="#__codelineno-201-1"></a>gcloud<span class="w"> </span>deploy<span class="w"> </span>releases<span class="w"> </span>list<span class="w"> </span>--delivery-pipeline<span class="o">=</span>my-pipeline
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List rollouts</span><pre><span></span><code><span id="__span-202-1"><a id="__codelineno-202-1" name="__codelineno-202-1" href="#__codelineno-202-1"></a>gcloud<span class="w"> </span>deploy<span class="w"> </span>rollouts<span class="w"> </span>list<span class="w"> </span>--release<span class="o">=</span>my-release<span class="w"> </span>--delivery-pipeline<span class="o">=</span>my-pipeline
+</span></code></pre></div></p>
+<h3 id="google-cloud-logging-monitoring">Google Cloud Logging &amp; Monitoring</h3>
+<h4 id="cloud-logging">Cloud Logging</h4>
+<p><div class="language-bash highlight"><span class="filename">List available logs</span><pre><span></span><code><span id="__span-203-1"><a id="__codelineno-203-1" name="__codelineno-203-1" href="#__codelineno-203-1"></a>gcloud<span class="w"> </span>logging<span class="w"> </span>logs<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Read VM logs</span><pre><span></span><code><span id="__span-204-1"><a id="__codelineno-204-1" name="__codelineno-204-1" href="#__codelineno-204-1"></a>gcloud<span class="w"> </span>logging<span class="w"> </span><span class="nb">read</span><span class="w"> </span><span class="s2">&quot;resource.type=gce_instance&quot;</span><span class="w"> </span>--limit<span class="w"> </span><span class="m">10</span>
+</span></code></pre></div></p>
+<h4 id="cloud-monitoring">Cloud Monitoring</h4>
+<p><div class="language-bash highlight"><span class="filename">List available monitoring metrics</span><pre><span></span><code><span id="__span-205-1"><a id="__codelineno-205-1" name="__codelineno-205-1" href="#__codelineno-205-1"></a>gcloud<span class="w"> </span>monitoring<span class="w"> </span>metrics<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all dashboards</span><pre><span></span><code><span id="__span-206-1"><a id="__codelineno-206-1" name="__codelineno-206-1" href="#__codelineno-206-1"></a>gcloud<span class="w"> </span>monitoring<span class="w"> </span>dashboards<span class="w"> </span>list
+</span></code></pre></div></p>
+<h3 id="google-cloud-networking">Google Cloud Networking</h3>
+<h4 id="vpc-virtual-private-cloud_1">VPC (Virtual Private Cloud)</h4>
+<p><div class="language-bash highlight"><span class="filename">List VPC networks</span><pre><span></span><code><span id="__span-207-1"><a id="__codelineno-207-1" name="__codelineno-207-1" href="#__codelineno-207-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>networks<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a VPC network</span><pre><span></span><code><span id="__span-208-1"><a id="__codelineno-208-1" name="__codelineno-208-1" href="#__codelineno-208-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>networks<span class="w"> </span>create<span class="w"> </span>my-vpc<span class="w"> </span>--subnet-mode<span class="o">=</span>custom
+</span></code></pre></div></p>
+<h4 id="firewall-rules">Firewall Rules</h4>
+<p><div class="language-bash highlight"><span class="filename">List firewall rules</span><pre><span></span><code><span id="__span-209-1"><a id="__codelineno-209-1" name="__codelineno-209-1" href="#__codelineno-209-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>firewall-rules<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Allow SSH access</span><pre><span></span><code><span id="__span-210-1"><a id="__codelineno-210-1" name="__codelineno-210-1" href="#__codelineno-210-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>firewall-rules<span class="w"> </span>create<span class="w"> </span>allow-ssh<span class="w"> </span>--network<span class="o">=</span>my-vpc<span class="w"> </span>--allow<span class="o">=</span>tcp:22
+</span></code></pre></div></p>
+<h4 id="load-balancers">Load Balancers</h4>
+<div class="language-bash highlight"><span class="filename">List all load balancers</span><pre><span></span><code><span id="__span-211-1"><a id="__codelineno-211-1" name="__codelineno-211-1" href="#__codelineno-211-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>forwarding-rules<span class="w"> </span>list
+</span></code></pre></div>
+<h3 id="google-cloud-security">Google Cloud Security</h3>
+<h4 id="cloud-identity-aware-proxy-iap">Cloud Identity-Aware Proxy (IAP)</h4>
+<p><div class="language-bash highlight"><span class="filename">List IAP-secured applications</span><pre><span></span><code><span id="__span-212-1"><a id="__codelineno-212-1" name="__codelineno-212-1" href="#__codelineno-212-1"></a>gcloud<span class="w"> </span>iap<span class="w"> </span>web<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">IAP settings</span><pre><span></span><code><span id="__span-213-1"><a id="__codelineno-213-1" name="__codelineno-213-1" href="#__codelineno-213-1"></a>gcloud<span class="w"> </span>iap<span class="w"> </span>settings<span class="w"> </span>get<span class="w"> </span>--resource-type<span class="o">=</span>app-engine<span class="w"> </span>Get
+</span></code></pre></div></p>
+<h4 id="cloud-key-management-service-kms">Cloud Key Management Service (KMS)</h4>
+<p><div class="language-bash highlight"><span class="filename">List key rings</span><pre><span></span><code><span id="__span-214-1"><a id="__codelineno-214-1" name="__codelineno-214-1" href="#__codelineno-214-1"></a>gcloud<span class="w"> </span>kms<span class="w"> </span>keyrings<span class="w"> </span>list<span class="w"> </span>--location<span class="w"> </span>global
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List encryption keys</span><pre><span></span><code><span id="__span-215-1"><a id="__codelineno-215-1" name="__codelineno-215-1" href="#__codelineno-215-1"></a>gcloud<span class="w"> </span>kms<span class="w"> </span>keys<span class="w"> </span>list<span class="w"> </span>--keyring<span class="w"> </span>my-keyring<span class="w"> </span>--location<span class="w"> </span>global
+</span></code></pre></div></p>
+<h3 id="google-artifact-registry">Google Artifact Registry</h3>
+<p><div class="language-bash highlight"><span class="filename">List all Artifact Repositories</span><pre><span></span><code><span id="__span-216-1"><a id="__codelineno-216-1" name="__codelineno-216-1" href="#__codelineno-216-1"></a>gcloud<span class="w"> </span>artifacts<span class="w"> </span>repositories<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a Docker registry</span><pre><span></span><code><span id="__span-217-1"><a id="__codelineno-217-1" name="__codelineno-217-1" href="#__codelineno-217-1"></a>gcloud<span class="w"> </span>artifacts<span class="w"> </span>repositories<span class="w"> </span>create<span class="w"> </span>my-repo<span class="w"> </span>--repository-format<span class="o">=</span>docker<span class="w"> </span>--location<span class="o">=</span>us-central1
+</span></code></pre></div></p>
+<h3 id="google-cloud-pubsub-messaging">Google Cloud Pub/Sub (Messaging)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all Pub/Sub topics</span><pre><span></span><code><span id="__span-218-1"><a id="__codelineno-218-1" name="__codelineno-218-1" href="#__codelineno-218-1"></a>gcloud<span class="w"> </span>pubsub<span class="w"> </span>topics<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a topic</span><pre><span></span><code><span id="__span-219-1"><a id="__codelineno-219-1" name="__codelineno-219-1" href="#__codelineno-219-1"></a>gcloud<span class="w"> </span>pubsub<span class="w"> </span>topics<span class="w"> </span>create<span class="w"> </span>my-topic
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all subscriptions</span><pre><span></span><code><span id="__span-220-1"><a id="__codelineno-220-1" name="__codelineno-220-1" href="#__codelineno-220-1"></a>gcloud<span class="w"> </span>pubsub<span class="w"> </span>subscriptions<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a subscription</span><pre><span></span><code><span id="__span-221-1"><a id="__codelineno-221-1" name="__codelineno-221-1" href="#__codelineno-221-1"></a>gcloud<span class="w"> </span>pubsub<span class="w"> </span>subscriptions<span class="w"> </span>create<span class="w"> </span>my-sub<span class="w"> </span>--topic<span class="o">=</span>my-topic
+</span></code></pre></div></p>
+<h3 id="google-cloud-backup-disaster-recovery">Google Cloud Backup &amp; Disaster Recovery</h3>
+<p><div class="language-bash highlight"><span class="filename">List all backup vaults</span><pre><span></span><code><span id="__span-222-1"><a id="__codelineno-222-1" name="__codelineno-222-1" href="#__codelineno-222-1"></a>gcloud<span class="w"> </span>backup<span class="w"> </span>vaults<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List backup policies</span><pre><span></span><code><span id="__span-223-1"><a id="__codelineno-223-1" name="__codelineno-223-1" href="#__codelineno-223-1"></a>gcloud<span class="w"> </span>backup<span class="w"> </span>policies<span class="w"> </span>list
+</span></code></pre></div></p>
+<h3 id="google-cloud-policies-governance">Google Cloud Policies &amp; Governance</h3>
+<p><div class="language-bash highlight"><span class="filename">List policy tags</span><pre><span></span><code><span id="__span-224-1"><a id="__codelineno-224-1" name="__codelineno-224-1" href="#__codelineno-224-1"></a>gcloud<span class="w"> </span>policy-tags<span class="w"> </span>list<span class="w"> </span>--location<span class="o">=</span>us
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all organizational policies</span><pre><span></span><code><span id="__span-225-1"><a id="__codelineno-225-1" name="__codelineno-225-1" href="#__codelineno-225-1"></a>gcloud<span class="w"> </span>resource-manager<span class="w"> </span>org-policies<span class="w"> </span>list
+</span></code></pre></div></p>
+<h3 id="google-cloud-scheduler-cron-jobs">Google Cloud Scheduler (Cron Jobs)</h3>
+<p><div class="language-bash highlight"><span class="filename">List all scheduled jobs</span><pre><span></span><code><span id="__span-226-1"><a id="__codelineno-226-1" name="__codelineno-226-1" href="#__codelineno-226-1"></a>gcloud<span class="w"> </span>scheduler<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a scheduled HTTP job</span><pre><span></span><code><span id="__span-227-1"><a id="__codelineno-227-1" name="__codelineno-227-1" href="#__codelineno-227-1"></a>gcloud<span class="w"> </span>scheduler<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>create<span class="w"> </span>http<span class="w"> </span>my-job<span class="w"> </span>--schedule<span class="o">=</span><span class="s2">&quot;0 \* \* \* \*&quot;</span><span class="w"> </span>--uri<span class="o">=</span>https://example.com/cron
+</span></code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../06_Kubernetes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kubernetes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Kubernetes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../08_Configuration_Management/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration Management">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Configuration Management
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/pbemkes" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/paulemkes/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

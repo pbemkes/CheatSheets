@@ -1,0 +1,2358 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pbemkes.github.io/CheatSheets/08_Configuration_Management/">
+      
+      
+        <link rel="prev" href="../07_Cloud_Services/">
+      
+      
+        <link rel="next" href="../09_Monitoring_Logging/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Configuration Management - Handy CheatSheet Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Recursive:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Recursive";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration-management" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Handy CheatSheet Documentation" class="md-header__button md-logo" aria-label="Handy CheatSheet Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 8h-4V6h4zm6-4v16c0 1.11-.89 2-2 2H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2m-2 9H6v7h12zm0-9H6v7h12zm-4 11h-4v2h4z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Handy CheatSheet Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration Management
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-purple"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Handy CheatSheet Documentation" class="md-nav__button md-logo" aria-label="Handy CheatSheet Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 8h-4V6h4zm6-4v16c0 1.11-.89 2-2 2H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2m-2 9H6v7h12zm0-9H6v7h12zm-4 11h-4v2h4z"/></svg>
+
+    </a>
+    Handy CheatSheet Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SRE &amp; DevOps CheatSheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_System_Admin_Scripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Administration &amp; Scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Version_Control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Integration (CI) &amp; Continuous Deployment (CD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_IaC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code (IaC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Containerization_Orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containerization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Cloud_Services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Management
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-playbooks-roles-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ansible (playbooks, roles, inventory)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible (playbooks, roles, inventory)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ansible-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ansible Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-inventory-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Inventory &amp; Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Inventory &amp; Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default inventory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom inventory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-hosts-in-inventoryini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Define hosts in inventory.ini:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ad-hoc-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ad-Hoc Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-playbook-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Playbook Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-variables-facts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Variables &amp; Facts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Variables &amp; Facts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-variables-in-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use variables in playbook:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-handlers-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Handlers &amp; Notifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-loops-conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Loops &amp; Conditionals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Loops &amp; Conditionals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-over-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loop over items:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditional execution:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-roles-reusability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Roles &amp; Reusability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Roles &amp; Reusability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-a-role-in-a-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run a role in a playbook:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-debugging-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Debugging &amp; Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Debugging &amp; Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debug-a-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug a variable:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ansible Playbook
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible Playbook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-playbook-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Playbook Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-defining-hosts-privilege-escalation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Defining Hosts &amp; Privilege Escalation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Defining Hosts &amp; Privilege Escalation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-as-a-specific-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run as a specific user:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tasks-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tasks &amp; Modules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Tasks &amp; Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-using-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Using Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Using Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-variables-inside-the-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Define variables inside the playbook:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-them-in-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use them in tasks:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-external-variables-from-varsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load external variables from vars.yml:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Conditionals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Handlers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-debugging-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Debugging &amp; Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-rolesbest-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Roles(Best Practice)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chef-recipes-cookbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chef (recipes, cookbooks)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chef (recipes, cookbooks)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-recipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Recipe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puppet-manifests-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puppet (manifests, modules)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Puppet (manifests, modules)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concepts_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saltstack-states-grains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SaltStack (states, grains)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SaltStack (states, grains)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concepts_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-state-nginxsls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example State (nginx.sls)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Monitoring_Logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring &amp; Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_Security_Compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security &amp; Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_Networking_Ports_Load_Balancing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking, Ports &amp; Load Balancing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_Databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_Storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_Helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helm Chart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15_Scenario_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scenario #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-playbooks-roles-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ansible (playbooks, roles, inventory)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible (playbooks, roles, inventory)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ansible-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ansible Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-inventory-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Inventory &amp; Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Inventory &amp; Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default inventory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom inventory:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-hosts-in-inventoryini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Define hosts in inventory.ini:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ad-hoc-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ad-Hoc Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-playbook-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Playbook Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-variables-facts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Variables &amp; Facts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Variables &amp; Facts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-variables-in-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use variables in playbook:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-handlers-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Handlers &amp; Notifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-loops-conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Loops &amp; Conditionals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Loops &amp; Conditionals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-over-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loop over items:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conditional-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditional execution:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-roles-reusability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Roles &amp; Reusability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Roles &amp; Reusability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-a-role-in-a-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run a role in a playbook:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-debugging-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Debugging &amp; Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Debugging &amp; Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debug-a-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug a variable:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ansible Playbook
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible Playbook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-playbook-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Playbook Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-defining-hosts-privilege-escalation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Defining Hosts &amp; Privilege Escalation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Defining Hosts &amp; Privilege Escalation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-as-a-specific-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run as a specific user:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tasks-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tasks &amp; Modules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Tasks &amp; Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-using-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Using Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Using Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-variables-inside-the-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Define variables inside the playbook:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-them-in-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use them in tasks:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-external-variables-from-varsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load external variables from vars.yml:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Conditionals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Loops
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Handlers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-debugging-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Debugging &amp; Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-rolesbest-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Roles(Best Practice)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chef-recipes-cookbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chef (recipes, cookbooks)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chef (recipes, cookbooks)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-recipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Recipe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#puppet-manifests-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puppet (manifests, modules)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Puppet (manifests, modules)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concepts_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Manifest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saltstack-states-grains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SaltStack (states, grains)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SaltStack (states, grains)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concepts_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-state-nginxsls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example State (nginx.sls)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="configuration-management">Configuration Management</h1>
+<ul>
+<li><a href="#ansible-playbooks-roles-inventory">Ansible</a></li>
+<li><a href="#chef-recipes-cookbooks">Chef</a></li>
+<li><a href="#puppet-manifests-modules">Puppet</a></li>
+<li><a href="#saltstack-states-grains">Salt</a></li>
+</ul>
+<hr />
+<h2 id="ansible-playbooks-roles-inventory">Ansible (playbooks, roles, inventory)</h2>
+<h3 id="1-ansible-basics">1. Ansible Basics</h3>
+<p><div class="language-bash highlight"><span class="filename">Check version</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ansible<span class="w"> </span>--version
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Check inventory</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ansible-inventory<span class="w"> </span>--list<span class="w"> </span>-y
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Ping all hosts</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ansible<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>ping
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run command on all hosts</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ansible<span class="w"> </span>all<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;uptime&quot;</span>
+</span></code></pre></div></p>
+<h3 id="2-inventory-configuration">2. Inventory &amp; Configuration</h3>
+<h4 id="default-inventory">Default inventory:</h4>
+<ul>
+<li><code>/etc/ansible/hosts</code></li>
+</ul>
+<h4 id="custom-inventory">Custom inventory:</h4>
+<ul>
+<li><code>ansible -i inventory.ini all -m ping</code></li>
+</ul>
+<h4 id="define-hosts-in-inventoryini">Define hosts in inventory.ini:</h4>
+<div class="language-bash highlight"><span class="filename">inventory.ini</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># fmt: ini</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="o">[</span>web<span class="o">]</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>web1<span class="w"> </span><span class="nv">ansible_host</span><span class="o">=</span><span class="m">192</span>.168.1.10<span class="w"> </span><span class="nv">ansible_user</span><span class="o">=</span>ubuntu
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="o">[</span>db<span class="o">]</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>db1<span class="w"> </span><span class="nv">ansible_host</span><span class="o">=</span><span class="m">192</span>.168.1.20<span class="w"> </span><span class="nv">ansible_user</span><span class="o">=</span>root
+</span></code></pre></div>
+<h3 id="3-ad-hoc-commands">3. Ad-Hoc Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">Run as a specific user</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ansible<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>ping<span class="w"> </span>-u<span class="w"> </span>ubuntu<span class="w"> </span>--become
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Copy file to remote host</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ansible<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>copy<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;src=/etc/hosts dest=/tmp/hosts&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Install a package (example: nginx)</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ansible<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>apt<span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;name=nginx state=present&quot;</span><span class="w"> </span>--become
+</span></code></pre></div></p>
+<h3 id="4-playbook-structure">4. Playbook Structure</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Nginx</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Nginx</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nt">apt</span><span class="p">:</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run the playbook:</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ansible-playbook<span class="w"> </span>install_nginx.yml
+</span></code></pre></div>
+<h3 id="5-variables-facts">5. Variables &amp; Facts</h3>
+<div class="language-bash highlight"><span class="filename">Define variables in vars.yml:</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>nginx_version:<span class="w"> </span>latest
+</span></code></pre></div>
+<h4 id="use-variables-in-playbook">Use variables in playbook:</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Nginx</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">apt</span><span class="p">:</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx={{ nginx_version }}</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Display all facts:</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ansible<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>setup
+</span></code></pre></div>
+<h3 id="6-handlers-notifications">6. Handlers &amp; Notifications</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart Nginx</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Nginx</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="nt">apt</span><span class="p">:</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="nt">notify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart Nginx</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">  </span><span class="nt">handlers</span><span class="p">:</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart Nginx</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">    </span><span class="nt">service</span><span class="p">:</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restarted</span>
+</span></code></pre></div>
+<h3 id="7-loops-conditionals">7. Loops &amp; Conditionals</h3>
+<h4 id="loop-over-items">Loop over items:</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install multiple packages</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">apt</span><span class="p">:</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="nt">loop</span><span class="p">:</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git</span>
+</span></code></pre></div>
+<h4 id="conditional-execution">Conditional execution:</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart service only if Nginx is installed</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">service</span><span class="p">:</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restarted</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible_facts[&#39;pkg_mgr&#39;] == &#39;apt&#39;</span>
+</span></code></pre></div>
+<h3 id="8-roles-reusability">8. Roles &amp; Reusability</h3>
+<div class="language-bash highlight"><span class="filename">Create a role:</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Ansible-galaxy<span class="w"> </span>init<span class="w"> </span>my_role
+</span></code></pre></div>
+<h4 id="run-a-role-in-a-playbook">Run a role in a playbook:</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_role</span>
+</span></code></pre></div>
+<h3 id="9-debugging-testing">9. Debugging &amp; Testing</h3>
+<h4 id="debug-a-variable">Debug a variable:</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">debug</span><span class="p">:</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;The</span><span class="nv"> </span><span class="s">value</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">nginx_version</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">nginx_version</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Check playbook syntax:</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ansible-playbook<span class="w"> </span>myplaybook.yml<span class="w"> </span>--syntax-check
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run in dry mode:</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>ansible-playbook<span class="w"> </span>myplaybook.yml<span class="w"> </span>--check
+</span></code></pre></div>
+<h2 id="ansible-playbook">Ansible Playbook</h2>
+<h3 id="1-playbook-structure">1. Playbook Structure</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example Playbook</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Print a message</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span><span class="nt">debug</span><span class="p">:</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">      </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Hello,</span><span class="nv"> </span><span class="s">Ansible!&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run the playbook:</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>ansible-playbook<span class="w"> </span>playbook.yml
+</span></code></pre></div>
+<h3 id="2-defining-hosts-privilege-escalation">2. Defining Hosts &amp; Privilege Escalation</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Nginx</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+</span></code></pre></div>
+<h4 id="run-as-a-specific-user">Run as a specific user:</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install package</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="nt">apt</span><span class="p">:</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">  </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">  </span><span class="nt">become_user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+</span></code></pre></div>
+<h3 id="3-tasks-modules">3. Tasks &amp; Modules</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ensure Nginx is installed</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="nt">become</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Nginx</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">    </span><span class="nt">apt</span><span class="p">:</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</span></code></pre></div>
+<h4 id="common-modules">Common Modules</h4>
+<ul>
+<li><code>command</code>: Run shell commands</li>
+<li><code>copy</code>: Copy files</li>
+<li><code>service</code>: Manage services</li>
+<li><code>user</code>: Manage users</li>
+<li><code>file</code>: Set file permissions</li>
+</ul>
+<h3 id="4-using-variables">4. Using Variables</h3>
+<h4 id="define-variables-inside-the-playbook">Define variables inside the playbook:</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nt">vars</span><span class="p">:</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="nt">package_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span></code></pre></div>
+<h4 id="use-them-in-tasks">Use them in tasks:</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install {{ package_name }}</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span><span class="nt">apt</span><span class="p">:</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">package_name</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</span></code></pre></div>
+<h4 id="load-external-variables-from-varsyml">Load external variables from vars.yml:</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Load Variables</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="nt">include_vars</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vars.yml</span>
+</span></code></pre></div>
+<h3 id="5-conditionals">5. Conditionals</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart Nginx only if installed</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="nt">service</span><span class="p">:</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restarted</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">  </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible_facts[&#39;pkg_mgr&#39;] == &#39;apt&#39;</span>
+</span></code></pre></div>
+<h3 id="6-loops">6. Loops</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install multiple packages</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">  </span><span class="nt">apt</span><span class="p">:</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">  </span><span class="nt">loop</span><span class="p">:</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl</span>
+</span></code></pre></div>
+<h3 id="7-handlers">7. Handlers</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Nginx</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span><span class="nt">apt</span><span class="p">:</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">  </span><span class="nt">notify</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart Nginx</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="nt">handlers</span><span class="p">:</span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart Nginx</span>
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="w">    </span><span class="nt">service</span><span class="p">:</span>
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="w">      </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restarted</span>
+</span></code></pre></div>
+<h3 id="8-debugging-testing">8. Debugging &amp; Testing</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Debug Variable</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">  </span><span class="nt">debug</span><span class="p">:</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">    </span><span class="nt">msg</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;The</span><span class="nv"> </span><span class="s">server</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">running</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">ansible_distribution</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Check syntax:</span><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>ansible-playbook<span class="w"> </span>playbook.yml<span class="w"> </span>--syntax-check
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Dry run:</span><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>ansible-playbook<span class="w"> </span>playbook.yml<span class="w"> </span>--check
+</span></code></pre></div>
+<h3 id="9-rolesbest-practice">9. Roles(Best Practice)</h3>
+<div class="language-bash highlight"><span class="filename">Create a role:</span><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>ansible-galaxy<span class="w"> </span>init<span class="w"> </span>my_role
+</span></code></pre></div>
+<ul>
+<li>Use the role in a playbook:</li>
+</ul>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_role</span>
+</span></code></pre></div>
+<h2 id="chef-recipes-cookbooks">Chef (recipes, cookbooks)</h2>
+<h3 id="basic-concepts">Basic Concepts</h3>
+<ul>
+<li><code>Recipe</code> - Defines a set of resources to configure a system.</li>
+<li><code>Cookbook</code> - A collection of recipes, templates, and attributes.</li>
+<li><code>Resource</code> - Represents system objects (e.g., package, service, file).</li>
+<li><code>Node</code> - A machine managed by Chef.</li>
+<li><code>Run List</code> - Specifies the order in which recipes are applied.</li>
+<li><code>Attributes</code> - Variables used to customize recipes.</li>
+</ul>
+<h3 id="commands">Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">Run Chef on a node</span><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>chef-client
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a new cookbook</span><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>knife<span class="w"> </span>cookbook<span class="w"> </span>create<span class="w"> </span>my_cookbook
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all nodes</span><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>knife<span class="w"> </span>node<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all roles</span><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>knife<span class="w"> </span>role<span class="w"> </span>list
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run Chef in solo mode</span><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>chef-solo<span class="w"> </span>-c<span class="w"> </span>solo.rb<span class="w"> </span>-j<span class="w"> </span>run_list.json
+</span></code></pre></div></p>
+<h3 id="example-recipe">Example Recipe</h3>
+<div class="language-ruby highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="n">package</span><span class="w"> </span><span class="s1">&#39;nginx&#39;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">  </span><span class="n">action</span><span class="w"> </span><span class="ss">:install</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="k">end</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="n">service</span><span class="w"> </span><span class="s1">&#39;nginx&#39;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-42-7"><a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="w">  </span><span class="n">action</span><span class="w"> </span><span class="o">[</span><span class="ss">:enable</span><span class="p">,</span><span class="w"> </span><span class="ss">:start</span><span class="o">]</span>
+</span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>
+</span><span id="__span-42-9"><a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="k">end</span>
+</span><span id="__span-42-10"><a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a>
+</span><span id="__span-42-11"><a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a><span class="n">file</span><span class="w"> </span><span class="s1">&#39;/var/www/html/index.html&#39;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-42-12"><a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a><span class="w">  </span><span class="n">content</span><span class="w"> </span><span class="s1">&#39;&lt;h1&gt;Welcome to Chef&lt;/h1&gt;&#39;</span><span class="w"> </span>
+</span><span id="__span-42-13"><a id="__codelineno-42-13" name="__codelineno-42-13" href="#__codelineno-42-13"></a>
+</span><span id="__span-42-14"><a id="__codelineno-42-14" name="__codelineno-42-14" href="#__codelineno-42-14"></a><span class="k">end</span>
+</span></code></pre></div>
+<h2 id="puppet-manifests-modules">Puppet (manifests, modules)</h2>
+<h3 id="basic-concepts_1">Basic Concepts</h3>
+<ul>
+<li><code>Manifest</code> - A file defining resources and configurations (.pp).</li>
+<li><code>Module</code> - A collection of manifests, templates, and files.</li>
+<li><code>Class</code> - A reusable block of Puppet code.</li>
+<li><code>Node</code> - A system managed by Puppet.</li>
+<li><code>Fact</code> - System information collected by Facter.</li>
+<li><code>Resource</code> - The basic unit of configuration (e.g., package, service).</li>
+</ul>
+<h3 id="commands_1">Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">Apply a local manifest</span><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>puppet<span class="w"> </span>apply<span class="w"> </span>my_manifest.pp
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Install a module</span><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>puppet<span class="w"> </span>module<span class="w"> </span>install<span class="w"> </span>my_module
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run Puppet on an agent node</span><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>puppet<span class="w"> </span>agent<span class="w"> </span>--test
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Check a resource state</span><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>puppet<span class="w"> </span>resource<span class="w"> </span>service<span class="w"> </span>nginx
+</span></code></pre></div></p>
+<h3 id="example-manifest">Example Manifest</h3>
+<div class="language-puppet highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="k">class</span><span class="w"> </span><span class="na">nginx</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">  </span><span class="k">package</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&#39;nginx&#39;</span><span class="p">:</span>
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">  </span><span class="na">ensure</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">installed</span><span class="p">,</span>
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="p">}</span>
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>
+</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="k">service</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&#39;nginx&#39;</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="w">  </span><span class="na">ensure</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">running</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="w">  </span><span class="na">enable</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
+</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="p">}</span>
+</span><span id="__span-47-10"><a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a>
+</span><span id="__span-47-11"><a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="k">file</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">&#39;/var/www/html/index.html&#39;</span><span class="p">:</span>
+</span><span id="__span-47-12"><a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="w">  </span><span class="na">content</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&#39;&lt;h1&gt;Welcome to Puppet&lt;/h1&gt;&#39;</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-47-13"><a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a><span class="w">  </span><span class="na">mode</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&#39;0644&#39;</span><span class="p">,</span>
+</span><span id="__span-47-14"><a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-47-15"><a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a><span class="p">}</span>
+</span><span id="__span-47-16"><a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a>
+</span><span id="__span-47-17"><a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a><span class="k">include</span><span class="w"> </span><span class="na">nginx</span>
+</span></code></pre></div>
+<hr />
+<h2 id="saltstack-states-grains">SaltStack (states, grains)</h2>
+<h3 id="basic-concepts_2">Basic Concepts</h3>
+<ul>
+<li><code>State</code> - Defines configurations and how they should be enforced.</li>
+<li><code>Grain</code> - System metadata like OS, CPU, and memory.</li>
+<li><code>Pillar</code> - Secure data storage for variables.</li>
+<li><code>Minion</code> - A node managed by the Salt master.</li>
+<li><code>Master</code> - The central server controlling minions.</li>
+</ul>
+<h3 id="commands_2">Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">Check connectivity with minions</span><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>salt<span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w"> </span>test.ping
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Install a package on all minions</span><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>salt<span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w"> </span>pkg.install<span class="w"> </span>nginx
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start a service</span><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>salt<span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w"> </span>service.start<span class="w"> </span>nginx
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Show all grains for a minion</span><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>salt<span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w"> </span>grains.items
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Apply a state to minions</span><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>salt<span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w"> </span>state.apply<span class="w"> </span>webserver
+</span></code></pre></div></p>
+<h3 id="example-state-nginxsls">Example State (nginx.sls)</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="nt">nginx</span><span class="p">:</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="w">  </span><span class="nt">pkg.installed</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="w">  </span><span class="nt">service.running</span><span class="p">:</span>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>
+</span><span id="__span-53-6"><a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="nt">/var/www/html/index.html</span><span class="p">:</span>
+</span><span id="__span-53-7"><a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a><span class="w">  </span><span class="nt">file.managed</span><span class="p">:</span>
+</span><span id="__span-53-8"><a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">salt://webserver/index.html</span>
+</span><span id="__span-53-9"><a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">644</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../07_Cloud_Services/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Cloud Services">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Cloud Services
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../09_Monitoring_Logging/" class="md-footer__link md-footer__link--next" aria-label="Next: Monitoring &amp;amp; Logging">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Monitoring &amp; Logging
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/pbemkes" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/paulemkes/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

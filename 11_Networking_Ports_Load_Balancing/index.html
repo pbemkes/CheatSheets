@@ -1,0 +1,3079 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pbemkes.github.io/CheatSheets/11_Networking_Ports_Load_Balancing/">
+      
+      
+        <link rel="prev" href="../10_Security_Compliance/">
+      
+      
+        <link rel="next" href="../12_Databases/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Networking, Ports & Load Balancing - Handy CheatSheet Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Recursive:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Recursive";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#networking-ports-load-balancing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Handy CheatSheet Documentation" class="md-header__button md-logo" aria-label="Handy CheatSheet Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 8h-4V6h4zm6-4v16c0 1.11-.89 2-2 2H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2m-2 9H6v7h12zm0-9H6v7h12zm-4 11h-4v2h4z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Handy CheatSheet Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Networking, Ports &amp; Load Balancing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-purple"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Handy CheatSheet Documentation" class="md-nav__button md-logo" aria-label="Handy CheatSheet Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 8h-4V6h4zm6-4v16c0 1.11-.89 2-2 2H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2m-2 9H6v7h12zm0-9H6v7h12zm-4 11h-4v2h4z"/></svg>
+
+    </a>
+    Handy CheatSheet Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SRE &amp; DevOps CheatSheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_System_Admin_Scripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Administration &amp; Scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Version_Control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Integration (CI) &amp; Continuous Deployment (CD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_IaC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code (IaC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Containerization_Orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containerization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Cloud_Services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Configuration_Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Monitoring_Logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring &amp; Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_Security_Compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security &amp; Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking, Ports &amp; Load Balancing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking, Ports &amp; Load Balancing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#networking-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-network-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Network Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Network Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-networking-show-network-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux Networking Show network interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check connectivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-rules-iptables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firewall Rules (iptables)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-kubernetes-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Kubernetes Networking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-docker-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Docker Networking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cloud-networking-aws-azure-gcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Cloud Networking (AWS, Azure, GCP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Cloud Networking (AWS, Azure, GCP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-vpc-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS VPC Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-groups-essentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Groups Essentials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-aws-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common AWS CLI Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common AWS CLI Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpc-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-group-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#devops-essential-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps Essential Port
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DevOps Essential Port">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#networking-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking &amp; Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-devops-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD &amp; DevOps Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containerization-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Containerization &amp; Orchestration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring &amp; Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-brokers-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Brokers &amp; Caching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-servers-reverse-proxies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Servers &amp; Reverse Proxies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-services-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Services &amp; Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx-reverse-proxy-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nginx (Reverse Proxy &amp; Load Balancing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nginx (Reverse Proxy &amp; Load Balancing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-nginx-reverse-proxy-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Nginx Reverse Proxy &amp; Load Balancing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Nginx Reverse Proxy &amp; Load Balancing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverse Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-apache-reverse-proxy-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Apache (reverse proxy, load balancing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Apache (reverse proxy, load balancing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-required-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Required Modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxy-forward-requests-to-backend-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverse Proxy (Forward Requests to Backend Servers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-send-traffic-to-multiple-backend-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancing (Send Traffic to Multiple Backend Servers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-haproxy-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. HAProxy (Load Balancing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. HAProxy (Load Balancing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install HAProxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-with-haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancing with HAProxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kubernetes-ingress-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Kubernetes Ingress Controller
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Kubernetes Ingress Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-an-ingress-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Define an Ingress Resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-one-should-you-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which One Should You Use?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples-docker-for-nginx-apache-haproxy-and-kubernetes-ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Examples: Docker for Nginx, Apache, HAProxy, and Kubernetes Ingress
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Examples: Docker for Nginx, Apache, HAProxy, and Kubernetes Ingress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-nginx-reverse-proxy-load-balancer-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Nginx Reverse Proxy &amp; Load Balancer (With Docker)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Nginx Reverse Proxy &amp; Load Balancer (With Docker)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-two-backend-servers-flask-create-a-directory-for-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create Two Backend Servers (Flask) Create a directory for the project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-dockerfile-for-backend-servers-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create a Dockerfile for Backend Servers Dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-an-nginx-configuration-file-nginxconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create an Nginx Configuration File nginx.conf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-a-docker-compose-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Create a Docker Compose File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-run-the-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Run the Containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-test-load-balancing-run-the-following-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Test Load Balancing Run the following command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expected-output-requests-will-alternate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Output (requests will alternate)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-apache-reverse-proxy-load-balancer-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Apache Reverse Proxy &amp; Load Balancer (With Docker)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Apache Reverse Proxy &amp; Load Balancer (With Docker)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-apache-configuration-file-apacheconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create Apache Configuration File apache.conf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-docker-composeyml-for-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create docker-compose.yml for Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-run-apache-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Run Apache Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-haproxy-load-balancer-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. HAProxy Load Balancer (With Docker)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. HAProxy Load Balancer (With Docker)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-haproxy-configuration-file-haproxycfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create HAProxy Configuration File haproxy.cfg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-docker-composeyml-for-haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create docker-compose.yml for HAProxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-run-haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Run HAProxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kubernetes-ingress-controller_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Kubernetes Ingress Controller
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Kubernetes Ingress Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-deploy-nginx-ingress-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Deploy Nginx Ingress Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-ingress-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create Ingress Resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-apply-ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Apply Ingress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_Databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_Storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_Helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helm Chart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15_Scenario_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scenario #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#networking-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-network-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Network Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Network Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-networking-show-network-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux Networking Show network interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check connectivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-rules-iptables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firewall Rules (iptables)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-kubernetes-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Kubernetes Networking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-docker-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Docker Networking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-cloud-networking-aws-azure-gcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Cloud Networking (AWS, Azure, GCP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Cloud Networking (AWS, Azure, GCP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#azure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Azure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-vpc-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS VPC Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-groups-essentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Groups Essentials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-aws-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common AWS CLI Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common AWS CLI Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpc-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-group-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Group Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#devops-essential-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps Essential Port
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DevOps Essential Port">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#networking-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networking &amp; Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-devops-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD &amp; DevOps Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containerization-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Containerization &amp; Orchestration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring &amp; Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-brokers-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Brokers &amp; Caching
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-servers-reverse-proxies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web Servers &amp; Reverse Proxies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-services-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud Services &amp; Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx-reverse-proxy-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nginx (Reverse Proxy &amp; Load Balancing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nginx (Reverse Proxy &amp; Load Balancing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-nginx-reverse-proxy-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Nginx Reverse Proxy &amp; Load Balancing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Nginx Reverse Proxy &amp; Load Balancing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverse Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-apache-reverse-proxy-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Apache (reverse proxy, load balancing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Apache (reverse proxy, load balancing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-required-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Required Modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxy-forward-requests-to-backend-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverse Proxy (Forward Requests to Backend Servers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-send-traffic-to-multiple-backend-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancing (Send Traffic to Multiple Backend Servers)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-haproxy-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. HAProxy (Load Balancing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. HAProxy (Load Balancing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install HAProxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-with-haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Balancing with HAProxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kubernetes-ingress-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Kubernetes Ingress Controller
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Kubernetes Ingress Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-an-ingress-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Define an Ingress Resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-one-should-you-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which One Should You Use?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples-docker-for-nginx-apache-haproxy-and-kubernetes-ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Examples: Docker for Nginx, Apache, HAProxy, and Kubernetes Ingress
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Examples: Docker for Nginx, Apache, HAProxy, and Kubernetes Ingress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-nginx-reverse-proxy-load-balancer-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Nginx Reverse Proxy &amp; Load Balancer (With Docker)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Nginx Reverse Proxy &amp; Load Balancer (With Docker)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-two-backend-servers-flask-create-a-directory-for-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create Two Backend Servers (Flask) Create a directory for the project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-dockerfile-for-backend-servers-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create a Dockerfile for Backend Servers Dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-an-nginx-configuration-file-nginxconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create an Nginx Configuration File nginx.conf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-a-docker-compose-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Create a Docker Compose File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-run-the-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Run the Containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-test-load-balancing-run-the-following-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Test Load Balancing Run the following command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expected-output-requests-will-alternate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Output (requests will alternate)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-apache-reverse-proxy-load-balancer-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Apache Reverse Proxy &amp; Load Balancer (With Docker)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Apache Reverse Proxy &amp; Load Balancer (With Docker)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-apache-configuration-file-apacheconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create Apache Configuration File apache.conf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-docker-composeyml-for-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create docker-compose.yml for Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-run-apache-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Run Apache Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-haproxy-load-balancer-with-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. HAProxy Load Balancer (With Docker)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. HAProxy Load Balancer (With Docker)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-haproxy-configuration-file-haproxycfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create HAProxy Configuration File haproxy.cfg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-docker-composeyml-for-haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create docker-compose.yml for HAProxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-run-haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Run HAProxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kubernetes-ingress-controller_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Kubernetes Ingress Controller
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Kubernetes Ingress Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-deploy-nginx-ingress-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Deploy Nginx Ingress Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-ingress-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create Ingress Resource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-apply-ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Apply Ingress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="networking-ports-load-balancing">Networking, Ports &amp; Load Balancing</h1>
+<h2 id="networking-basics">Networking Basics</h2>
+<ul>
+<li>IP Addressing<ul>
+<li>Private IPs: <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code></li>
+<li>Public IPs: Assigned by ISPs</li>
+<li>CIDR Notation: 192.168.1.0/24 (Subnet Mask: 255.255.255.0)</li>
+</ul>
+</li>
+<li>Ports<ul>
+<li>HTTP: 80</li>
+<li>HTTPS: 443</li>
+<li>SSH: 22</li>
+<li>DNS: 53</li>
+<li>FTP: 21</li>
+<li>MySQL: 3306</li>
+<li>PostgreSQL: 5432</li>
+</ul>
+</li>
+<li>Protocols<ul>
+<li>TCP (Reliable, connection-based)</li>
+<li>UDP (Fast, connectionless)</li>
+<li>ICMP (Used for ping)</li>
+<li>HTTP(S), FTP, SSH, DNS</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-network-commands">2. Network Commands</h2>
+<h3 id="linux-networking-show-network-interfaces">Linux Networking Show network interfaces</h3>
+<p><div class="language-bash highlight"><span class="filename">Show IP addresses</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip<span class="w"> </span>a
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Older command</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ifconfig
+</span></code></pre></div></p>
+<h3 id="check-connectivity">Check connectivity</h3>
+<p><div class="language-bash highlight"><span class="filename">Check site/host is reachable</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ping<span class="w"> </span>google.com
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Trace route</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>traceroute<span class="w"> </span>google.com
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Query Internet name servers</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>nslookup<span class="w"> </span>google.com
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">DNS lookup</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dig<span class="w"> </span>google.com
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Test ports</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>telnet<span class="w"> </span>google.com<span class="w"> </span><span class="m">80</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>nc<span class="w"> </span>-zv<span class="w"> </span>google.com<span class="w"> </span><span class="m">443</span>
+</span></code></pre></div></p>
+<h3 id="firewall-rules-iptables">Firewall Rules (iptables)</h3>
+<p><div class="language-bash highlight"><span class="filename">List firewall rules</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>iptables<span class="w"> </span>-L<span class="w"> </span>-v
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Allow SSH</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Block an IP</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.1.100<span class="w"> </span>-j<span class="w"> </span>DROP
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Netcat (nc) Start a simple TCP listener</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>nc<span class="w"> </span>-lvp<span class="w"> </span><span class="m">8080</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Send data to a listening server</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>nc<span class="w"> </span><span class="m">192</span>.168.1.100<span class="w"> </span><span class="m">8080</span>
+</span></code></pre></div></p>
+<h2 id="3-kubernetes-networking">3. Kubernetes Networking</h2>
+<p><div class="language-bash highlight"><span class="filename">List services and their endpoints</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>-o<span class="w"> </span>wide
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Get pods and their IPs</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-o<span class="w"> </span>wide
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Port forward a service</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/my-service<span class="w"> </span><span class="m">8080</span>:80
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Expose a pod</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>kubectl<span class="w"> </span>expose<span class="w"> </span>pod<span class="w"> </span>mypod<span class="w"> </span>--type<span class="o">=</span>NodePort<span class="w"> </span>--port<span class="o">=</span><span class="m">80</span>
+</span></code></pre></div></p>
+<h2 id="4-docker-networking">4. Docker Networking</h2>
+<p><div class="language-bash highlight"><span class="filename">List networks</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker<span class="w"> </span>network<span class="w"> </span>ls
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Inspect a network</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>bridge
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a custom network</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>mynetwork
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run a container in a custom network</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--network<span class="o">=</span>mynetwork<span class="w"> </span>nginx
+</span></code></pre></div></p>
+<h2 id="5-cloud-networking-aws-azure-gcp">5. Cloud Networking (AWS, Azure, GCP)</h2>
+<h3 id="aws">AWS</h3>
+<p><div class="language-bash highlight"><span class="filename">List VPCs</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-vpcs
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List subnets</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-subnets
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Open security group port</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>authorize-security-group-ingress<span class="w"> </span>--group-id<span class="w"> </span>sg-12345<span class="w"> </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--port<span class="w"> </span><span class="m">22</span><span class="w"> </span>--cidr<span class="w"> </span><span class="m">0</span>.0.0.0/0
+</span></code></pre></div></p>
+<h3 id="azure">Azure</h3>
+<p><div class="language-bash highlight"><span class="filename">List VNets</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>az<span class="w"> </span>network<span class="w"> </span>vnet<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List NSGs</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>az<span class="w"> </span>network<span class="w"> </span>nsg<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>table
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Open a port in NSG</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>az<span class="w"> </span>network<span class="w"> </span>nsg<span class="w"> </span>rule<span class="w"> </span>create<span class="w"> </span>--resource-group<span class="w"> </span>MyGroup<span class="w"> </span>--nsg-name<span class="w"> </span>MyNSG<span class="w"> </span>--name<span class="w"> </span>AllowSSH<span class="w"> </span>--protocol<span class="w"> </span>Tcp<span class="w"> </span>--direction<span class="w"> </span>Inbound<span class="w"> </span>--priority<span class="w"> </span><span class="m">100</span><span class="w"> </span>--source-address-prefixes<span class="s1">&#39;\*&#39;</span><span class="w"> </span>--source-port-ranges<span class="w"> </span><span class="s1">&#39;\*&#39;</span><span class="w"> </span>--destination-port-ranges<span class="w"> </span><span class="m">22</span><span class="w"> </span>--access<span class="w"> </span>Allow
+</span></code></pre></div></p>
+<h3 id="aws-vpc-basics">AWS VPC Basics</h3>
+<ul>
+<li>Definition: A logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network.</li>
+<li>CIDR Block: Define the IP range (e.g., 10.0.0.0/16).</li>
+<li>Components:<ul>
+<li>Subnets: Divide your VPC into public (with internet access) and private (without direct internet access) segments.</li>
+<li>Route Tables: Control the traffic routing for subnets.</li>
+<li>Internet Gateway (IGW): Allows communication between instances in your VPC and the internet.</li>
+<li>NAT Gateway/Instance: Enables outbound internet access for instances in private subnets.</li>
+<li>VPC Peering: Connects multiple VPCs.</li>
+<li>VPN Connections &amp; Direct Connect: Securely link your on-premises network with your VPC.</li>
+<li>VPC Endpoints: Privately connect your VPC to supported AWS services.</li>
+</ul>
+</li>
+</ul>
+<h3 id="security-groups-essentials">Security Groups Essentials</h3>
+<ul>
+<li>Definition: Virtual firewalls that control inbound and outbound traffic for your EC2 instances.</li>
+<li>Key Characteristics:<ul>
+<li>Stateful: Return traffic is automatically allowed regardless of inbound/outbound rules.</li>
+<li>Default Behavior: All outbound traffic is allowed; inbound is denied until explicitly allowed.</li>
+</ul>
+</li>
+<li>Rule Components:<ul>
+<li>Protocol: (TCP, UDP, ICMP, etc.)</li>
+<li>Port Range: Specific ports or a range (e.g., port 80 for HTTP).</li>
+<li>Source/Destination: IP addresses or CIDR blocks (e.g., 0.0.0.0/0 for all).</li>
+</ul>
+</li>
+<li>Usage:<ul>
+<li>Assign one or more security groups to an instance.</li>
+<li>Modify rules anytime without stopping or restarting the instance.</li>
+</ul>
+</li>
+</ul>
+<h3 id="common-aws-cli-commands">Common AWS CLI Commands</h3>
+<h4 id="vpc-operations">VPC Operations</h4>
+<p><div class="language-bash highlight"><span class="filename">Create a VPC:</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>create-vpc<span class="w"> </span>--cidr-block<span class="w"> </span><span class="m">10</span>.0.0.0/16
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create a Subnet:</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>create-subnet<span class="w"> </span>--vpc-id<span class="w"> </span>&lt;vpc-id&gt;<span class="w"> </span>--cidr-block<span class="w"> </span><span class="m">10</span>.0.1.0/24
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create & Attach an Internet Gateway:</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>create-internet-gateway
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>aws<span class="w"> </span>ec2<span class="w"> </span>attach-internet-gateway<span class="w"> </span>--vpc-id<span class="w"> </span>&lt;vpc-id&gt;<span class="w"> </span>--internet-gateway-id<span class="w"> </span>&lt;igw-id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Associate a Route Table:</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>associate-route-table<span class="w"> </span>--subnet-id<span class="w"> </span>&lt;subnet-id&gt;<span class="w"> </span>--route-table-id<span class="w"> </span>&lt;rtb-id&gt;
+</span></code></pre></div></p>
+<h4 id="security-group-operations">Security Group Operations</h4>
+<p><div class="language-bash highlight"><span class="filename">Create a Security Group:</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>create-security-group<span class="w"> </span>--group-name<span class="w"> </span>MySecurityGroup<span class="w"> </span>--description<span class="w"> </span><span class="s2">&quot;My security group&quot;</span><span class="w"> </span>--vpc-id<span class="w"> </span>&lt;vpc-id&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Authorize Inbound Traffic:</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>authorize-security-group-ingress<span class="w"> </span>--group-id<span class="w"> </span>&lt;sg-id&gt;<span class="w"> </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--port<span class="w"> </span><span class="m">80</span><span class="w"> </span>--cidr<span class="w"> </span><span class="m">0</span>.0.0.0/0
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Authorize Outbound Traffic (if restricting defaults):</span><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>authorize-security-group-egress<span class="w"> </span>--group-id<span class="w"> </span>&lt;sg-id&gt;<span class="w"> </span>--protocol<span class="w"> </span>tcp<span class="w"> </span>--port<span class="w"> </span><span class="m">443</span><span class="w"> </span>--cidr<span class="w"> </span><span class="m">0</span>.0.0.0/0
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List Security Groups:</span><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-security-groups
+</span></code></pre></div></p>
+<h2 id="ports">Ports</h2>
+<h3 id="devops-essential-port">DevOps Essential Port</h3>
+<h4 id="networking-security">Networking &amp; Security</h4>
+<ul>
+<li><strong>SSH</strong> <code>22</code> (Secure remote access)</li>
+<li><strong>FTP</strong> <code>21</code> (File Transfer Protocol)</li>
+<li><strong>SFTP</strong> <code>22</code> (Secure File Transfer Protocol)</li>
+<li><strong>Telnet</strong> <code>23</code> (Unsecured remote access)</li>
+<li><strong>SMTP</strong> <code>25, 587</code> (Email sending)</li>
+<li><strong>DNS</strong> <code>53</code> (Domain Name System)</li>
+<li><strong>DHCP</strong> <code>67/68</code> (Dynamic IP assignment)</li>
+<li><strong>HTTP</strong> <code>80</code> (Default web traffic)</li>
+<li><strong>HTTPS</strong> <code>443</code> (Secure web traffic)</li>
+<li><strong>SMB</strong> <code>445</code> (Windows file sharing)</li>
+<li><strong>LDAP</strong> <code>389</code> (Directory services)</li>
+<li><strong>LDAPS</strong> <code>636</code> (Secure LDAP)</li>
+<li><strong>RDP</strong> <code>3389</code> (Remote Desktop Protocol)</li>
+</ul>
+<h4 id="cicd-devops-tools">CI/CD &amp; DevOps Tools</h4>
+<ul>
+<li><strong>Jenkins</strong> <code>8080</code> (CI/CD automation server)</li>
+<li><strong>Git</strong> <code>9418</code> (Git repository access)</li>
+<li><strong>SonarQube</strong> <code>9000</code> (Code quality analysis)</li>
+<li><strong>Nexus Repository</strong> <code>8081</code> (Artifact repository)</li>
+<li><strong>Harbor</strong> <code>443</code> (Container registry)</li>
+<li><strong>GitLab CI/CD</strong> <code>443, 80, 22</code> (GitLab services &amp; SSH)</li>
+<li><strong>Bitbucket</strong> <code>7990</code> (Bitbucket web UI)</li>
+<li><strong>TeamCity</strong> <code>8111</code> (CI/CD server)</li>
+</ul>
+<h4 id="containerization-orchestration">Containerization &amp; Orchestration</h4>
+<ul>
+<li><strong>Docker Registry</strong> <code>5000</code> (Private Docker Registry)</li>
+<li><strong>Kubernetes API Server</strong> <code>6443</code> (Cluster API)</li>
+<li><strong>Kubelet</strong> <code>10250</code> (Node agent)</li>
+<li><strong>ETCD (Kubernetes Storage)</strong> <code>2379-2380</code> (Key-value store)</li>
+<li><strong>Flannel (Kubernetes Networking)</strong> <code>8285/8286</code> (Overlay network)</li>
+<li><strong>Calico (Kubernetes Networking)</strong> <code>179</code> (BGP Protocol)</li>
+<li><strong>Istio Ingress Gateway</strong> <code>15021, 15090</code> (Service mesh ingress)</li>
+</ul>
+<h4 id="monitoring-logging">Monitoring &amp; Logging</h4>
+<ul>
+<li><strong>Prometheus</strong> <code>9090</code> (Metrics monitoring)</li>
+<li><strong>Grafana</strong> <code>3000</code> (Visualization dashboard)</li>
+<li><strong>Elasticsearch</strong> <code>9200</code> (Search &amp; analytics engine)</li>
+<li><strong>Logstash</strong> <code>5044</code> (Log ingestion)</li>
+<li><strong>Fluentd</strong> <code>24224</code> (Log collector)</li>
+<li><strong>Kibana</strong> <code>5601</code> (Log visualization)</li>
+<li><strong>Loki</strong> <code>3100</code> (Log aggregation)</li>
+<li><strong>Jaeger</strong> <code>16686</code> (Tracing UI)</li>
+</ul>
+<h4 id="databases">Databases</h4>
+<ul>
+<li><strong>PostgreSQL</strong> <code>5432</code> (Relational database)</li>
+<li><strong>MySQL/MariaDB</strong> <code>3306</code> (Relational database)</li>
+<li><strong>MongoDB</strong> <code>27017</code> (NoSQL database)</li>
+<li><strong>Redis</strong> <code>6379</code> (In-memory database)</li>
+<li><strong>Cassandra</strong> <code>9042</code> (NoSQL distributed database)</li>
+<li><strong>CockroachDB</strong> <code>26257</code> (Distributed SQL database)</li>
+<li><strong>Neo4j</strong> <code>7474</code> (Graph database UI), 7687 (Bolt protocol)</li>
+<li><strong>InfluxDB</strong> <code>8086</code> (Time-series database)</li>
+<li><strong>Couchbase</strong> <code>8091</code> (Web UI), 11210 (Data access)</li>
+</ul>
+<h4 id="message-brokers-caching">Message Brokers &amp; Caching</h4>
+<ul>
+<li><strong>Kafka</strong> <code>9092</code> (Event streaming)</li>
+<li><strong>RabbitMQ</strong> <code>5672</code> (Message broker)</li>
+<li><strong>ActiveMQ</strong> <code>61616</code> (JMS messaging)</li>
+<li><strong>NATS</strong> <code>4222</code> (High-performance messaging)</li>
+<li><strong>Memcached</strong> <code>11211</code> (In-memory caching)</li>
+</ul>
+<h4 id="web-servers-reverse-proxies">Web Servers &amp; Reverse Proxies</h4>
+<ul>
+<li><strong>Nginx</strong> <code>80, 443</code> (Web server &amp; reverse proxy)</li>
+<li><strong>Apache HTTP</strong> <code>80, 443</code> (Web server)</li>
+<li><strong>HAProxy</strong> <code>443, 80</code> (Load balancer)</li>
+<li><strong>Caddy</strong> <code>2019</code> (API endpoint)</li>
+</ul>
+<h4 id="cloud-services-storage">Cloud Services &amp; Storage</h4>
+<ul>
+<li><strong>AWS S3</strong> <code>443</code> (Object storage API)</li>
+<li><strong>AWS RDS</strong> <code>3306, 5432, 1433</code> (Managed databases)</li>
+<li><strong>Azure Blob Storage</strong> <code>443</code> (Storage API)</li>
+<li><strong>Google Cloud Storage</strong> <code>443</code> (Object storage API)</li>
+<li><strong>MinIO</strong> <code>9000</code> (S3-compatible storage)</li>
+</ul>
+<h2 id="nginx-reverse-proxy-load-balancing">Nginx (Reverse Proxy &amp; Load Balancing)</h2>
+<div class="admonition info">
+<p class="admonition-title">What is a Reverse Proxy?</p>
+<p>A Reverse Proxy is a server that forwards client requests to backend servers. It helps:</p>
+</div>
+<ul>
+<li>Improve security by hiding backend servers.</li>
+<li>Handle traffic and reduce load on backend servers.</li>
+<li>Improve performance with caching and compression.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">What is Load Balancing?</p>
+<p>Load Balancing distributes traffic across multiple servers to:</p>
+</div>
+<ul>
+<li>Prevent overloading of a single server.</li>
+<li>Ensure high availability (if one server fails, others handle traffic).</li>
+<li>Improve speed and performance.</li>
+</ul>
+<h3 id="1-nginx-reverse-proxy-load-balancing">1. Nginx Reverse Proxy &amp; Load Balancing</h3>
+<h4 id="reverse-proxy">Reverse Proxy</h4>
+<div class="admonition note">
+<p class="admonition-title">Reverse Proxy (Forward Requests to Backend)</p>
+<p>When a user visits example.com, Nginx forwards the request to the backend server.</p>
+</div>
+<ul>
+<li>Configuration File (nginx.conf)</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>server { 
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>    listen 80; # Listen for requests on port 80
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>    server_name example.com; # Your domain name
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>    location / {
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>        proxy_pass http://backend_servers; # Forward requests to backend 
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>        proxy_set_header Host $host; # Keep the original host 
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>        proxy_set_header X-Real-IP $remote_addr; # Send real client IP 
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>    }
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>}
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">What This Does:</p>
+<ul>
+<li>Nginx forwards requests from example.com to backend servers.</li>
+<li>proxy_pass tells Nginx where to send traffic.</li>
+<li>Keeps client IP and host name intact for logs.</li>
+</ul>
+</div>
+<h4 id="load-balancing">Load Balancing</h4>
+<div class="admonition note">
+<p class="admonition-title">Load Balancing (Distribute Traffic Across Multiple Servers)</p>
+<p>Instead of sending all traffic to one server, Nginx distributes it across multiple servers.</p>
+</div>
+<ul>
+<li>Configuration File (nginx.conf)</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>upstream backend_servers {
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>  server server1.example.com; # Backend Server 1 
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>  server server2.example.com; # Backend Server 2
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>}
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>server {
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>  listen 80;
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>  server_name example.com;
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>  location / {
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>    proxy_pass http://backend_servers; # Send traffic to multiple backend servers
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>  }
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>}
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">What This Does:</p>
+<ul>
+<li>upstream defines multiple backend servers.</li>
+<li>Traffic is balanced between server1 and server2.</li>
+<li>Default method: Round-robin (each request goes to the next server).</li>
+</ul>
+</div>
+<h3 id="2-apache-reverse-proxy-load-balancing">2. Apache (reverse proxy, load balancing)</h3>
+<h4 id="enable-required-modules">Enable Required Modules</h4>
+<div class="admonition warning">
+<p>Before using Apache as a Reverse Proxy, enable these modules:</p>
+</div>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>a2enmod<span class="w"> </span>proxy
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>a2enmod<span class="w"> </span>proxy_http
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>a2enmod<span class="w"> </span>proxy_balancer
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>a2enmod<span class="w"> </span>lbmethod_byrequests
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2<span class="w"> </span><span class="c1"># Restart Apache for changes</span>
+</span></code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">What This Does:</p>
+<p>These modules allow Apache to forward requests and balance traffic.</p>
+</div>
+<h4 id="reverse-proxy-forward-requests-to-backend-servers">Reverse Proxy (Forward Requests to Backend Servers)</h4>
+<ul>
+<li>Configuration File (apache.conf)</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>&lt;VirtualHost \*:80&gt;
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>  ServerName example.com # Domain handled by Apache
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>  ProxyPass &quot;/&quot; &quot;http://backend_servers/&quot; 
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>  ProxyPassReverse &quot;/&quot; &quot;http://backend_servers/&quot;
+</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>&lt;/VirtualHost&gt;
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">What This Does:</p>
+<ul>
+<li>Apache listens on example.com and forwards requests to backend servers.</li>
+<li>ProxyPassReverse ensures responses return correctly to the client.</li>
+</ul>
+</div>
+<h4 id="load-balancing-send-traffic-to-multiple-backend-servers">Load Balancing (Send Traffic to Multiple Backend Servers)</h4>
+<ul>
+<li>Configuration File (apache.conf)</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>&lt;Proxy &quot;balancer://mycluster&quot;&gt;
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>  BalancerMember &quot;http://server1.example.com&quot; 
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>  BalancerMember &quot;http://server2.example.com&quot;
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>&lt;/Proxy&gt;
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>&lt;VirtualHost \*:80&gt;
+</span><span id="__span-42-7"><a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>  ServerName example.com
+</span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>
+</span><span id="__span-42-9"><a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a>  ProxyPass &quot;/&quot; &quot;balancer://mycluster/&quot;
+</span><span id="__span-42-10"><a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a>  ProxyPassReverse &quot;/&quot; &quot;balancer://mycluster/&quot;
+</span><span id="__span-42-11"><a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a>&lt;/VirtualHost&gt;
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">What This Does:</p>
+<ul>
+<li>BalancerMember defines multiple backend servers.</li>
+<li>Apache automatically distributes traffic using round-robin.</li>
+</ul>
+</div>
+<h3 id="3-haproxy-load-balancing">3. HAProxy (Load Balancing)</h3>
+<div class="admonition note">
+<p>HAProxy is a lightweight and high-performance Load Balancer for web applications.</p>
+</div>
+<h4 id="install-haproxy">Install HAProxy</h4>
+<p><div class="language-bash highlight"><span class="filename">Ubuntu/Debian</span><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>apt<span class="w"> </span>install<span class="w"> </span>haproxy
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">RHEL/CentOS</span><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>yum<span class="w"> </span>install<span class="w"> </span>haproxy
+</span></code></pre></div></p>
+<h4 id="load-balancing-with-haproxy">Load Balancing with HAProxy</h4>
+<ul>
+<li>Configuration File (haproxy.cfg)</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>frontend http_front
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>  bind \*:80 # Accept traffic on port 80
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>  default_backend backend_servers # Forward traffic to backend servers
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>backend backend_servers
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>  balance roundrobin # Distribute traffic evenly
+</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>  server server1 server1.example.com:80 check # First server
+</span><span id="__span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>  server server2 server2.example.com:80 check # Second server
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">What This Does:</p>
+<ul>
+<li>frontend handles incoming requests.</li>
+<li>backend defines multiple backend servers.</li>
+<li>Round-robin ensures traffic is evenly distributed.</li>
+<li>check makes sure only healthy servers receive traffic.</li>
+</ul>
+</div>
+<p><div class="language-bash highlight"><span class="filename">Restart HAProxy</span><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>haproxy
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Enable on startup</span><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>haproxy
+</span></code></pre></div></p>
+<h3 id="4-kubernetes-ingress-controller">4. Kubernetes Ingress Controller</h3>
+<ul>
+<li>Install Nginx Ingress Controller</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">What This Does:</p>
+<p>Installs Nginx Ingress Controller for managing external traffic in Kubernetes.</p>
+</div>
+<h4 id="define-an-ingress-resource">Define an Ingress Resource</h4>
+<ul>
+<li>Configuration File (ingress.yaml)</li>
+</ul>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span><span class="w"> </span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-ingress</span><span class="w"> </span>
+</span><span id="__span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="w"> </span><span class="nt">annotations</span><span class="p">:</span>
+</span><span id="__span-49-6"><a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="w">  </span><span class="nt">nginx.ingress.kubernetes.io/rewrite-target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="w"> </span><span class="c1"># Optional URL rewrite </span>
+</span><span id="__span-49-7"><a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-49-8"><a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a><span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-49-9"><a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span><span class="w"> </span><span class="c1"># Define the domain </span>
+</span><span id="__span-49-10"><a id="__codelineno-49-10" name="__codelineno-49-10" href="#__codelineno-49-10"></a><span class="w">    </span><span class="nt">http</span><span class="p">:</span>
+</span><span id="__span-49-11"><a id="__codelineno-49-11" name="__codelineno-49-11" href="#__codelineno-49-11"></a><span class="w">      </span><span class="nt">paths</span><span class="p">:</span>
+</span><span id="__span-49-12"><a id="__codelineno-49-12" name="__codelineno-49-12" href="#__codelineno-49-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="w"> </span>
+</span><span id="__span-49-13"><a id="__codelineno-49-13" name="__codelineno-49-13" href="#__codelineno-49-13"></a><span class="w">        </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+</span><span id="__span-49-14"><a id="__codelineno-49-14" name="__codelineno-49-14" href="#__codelineno-49-14"></a><span class="w">      </span><span class="nt">backend</span><span class="p">:</span>
+</span><span id="__span-49-15"><a id="__codelineno-49-15" name="__codelineno-49-15" href="#__codelineno-49-15"></a><span class="w">        </span><span class="nt">service</span><span class="p">:</span>
+</span><span id="__span-49-16"><a id="__codelineno-49-16" name="__codelineno-49-16" href="#__codelineno-49-16"></a><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-service</span><span class="w"> </span><span class="c1"># Forward traffic to this Kubernetes service</span>
+</span><span id="__span-49-17"><a id="__codelineno-49-17" name="__codelineno-49-17" href="#__codelineno-49-17"></a><span class="w">          </span><span class="nt">port</span><span class="p">:</span>
+</span><span id="__span-49-18"><a id="__codelineno-49-18" name="__codelineno-49-18" href="#__codelineno-49-18"></a><span class="w">            </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">What This Does:</p>
+<ul>
+<li>Routes traffic from example.com to my-service inside Kubernetes.</li>
+<li>Annotations modify behavior (like URL rewriting).</li>
+</ul>
+</div>
+<ul>
+<li>Verify Ingress is Working</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>ingress<span class="w"> </span>kubectl<span class="w"> </span>describe<span class="w"> </span>ingress<span class="w"> </span>my-ingress
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">What This Does:</p>
+<ul>
+<li>kubectl get ingress → Checks if Ingress exists.</li>
+<li>kubectl describe ingress → Shows detailed configuration.</li>
+</ul>
+</div>
+<h3 id="which-one-should-you-use">Which One Should You Use?</h3>
+<ul>
+<li>For a simple website/API → Use Nginx Reverse Proxy.</li>
+<li>For balancing multiple servers → Use Nginx, Apache, or HAProxy.</li>
+<li>For Kubernetes applications → Use Ingress Controller.</li>
+</ul>
+<h2 id="practical-examples-docker-for-nginx-apache-haproxy-and-kubernetes-ingress">Practical Examples: Docker for Nginx, Apache, HAProxy, and Kubernetes Ingress</h2>
+<ul>
+<li>Step-by-step practical examples using Docker for Nginx, Apache, HAProxy, and Kubernetes Ingress.</li>
+</ul>
+<h3 id="1-nginx-reverse-proxy-load-balancer-with-docker">1. Nginx Reverse Proxy &amp; Load Balancer (With Docker)</h3>
+<div class="admonition note">
+<p class="admonition-title">Scenario:</p>
+<p>We have two backend servers running a Python Flask application, and we want Nginx to act as a Reverse Proxy and Load Balancer.</p>
+</div>
+<h4 id="step-1-create-two-backend-servers-flask-create-a-directory-for-the-project">Step 1: Create Two Backend Servers (Flask) Create a directory for the project</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>mkdir<span class="w"> </span>nginx-loadbalancer<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>nginx-loadbalancer
+</span></code></pre></div>
+<ul>
+<li>server1.py (Backend Server 1)</li>
+</ul>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span>
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>
+</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</span><span id="__span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">home</span><span class="p">():</span>
+</span><span id="__span-52-6"><a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>  <span class="k">return</span> <span class="s2">&quot;Hello from Server 1&quot;</span>
+</span><span id="__span-52-7"><a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a>
+</span><span id="__span-52-8"><a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a><span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39; main &#39;</span><span class="p">:</span>
+</span><span id="__span-52-9"><a id="__codelineno-52-9" name="__codelineno-52-9" href="#__codelineno-52-9"></a>  <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</span></code></pre></div>
+<ul>
+<li>server2.py (Backend Server 2)</li>
+</ul>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">home</span><span class="p">():</span>
+</span><span id="__span-53-6"><a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>  <span class="k">return</span> <span class="s2">&quot;Hello from Server 2&quot;</span>
+</span><span id="__span-53-7"><a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>
+</span><span id="__span-53-8"><a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a><span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39; main &#39;</span><span class="p">:</span>
+</span><span id="__span-53-9"><a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a>  <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="step-2-create-a-dockerfile-for-backend-servers-dockerfile">Step 2: Create a Dockerfile for Backend Servers Dockerfile</h4>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.9</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>
+</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="k">COPY</span><span class="w"> </span>server1.py<span class="w"> </span>/app/
+</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a>
+</span><span id="__span-54-7"><a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>flask
+</span><span id="__span-54-8"><a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a>
+</span><span id="__span-54-9"><a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;server1.py&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p>For server2.py, create another Dockerfile and replace <code>server1.py</code> with <code>server2.py</code></p>
+</div>
+<h4 id="step-3-create-an-nginx-configuration-file-nginxconf">Step 3: Create an Nginx Configuration File nginx.conf</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>events {}
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>http {
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>  upstream backend_servers {
+</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>    server server1:5000;
+</span><span id="__span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>    server server2:5000;
+</span><span id="__span-55-6"><a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a>  }
+</span><span id="__span-55-7"><a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a>
+</span><span id="__span-55-8"><a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a>  server {
+</span><span id="__span-55-9"><a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a>    listen 80;
+</span><span id="__span-55-10"><a id="__codelineno-55-10" name="__codelineno-55-10" href="#__codelineno-55-10"></a>    server_name localhost;
+</span><span id="__span-55-11"><a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a>    location / {
+</span><span id="__span-55-12"><a id="__codelineno-55-12" name="__codelineno-55-12" href="#__codelineno-55-12"></a>      proxy_pass http://backend_servers;
+</span><span id="__span-55-13"><a id="__codelineno-55-13" name="__codelineno-55-13" href="#__codelineno-55-13"></a>      proxy_set_header Host $host;
+</span><span id="__span-55-14"><a id="__codelineno-55-14" name="__codelineno-55-14" href="#__codelineno-55-14"></a>      proxy_set_header X-Real-IP $remote_addr;
+</span><span id="__span-55-15"><a id="__codelineno-55-15" name="__codelineno-55-15" href="#__codelineno-55-15"></a>      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+</span><span id="__span-55-16"><a id="__codelineno-55-16" name="__codelineno-55-16" href="#__codelineno-55-16"></a>    }
+</span><span id="__span-55-17"><a id="__codelineno-55-17" name="__codelineno-55-17" href="#__codelineno-55-17"></a>  }
+</span><span id="__span-55-18"><a id="__codelineno-55-18" name="__codelineno-55-18" href="#__codelineno-55-18"></a>}
+</span></code></pre></div>
+<h4 id="step-4-create-a-docker-compose-file">Step 4: Create a Docker Compose File</h4>
+<ul>
+<li>docker-compose.yml</li>
+</ul>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="w">  </span><span class="nt">server1</span><span class="p">:</span>
+</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-56-5"><a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">container_name:server1</span>
+</span><span id="__span-56-6"><a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-56-7"><a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5001:5000&quot;</span>
+</span><span id="__span-56-8"><a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a>
+</span><span id="__span-56-9"><a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a><span class="w">  </span><span class="nt">server2</span><span class="p">:</span>
+</span><span id="__span-56-10"><a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-56-11"><a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">container_name:server2</span>
+</span><span id="__span-56-12"><a id="__codelineno-56-12" name="__codelineno-56-12" href="#__codelineno-56-12"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-56-13"><a id="__codelineno-56-13" name="__codelineno-56-13" href="#__codelineno-56-13"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5002:5000&quot;</span>
+</span><span id="__span-56-14"><a id="__codelineno-56-14" name="__codelineno-56-14" href="#__codelineno-56-14"></a>
+</span><span id="__span-56-15"><a id="__codelineno-56-15" name="__codelineno-56-15" href="#__codelineno-56-15"></a><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span>
+</span><span id="__span-56-16"><a id="__codelineno-56-16" name="__codelineno-56-16" href="#__codelineno-56-16"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:latest</span>
+</span><span id="__span-56-17"><a id="__codelineno-56-17" name="__codelineno-56-17" href="#__codelineno-56-17"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx_proxy</span>
+</span><span id="__span-56-18"><a id="__codelineno-56-18" name="__codelineno-56-18" href="#__codelineno-56-18"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-56-19"><a id="__codelineno-56-19" name="__codelineno-56-19" href="#__codelineno-56-19"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+</span><span id="__span-56-20"><a id="__codelineno-56-20" name="__codelineno-56-20" href="#__codelineno-56-20"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-56-21"><a id="__codelineno-56-21" name="__codelineno-56-21" href="#__codelineno-56-21"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./nginx.conf:/etc/nginx/nginx.conf</span>
+</span><span id="__span-56-22"><a id="__codelineno-56-22" name="__codelineno-56-22" href="#__codelineno-56-22"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-56-23"><a id="__codelineno-56-23" name="__codelineno-56-23" href="#__codelineno-56-23"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server1</span>
+</span><span id="__span-56-24"><a id="__codelineno-56-24" name="__codelineno-56-24" href="#__codelineno-56-24"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server2</span>
+</span></code></pre></div>
+<h4 id="step-5-run-the-containers">Step 5: Run the Containers</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>--build
+</span></code></pre></div>
+<h4 id="step-6-test-load-balancing-run-the-following-command">Step 6: Test Load Balancing Run the following command</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>curl<span class="w"> </span>http://localhost
+</span></code></pre></div>
+<h4 id="expected-output-requests-will-alternate">Expected Output (requests will alternate)</h4>
+<ul>
+<li>Hello from Server 1</li>
+<li>Hello from Server 2</li>
+<li>Hello from Server 1</li>
+<li>Hello from Server 2</li>
+</ul>
+<h3 id="2-apache-reverse-proxy-load-balancer-with-docker">2. Apache Reverse Proxy &amp; Load Balancer (With Docker)</h3>
+<h4 id="step-1-create-apache-configuration-file-apacheconf">Step 1: Create Apache Configuration File <code>apache.conf</code></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>&lt;VirtualHost \*:80&gt;
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>  ServerName localhost
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>  &lt;Proxy &quot;balancer://mycluster&quot;&gt;
+</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a>    BalancerMember &quot;http://server1:5000&quot;
+</span><span id="__span-59-5"><a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a>    BalancerMember &quot;http://server2:5000&quot;
+</span><span id="__span-59-6"><a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a>  &lt;/Proxy&gt;
+</span><span id="__span-59-7"><a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a>
+</span><span id="__span-59-8"><a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>  ProxyPass &quot;/&quot; &quot;balancer://mycluster/&quot;
+</span><span id="__span-59-9"><a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a>  ProxyPassReverse &quot;/&quot; &quot;balancer://mycluster/&quot;
+</span><span id="__span-59-10"><a id="__codelineno-59-10" name="__codelineno-59-10" href="#__codelineno-59-10"></a>&lt;/VirtualHost&gt;
+</span></code></pre></div>
+<h4 id="step-2-create-docker-composeyml-for-apache">Step 2: Create docker-compose.yml for Apache</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-60-3"><a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a><span class="w">  </span><span class="nt">server1</span><span class="p">:</span>
+</span><span id="__span-60-4"><a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-60-5"><a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">container_name:server1</span>
+</span><span id="__span-60-6"><a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-60-7"><a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5001:5000&quot;</span>
+</span><span id="__span-60-8"><a id="__codelineno-60-8" name="__codelineno-60-8" href="#__codelineno-60-8"></a><span class="w">  </span><span class="nt">server2</span><span class="p">:</span>
+</span><span id="__span-60-9"><a id="__codelineno-60-9" name="__codelineno-60-9" href="#__codelineno-60-9"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-60-10"><a id="__codelineno-60-10" name="__codelineno-60-10" href="#__codelineno-60-10"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">container_name:server2</span>
+</span><span id="__span-60-11"><a id="__codelineno-60-11" name="__codelineno-60-11" href="#__codelineno-60-11"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-60-12"><a id="__codelineno-60-12" name="__codelineno-60-12" href="#__codelineno-60-12"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5002:5000&quot;</span>
+</span><span id="__span-60-13"><a id="__codelineno-60-13" name="__codelineno-60-13" href="#__codelineno-60-13"></a><span class="w">  </span><span class="nt">apache</span><span class="p">:</span>
+</span><span id="__span-60-14"><a id="__codelineno-60-14" name="__codelineno-60-14" href="#__codelineno-60-14"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd:latest</span>
+</span><span id="__span-60-15"><a id="__codelineno-60-15" name="__codelineno-60-15" href="#__codelineno-60-15"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apache_proxy</span>
+</span><span id="__span-60-16"><a id="__codelineno-60-16" name="__codelineno-60-16" href="#__codelineno-60-16"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-60-17"><a id="__codelineno-60-17" name="__codelineno-60-17" href="#__codelineno-60-17"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+</span><span id="__span-60-18"><a id="__codelineno-60-18" name="__codelineno-60-18" href="#__codelineno-60-18"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-60-19"><a id="__codelineno-60-19" name="__codelineno-60-19" href="#__codelineno-60-19"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./apache.conf:/usr/local/apache2/conf/httpd.conf</span>
+</span><span id="__span-60-20"><a id="__codelineno-60-20" name="__codelineno-60-20" href="#__codelineno-60-20"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-60-21"><a id="__codelineno-60-21" name="__codelineno-60-21" href="#__codelineno-60-21"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server1</span>
+</span><span id="__span-60-22"><a id="__codelineno-60-22" name="__codelineno-60-22" href="#__codelineno-60-22"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server2</span>
+</span></code></pre></div>
+<h4 id="step-3-run-apache-proxy">Step 3: Run Apache Proxy</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>--build
+</span></code></pre></div>
+<h3 id="3-haproxy-load-balancer-with-docker">3. HAProxy Load Balancer (With Docker)</h3>
+<h4 id="step-1-create-haproxy-configuration-file-haproxycfg">Step 1: Create HAProxy Configuration File <code>haproxy.cfg</code></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>frontend http_front
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>  bind \*:80
+</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a>  default_backend backend_servers
+</span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a>backend backend_servers
+</span><span id="__span-62-5"><a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a>  balance roundrobin
+</span><span id="__span-62-6"><a id="__codelineno-62-6" name="__codelineno-62-6" href="#__codelineno-62-6"></a>  server server1 server1:5000 check
+</span><span id="__span-62-7"><a id="__codelineno-62-7" name="__codelineno-62-7" href="#__codelineno-62-7"></a>  server server2 server2:5000 check
+</span></code></pre></div>
+<h4 id="step-2-create-docker-composeyml-for-haproxy">Step 2: Create <code>docker-compose.yml</code> for HAProxy</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-63-3"><a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="w">  </span><span class="nt">server1</span><span class="p">:</span>
+</span><span id="__span-63-4"><a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-63-5"><a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">container_name:server1</span>
+</span><span id="__span-63-6"><a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-63-7"><a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5001:5000&quot;</span>
+</span><span id="__span-63-8"><a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a><span class="w">  </span><span class="nt">server2</span><span class="p">:</span>
+</span><span id="__span-63-9"><a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-63-10"><a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">container_name:server2</span>
+</span><span id="__span-63-11"><a id="__codelineno-63-11" name="__codelineno-63-11" href="#__codelineno-63-11"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-63-12"><a id="__codelineno-63-12" name="__codelineno-63-12" href="#__codelineno-63-12"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5002:5000&quot;</span>
+</span><span id="__span-63-13"><a id="__codelineno-63-13" name="__codelineno-63-13" href="#__codelineno-63-13"></a><span class="w">  </span><span class="nt">haproxy</span><span class="p">:</span>
+</span><span id="__span-63-14"><a id="__codelineno-63-14" name="__codelineno-63-14" href="#__codelineno-63-14"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">haproxy:latest</span>
+</span><span id="__span-63-15"><a id="__codelineno-63-15" name="__codelineno-63-15" href="#__codelineno-63-15"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">haproxy_loadbalancer</span>
+</span><span id="__span-63-16"><a id="__codelineno-63-16" name="__codelineno-63-16" href="#__codelineno-63-16"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-63-17"><a id="__codelineno-63-17" name="__codelineno-63-17" href="#__codelineno-63-17"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+</span><span id="__span-63-18"><a id="__codelineno-63-18" name="__codelineno-63-18" href="#__codelineno-63-18"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-63-19"><a id="__codelineno-63-19" name="__codelineno-63-19" href="#__codelineno-63-19"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg</span>
+</span><span id="__span-63-20"><a id="__codelineno-63-20" name="__codelineno-63-20" href="#__codelineno-63-20"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-63-21"><a id="__codelineno-63-21" name="__codelineno-63-21" href="#__codelineno-63-21"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server1</span>
+</span><span id="__span-63-22"><a id="__codelineno-63-22" name="__codelineno-63-22" href="#__codelineno-63-22"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server2</span>
+</span></code></pre></div>
+<h4 id="step-3-run-haproxy">Step 3: Run HAProxy</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>--build
+</span></code></pre></div>
+<h3 id="4-kubernetes-ingress-controller_1">4. Kubernetes Ingress Controller</h3>
+<h4 id="step-1-deploy-nginx-ingress-controller">Step 1: Deploy Nginx Ingress Controller</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.
+</span></code></pre></div>
+<h4 id="step-2-create-ingress-resource">Step 2: Create Ingress Resource</h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="nt">metadata</span><span class="p">:</span>
+</span><span id="__span-66-4"><a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-ingress</span>
+</span><span id="__span-66-5"><a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a><span class="nt">spec</span><span class="p">:</span>
+</span><span id="__span-66-6"><a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a><span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-66-7"><a id="__codelineno-66-7" name="__codelineno-66-7" href="#__codelineno-66-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span>
+</span><span id="__span-66-8"><a id="__codelineno-66-8" name="__codelineno-66-8" href="#__codelineno-66-8"></a><span class="w">    </span><span class="nt">http</span><span class="p">:</span>
+</span><span id="__span-66-9"><a id="__codelineno-66-9" name="__codelineno-66-9" href="#__codelineno-66-9"></a><span class="w">      </span><span class="nt">paths</span><span class="p">:</span>
+</span><span id="__span-66-10"><a id="__codelineno-66-10" name="__codelineno-66-10" href="#__codelineno-66-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+</span><span id="__span-66-11"><a id="__codelineno-66-11" name="__codelineno-66-11" href="#__codelineno-66-11"></a><span class="w">        </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+</span><span id="__span-66-12"><a id="__codelineno-66-12" name="__codelineno-66-12" href="#__codelineno-66-12"></a><span class="w">        </span><span class="nt">backend</span><span class="p">:</span>
+</span><span id="__span-66-13"><a id="__codelineno-66-13" name="__codelineno-66-13" href="#__codelineno-66-13"></a><span class="w">        </span><span class="nt">service</span><span class="p">:</span>
+</span><span id="__span-66-14"><a id="__codelineno-66-14" name="__codelineno-66-14" href="#__codelineno-66-14"></a><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-service</span>
+</span><span id="__span-66-15"><a id="__codelineno-66-15" name="__codelineno-66-15" href="#__codelineno-66-15"></a><span class="w">          </span><span class="nt">port</span><span class="p">:</span>
+</span><span id="__span-66-16"><a id="__codelineno-66-16" name="__codelineno-66-16" href="#__codelineno-66-16"></a><span class="w">            </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</span></code></pre></div>
+<h4 id="step-3-apply-ingress">Step 3: Apply Ingress</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ingress.
+</span></code></pre></div>
+<h3 id="comparison-table">Comparison Table</h3>
+<ul>
+<li><strong>Nginx</strong>: Reverse Proxy (forwards requests to backend servers), Load Balancing (distributes traffic across servers)</li>
+<li><strong>Apache</strong>: Reverse Proxy (similar to Nginx), Load Balancing (balances traffic using a balancer)</li>
+<li><strong>HAProxy</strong>: Load Balancing (efficient traffic handling)</li>
+<li><strong>Kubernetes Ingress</strong>: Traffic Routing (manages external traffic in Kubernetes)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../10_Security_Compliance/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Security &amp;amp; Compliance">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Security &amp; Compliance
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../12_Databases/" class="md-footer__link md-footer__link--next" aria-label="Next: Database Cheat Sheet">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Database Cheat Sheet
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/pbemkes" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/paulemkes/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

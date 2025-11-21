@@ -1,0 +1,2890 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pbemkes.github.io/CheatSheets/09_Monitoring_Logging/">
+      
+      
+        <link rel="prev" href="../08_Configuration_Management/">
+      
+      
+        <link rel="next" href="../10_Security_Compliance/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Monitoring & Logging - Handy CheatSheet Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Recursive:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Recursive";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#monitoring-logging" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Handy CheatSheet Documentation" class="md-header__button md-logo" aria-label="Handy CheatSheet Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 8h-4V6h4zm6-4v16c0 1.11-.89 2-2 2H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2m-2 9H6v7h12zm0-9H6v7h12zm-4 11h-4v2h4z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Handy CheatSheet Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Monitoring &amp; Logging
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-purple"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Handy CheatSheet Documentation" class="md-nav__button md-logo" aria-label="Handy CheatSheet Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 8h-4V6h4zm6-4v16c0 1.11-.89 2-2 2H6c-1.11 0-2-.89-2-2V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2m-2 9H6v7h12zm0-9H6v7h12zm-4 11h-4v2h4z"/></svg>
+
+    </a>
+    Handy CheatSheet Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SRE &amp; DevOps CheatSheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_System_Admin_Scripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Administration &amp; Scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Version_Control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_CICD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Integration (CI) &amp; Continuous Deployment (CD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_IaC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code (IaC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Containerization_Orchestration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containerization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Cloud_Services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Configuration_Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring &amp; Logging
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring &amp; Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prometheus-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus &amp; Grafana
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prometheus &amp; Grafana">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prometheus-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prometheus-configuration-prometheusyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus Configuration (prometheus.yml)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prometheus-alert-manager-configuration-alertmanageryml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus Alert Manager Configuration (alertmanager.yml)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-promql-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful PromQL Queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grafana-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafana CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grafana-api-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafana API Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrating-prometheus-with-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrating Prometheus with Grafana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grafana-alerting-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafana Alerting Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grafana Alerting Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-alert-in-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Alert in Grafana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-slack-alerts-in-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure Slack Alerts in Grafana
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elk-stack-elasticsearch-logstash-kibana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ELK Stack (Elasticsearch, Logstash, Kibana)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ELK Stack (Elasticsearch, Logstash, Kibana)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-elasticsearch-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Elasticsearch Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Elasticsearch Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elasticsearch CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch-query-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elasticsearch Query Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-logstash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Logstash Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Logstash Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logstash-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logstash CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-logstash-configuration-logstashconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Logstash Configuration (logstash.conf)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-kibana-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Kibana Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Kibana Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kibana-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kibana CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kibana-api-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kibana API Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-integrating-elk-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Integrating ELK Stack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Integrating ELK Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configure-elasticsearch-in-kibana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Configure Elasticsearch in Kibana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuring-logstash-to-send-logs-to-elasticsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configuring Logstash to Send Logs to Elasticsearch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-visualizing-logs-in-kibana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Visualizing Logs in Kibana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-elk-stack-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. ELK Stack Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. ELK Stack Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monitor-elasticsearch-cluster-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Elasticsearch Cluster Health
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-logstash-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Logstash Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-kibana-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Kibana Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datadog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Datadog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datadog-agent-installation-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Agent Installation (Linux)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-log-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Log Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-agent-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Agent CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metric-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metric Queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-api-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog API Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-log-collection-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Log Collection Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-logs-in-datadog-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Logs in Datadog UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-monitoring-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Monitoring Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-kubernetes-agent-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Kubernetes Agent Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-kubernetes-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Kubernetes Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-integrations-for-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Integrations for DevOps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-log-collection-for-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Log Collection for Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-apm-application-performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog APM (Application Performance Monitoring)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-cicd-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog CI/CD Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-synthetic-monitoring-api-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Synthetic Monitoring (API Tests)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-dashboard-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Dashboard &amp; Alerts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Datadog Dashboard &amp; Alerts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a new dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-an-alert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create an alert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-incident-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Incident Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-relic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New Relic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-new-relic-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install New Relic Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-logs-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Logs &amp; Metrics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Logs &amp; Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nrql-queries-new-relic-query-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NRQL Queries (New Relic Query Language)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-agent-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic Agent CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-api-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic API Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-log-monitoring-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic Log Monitoring Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New Relic Log Monitoring Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-log-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Log Forwarding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-logs-in-new-relic-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Logs in New Relic UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-monitoring-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic Monitoring Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_Security_Compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security &amp; Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_Networking_Ports_Load_Balancing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking, Ports &amp; Load Balancing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_Databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_Storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_Helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Helm Chart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15_Scenario_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scenario #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prometheus-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus &amp; Grafana
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prometheus &amp; Grafana">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prometheus-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prometheus-configuration-prometheusyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus Configuration (prometheus.yml)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prometheus-alert-manager-configuration-alertmanageryml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prometheus Alert Manager Configuration (alertmanager.yml)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-promql-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful PromQL Queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grafana-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafana CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grafana-api-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafana API Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrating-prometheus-with-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrating Prometheus with Grafana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grafana-alerting-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafana Alerting Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grafana Alerting Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-alert-in-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Alert in Grafana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-slack-alerts-in-grafana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure Slack Alerts in Grafana
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elk-stack-elasticsearch-logstash-kibana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ELK Stack (Elasticsearch, Logstash, Kibana)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ELK Stack (Elasticsearch, Logstash, Kibana)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-elasticsearch-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Elasticsearch Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Elasticsearch Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elasticsearch CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch-query-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elasticsearch Query Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-logstash-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Logstash Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Logstash Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logstash-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logstash CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-logstash-configuration-logstashconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Logstash Configuration (logstash.conf)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-kibana-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Kibana Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Kibana Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kibana-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kibana CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kibana-api-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kibana API Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-integrating-elk-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Integrating ELK Stack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Integrating ELK Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configure-elasticsearch-in-kibana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Configure Elasticsearch in Kibana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuring-logstash-to-send-logs-to-elasticsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configuring Logstash to Send Logs to Elasticsearch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-visualizing-logs-in-kibana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Visualizing Logs in Kibana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-elk-stack-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. ELK Stack Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. ELK Stack Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monitor-elasticsearch-cluster-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Elasticsearch Cluster Health
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-logstash-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Logstash Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-kibana-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Kibana Logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datadog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Datadog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datadog-agent-installation-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Agent Installation (Linux)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-log-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Log Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-agent-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Agent CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metric-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metric Queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-api-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog API Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-log-collection-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Log Collection Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-logs-in-datadog-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Logs in Datadog UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-monitoring-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Monitoring Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-kubernetes-agent-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Kubernetes Agent Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-kubernetes-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Kubernetes Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-integrations-for-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Integrations for DevOps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-log-collection-for-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Log Collection for Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-apm-application-performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog APM (Application Performance Monitoring)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-cicd-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog CI/CD Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-synthetic-monitoring-api-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Synthetic Monitoring (API Tests)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-dashboard-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Dashboard &amp; Alerts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Datadog Dashboard &amp; Alerts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a new dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-an-alert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create an alert
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datadog-incident-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Datadog Incident Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-relic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New Relic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-new-relic-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install New Relic Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-logs-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Logs &amp; Metrics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Logs &amp; Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nrql-queries-new-relic-query-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NRQL Queries (New Relic Query Language)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-agent-cli-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic Agent CLI Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-api-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic API Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-log-monitoring-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic Log Monitoring Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New Relic Log Monitoring Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-log-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Log Forwarding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-logs-in-new-relic-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View Logs in New Relic UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-relic-monitoring-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Relic Monitoring Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="monitoring-logging">Monitoring &amp; Logging</h1>
+<ul>
+<li><a href="#prometheus-grafana">Prometheus &amp; Grafana</a></li>
+<li><a href="#elk-stack-elasticsearch-logstash-kibana">ELK Stack (Elasticsearch, Logstash, Kibana)</a></li>
+<li><a href="#datadog">Datadog</a></li>
+<li><a href="#new-relic">New Relic</a></li>
+</ul>
+<hr />
+<h2 id="prometheus-grafana">Prometheus &amp; Grafana</h2>
+<h3 id="prometheus-cli-commands">Prometheus CLI Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">Check Prometheus version</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>prometheus<span class="w"> </span>--version
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start Prometheus</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>prometheus<span class="w"> </span>--config.file<span class="o">=</span>prometheus.yml
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Reload Prometheus configuration</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:9090/-/reload
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List active targets</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>http://localhost:9090/api/v1/targets
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Query Prometheus API</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>http://localhost:9090/api/v1/query?query<span class="o">=</span>up
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">View Prometheus metrics</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>http://localhost:9090/metrics
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List running alerts</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>http://localhost:9090/api/v1/alerts
+</span></code></pre></div></p>
+<h3 id="prometheus-configuration-prometheusyml">Prometheus Configuration (prometheus.yml)</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">scrape_configs</span><span class="p">:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node&#39;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;localhost:9100&#39;</span><span class="p p-Indicator">]</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;kubernetes&#39;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;kube-state-metrics:8080&#39;</span><span class="p p-Indicator">]</span>
+</span></code></pre></div>
+<h3 id="prometheus-alert-manager-configuration-alertmanageryml">Prometheus Alert Manager Configuration (alertmanager.yml)</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">route</span><span class="p">:</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">receiver</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;slack&#39;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nt">receivers</span><span class="p">:</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;slack&#39;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nt">slack_configs</span><span class="p">:</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">channel</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;#alerts&#39;</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="nt">send_resolved</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://hooks.slack.com/services/your_webhook_url&#39;</span>
+</span></code></pre></div>
+<h3 id="useful-promql-queries">Useful PromQL Queries</h3>
+<p><div class="language-bash highlight"><span class="filename">Check target availability</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>up
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">CPU usage</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="m">100</span><span class="w"> </span>-<span class="w"> </span><span class="o">(</span>avg<span class="w"> </span>by<span class="o">(</span>instance<span class="o">)</span><span class="w"> </span><span class="o">(</span>rate<span class="o">(</span>node_cpu_seconds_total<span class="o">{</span><span class="nv">mode</span><span class="o">=</span><span class="s2">&quot;idle&quot;</span><span class="o">}[</span>5m<span class="o">]))</span><span class="w"> </span><span class="se">\*</span><span class="w"> </span><span class="m">100</span><span class="o">)</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Memory usage</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">(</span><span class="m">1</span><span class="w"> </span>-<span class="w"> </span><span class="o">(</span>node_memory_MemAvailable_bytes<span class="w"> </span>/<span class="w"> </span>node_memory_MemTotal_bytes<span class="o">))</span><span class="w"> </span><span class="se">\*</span><span class="w"> </span><span class="m">100</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">HTTP request count</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sum<span class="o">(</span>rate<span class="o">(</span>http_requests_total<span class="o">[</span>5m<span class="o">]))</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Disk space usage</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>node_filesystem_free_bytes<span class="w"> </span>/<span class="w"> </span>node_filesystem_size_bytes<span class="w"> </span><span class="se">\*</span><span class="w"> </span><span class="m">100</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Active Kubernetes pods</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>count<span class="o">(</span>kube_pod_status_phase<span class="o">{</span><span class="nv">phase</span><span class="o">=</span><span class="s2">&quot;Running&quot;</span><span class="o">})</span>
+</span></code></pre></div></p>
+<h3 id="grafana-cli-commands">Grafana CLI Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">Check Grafana version</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>grafana-server<span class="w"> </span>-v
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start Grafana</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>systemctl<span class="w"> </span>start<span class="w"> </span>grafana-server
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Stop Grafana</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>grafana-server
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Restart Grafana</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>grafana-server
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Enable Grafana on boot</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>grafana-server
+</span></code></pre></div></p>
+<h3 id="grafana-api-commands">Grafana API Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">List dashboards</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>http://localhost:3000/api/search<span class="se">\?</span>query<span class="se">\=\&amp;</span>type<span class="se">\=</span>dash-db<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer &lt;API_TOKEN&gt;&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Create dashboard</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:3000/api/dashboards/db<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer &lt;API_TOKEN&gt;&quot;</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;@dashboard.json&#39;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Add Prometheus data source</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:3000/api/datasources<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type:application/json&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer &lt;API_TOKEN&gt;&quot;</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;{ &quot;name&quot;:&quot;Prometheus&quot;, &quot;type&quot;: &quot;prometheus&quot;, &quot;url&quot;: &quot;http://localhost:9090&quot;, &quot;access&quot;:&quot;proxy&quot; }&#39;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all users</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>http://localhost:3000/api/users<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer &lt;API_TOKEN&gt;&quot;</span>
+</span></code></pre></div></p>
+<h3 id="integrating-prometheus-with-grafana">Integrating Prometheus with Grafana</h3>
+<ol>
+<li>Add Prometheus Data Source in Grafana<ul>
+<li>Grafana → Configuration → Data Sources → Add Prometheus</li>
+<li>Set URL to http://localhost:9090</li>
+<li>Click Save &amp; Test</li>
+</ul>
+</li>
+<li>Import a Prebuilt Dashboard<ul>
+<li>Grafana → Dashboards → Import</li>
+<li>Enter Dashboard ID from Grafana Repository</li>
+<li>Select Prometheus as data source → Import</li>
+</ul>
+</li>
+<li>Create a New Dashboard<ul>
+<li>Grafana → Dashboards → New Dashboard</li>
+<li>Add PromQL queries for visualization</li>
+<li>Choose Panel Type (Graph, Gauge, Table, etc.)</li>
+<li>Click Save Dashboard</li>
+</ul>
+</li>
+</ol>
+<h3 id="grafana-alerting-setup">Grafana Alerting Setup</h3>
+<h4 id="create-alert-in-grafana">Create Alert in Grafana</h4>
+<ol>
+<li>Open <strong>Dashboard → Edit Panel</strong></li>
+<li>Click <strong>Alert → Create Alert</strong></li>
+<li>Set <strong>Condition</strong> (e.g., CPU usage &gt; 80%)</li>
+<li>Define <strong>Evaluation Interval</strong> (e.g., Every 1 min)</li>
+<li>Configure <strong>Notification Channels</strong> (Slack, Email, PagerDuty, etc.)</li>
+<li>Click <strong>Save Alert</strong></li>
+</ol>
+<h4 id="configure-slack-alerts-in-grafana">Configure Slack Alerts in Grafana</h4>
+<ol>
+<li>Grafana → Alerting → Notification Channels</li>
+<li>Click <strong>Add New Channel</strong></li>
+<li>Select <strong>Slack</strong>, enter <strong>Webhook URL</strong></li>
+<li>Click <strong>Save &amp; Test</strong></li>
+</ol>
+<hr />
+<h2 id="elk-stack-elasticsearch-logstash-kibana">ELK Stack (Elasticsearch, Logstash, Kibana)</h2>
+<h3 id="1-elasticsearch-commands">1. Elasticsearch Commands</h3>
+<h4 id="elasticsearch-cli-commands">Elasticsearch CLI Commands</h4>
+<p><div class="language-bash highlight"><span class="filename">Check Elasticsearch version</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>elasticsearch<span class="w"> </span>--version
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start Elasticsearch</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>systemctl<span class="w"> </span>start<span class="w"> </span>elasticsearch
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Stop Elasticsearch</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>elasticsearch
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Restart Elasticsearch</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>elasticsearch
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Enable Elasticsearch on boot</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>elasticsearch
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Check Elasticsearch status</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Cluster health</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/_cluster/health?pretty&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List cluster nodes</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/_cat/nodes?v&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all indices</span><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/_cat/indices?v&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete an index</span><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span><span class="s2">&quot;http://localhost:9200/index_name&quot;</span>
+</span></code></pre></div></p>
+<h4 id="index-management">Index Management</h4>
+<p><div class="language-bash highlight"><span class="filename">Create an index</span><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="s2">&quot;http://localhost:9200/index\_name&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Search index</span><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/index\_name/\_search?pretty&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Insert a document</span><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span><span class="s2">&quot;http://localhost:9200/index\_name/\_doc/1&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;DevOps&quot;}&#39;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Retrieve a document</span><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/index\_name/\_doc/1?pretty&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Delete a document</span><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span><span class="s2">&quot;http://localhost:9200/index\_name/\_doc/1&quot;</span>
+</span></code></pre></div></p>
+<h4 id="elasticsearch-query-examples">Elasticsearch Query Examples</h4>
+<p><div class="language-bash highlight"><span class="filename">Search for 'DevOps'</span><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/index\_name/\_search?q=name:DevOps&amp;pretty&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Query using JSON</span><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/index\_name/\_search&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{ &quot;query&quot;: { &quot;match&quot;: { &quot;name&quot;: &quot;DevOps&quot; } } }&#39;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Get all documents</span><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/index\_name/\_search?pretty&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{ &quot;size&quot;: 10, &quot;query&quot;: { &quot;match_all&quot;: {} } }&#39;</span>
+</span></code></pre></div></p>
+<h3 id="2-logstash-commands">2. Logstash Commands</h3>
+<h4 id="logstash-cli-commands">Logstash CLI Commands</h4>
+<p><div class="language-bash highlight"><span class="filename">Check Logstash version</span><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>logstash<span class="w"> </span>--version
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start Logstash with a config file</span><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>logstash<span class="w"> </span>-f<span class="w"> </span>/etc/logstash/logstash.conf
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start Logstash</span><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>systemctl<span class="w"> </span>start<span class="w"> </span>logstash
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Stop Logstash</span><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>logstash
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Restart Logstash</span><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>logstash
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Enable Logstash on boot</span><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>logstash
+</span></code></pre></div></p>
+<h4 id="sample-logstash-configuration-logstashconf">Sample Logstash Configuration (logstash.conf)</h4>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="err">i</span><span class="kc">n</span><span class="err">pu</span><span class="kc">t</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">  </span><span class="kc">f</span><span class="err">ile</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">    </span><span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">&quot;/var/log/syslog&quot;</span><span class="w"> </span>
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="w">    </span><span class="err">s</span><span class="kc">tart</span><span class="err">_posi</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">&quot;beginning&quot;</span>
+</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="p">}</span>
+</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>
+</span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="kc">f</span><span class="err">il</span><span class="kc">ter</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-48-9"><a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="w">  </span><span class="err">grok</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-48-10"><a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a><span class="w">    </span><span class="err">ma</span><span class="kc">t</span><span class="err">ch</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-48-11"><a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a><span class="w">      </span><span class="s2">&quot;message&quot;</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">&quot;%{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:host} %{DATA:process}: %{GREEDYDATA:log_message}&quot;</span>
+</span><span id="__span-48-12"><a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-48-13"><a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-48-14"><a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a><span class="p">}</span>
+</span><span id="__span-48-15"><a id="__codelineno-48-15" name="__codelineno-48-15" href="#__codelineno-48-15"></a>
+</span><span id="__span-48-16"><a id="__codelineno-48-16" name="__codelineno-48-16" href="#__codelineno-48-16"></a><span class="err">ou</span><span class="kc">t</span><span class="err">pu</span><span class="kc">t</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+</span><span id="__span-48-17"><a id="__codelineno-48-17" name="__codelineno-48-17" href="#__codelineno-48-17"></a><span class="w">  </span><span class="err">elas</span><span class="kc">t</span><span class="err">icsearch</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-48-18"><a id="__codelineno-48-18" name="__codelineno-48-18" href="#__codelineno-48-18"></a><span class="w">    </span><span class="err">hos</span><span class="kc">ts</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;http://localhost:9200&quot;</span><span class="p">]</span><span class="w"> </span>
+</span><span id="__span-48-19"><a id="__codelineno-48-19" name="__codelineno-48-19" href="#__codelineno-48-19"></a><span class="w">    </span><span class="err">i</span><span class="kc">n</span><span class="err">dex</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">&quot;logstash-logs&quot;</span>
+</span><span id="__span-48-20"><a id="__codelineno-48-20" name="__codelineno-48-20" href="#__codelineno-48-20"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-48-21"><a id="__codelineno-48-21" name="__codelineno-48-21" href="#__codelineno-48-21"></a><span class="w">  </span><span class="err">s</span><span class="kc">t</span><span class="err">dou</span><span class="kc">t</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">codec</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">rubydebug</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-48-22"><a id="__codelineno-48-22" name="__codelineno-48-22" href="#__codelineno-48-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="3-kibana-commands">3. Kibana Commands</h3>
+<h4 id="kibana-cli-commands">Kibana CLI Commands</h4>
+<p><div class="language-bash highlight"><span class="filename">Check Kibana version</span><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>kibana<span class="w"> </span>--version
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start Kibana</span><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>systemctl<span class="w"> </span>start<span class="w"> </span>kibana
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Stop Kibana</span><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>kibana
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Restart Kibana</span><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>kibana
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Enable Kibana on boot</span><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>kibana
+</span></code></pre></div></p>
+<h4 id="kibana-api-commands">Kibana API Commands</h4>
+<p><div class="language-bash highlight"><span class="filename">Check Kibana status</span><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:5601/api/status&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;kbn-xsrf: true&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List all Kibana spaces</span><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:5601/api/spaces/space&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;kbn-xsrf: true&quot;</span>
+</span></code></pre></div></p>
+<div class="language-bash highlight"><span class="filename">Kibana Dashboard Import Example</span><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;http://localhost:5601/api/saved\_objects/\_import&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;kbn-xsrf: true&quot;</span><span class="w"> </span>--form<span class="w"> </span><span class="nv">file</span><span class="o">=</span>@dashboard.ndjson
+</span></code></pre></div>
+<h3 id="4-integrating-elk-stack">4. Integrating ELK Stack</h3>
+<h4 id="1-configure-elasticsearch-in-kibana">1. Configure Elasticsearch in Kibana</h4>
+<ul>
+<li>Go to Kibana → Management → Stack Management → Data Views</li>
+<li>Click Create Data View</li>
+<li>Set Index Pattern as logstash-*</li>
+<li>Click Save</li>
+</ul>
+<h4 id="2-configuring-logstash-to-send-logs-to-elasticsearch">2. Configuring Logstash to Send Logs to Elasticsearch</h4>
+<ul>
+<li>Open <code>/etc/logstash/logstash.conf</code></li>
+<li>Ensure the output points to Elasticsearch:</li>
+</ul>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="err">ou</span><span class="kc">t</span><span class="err">pu</span><span class="kc">t</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="w">  </span><span class="err">elas</span><span class="kc">t</span><span class="err">icsearch</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w">    </span><span class="err">hos</span><span class="kc">ts</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;http://localhost:9200&quot;</span><span class="p">]</span><span class="w"> </span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="w">    </span><span class="err">i</span><span class="kc">n</span><span class="err">dex</span><span class="w"> </span><span class="err">=&gt;</span><span class="w"> </span><span class="s2">&quot;logstash-logs&quot;</span>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Restart Logstash:</span><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>logstash
+</span></code></pre></div>
+<h3 id="5-visualizing-logs-in-kibana">5. Visualizing Logs in Kibana</h3>
+<ul>
+<li>Go to Kibana → Discover</li>
+<li>Select logstash-* Data View</li>
+<li>Apply Filters &amp; View Logs</li>
+</ul>
+<h3 id="6-elk-stack-monitoring">6. ELK Stack Monitoring</h3>
+<h4 id="monitor-elasticsearch-cluster-health">Monitor Elasticsearch Cluster Health</h4>
+<p><div class="language-bash highlight"><span class="filename">Get Cluster health</span><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/_cluster/health?pretty&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Get Node health</span><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/_cat/nodes?v&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Get index health</span><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:9200/_cat/indices?v&quot;</span>
+</span></code></pre></div></p>
+<h3 id="monitor-logstash-logs">Monitor Logstash Logs</h3>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/logstash/logstash-plain.log
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>logstash<span class="w"> </span>-f
+</span></code></pre></div></p>
+<h3 id="monitor-kibana-logs">Monitor Kibana Logs</h3>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/kibana/kibana.log
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>kibana<span class="w"> </span>-f
+</span></code></pre></div></p>
+<hr />
+<h2 id="datadog">Datadog</h2>
+<h3 id="datadog-agent-installation-linux">Datadog Agent Installation (Linux)</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="nv">DD_API_KEY</span><span class="o">=</span>your_api_key<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-L<span class="w"> </span>https://s3.amazonaws.com/dd-agent/scripts/install_script.sh<span class="k">)</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<h3 id="enable-log-monitoring">Enable Log Monitoring</h3>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/datadog-agent/datadog.yaml
+</span></code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="nt">logs_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>datadog-agent
+</span></code></pre></div></p>
+<h3 id="datadog-agent-cli-commands">Datadog Agent CLI Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">Check Datadog agent version</span><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>datadog-agent<span class="w"> </span>version
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Check Datadog agent status</span><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>datadog-agent<span class="w"> </span>status
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run a specific check</span><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>datadog-agent<span class="w"> </span>check<span class="w"> </span>&lt;integration&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Gather logs and configuration for</span><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>datadog-agent<span class="w"> </span>flare<span class="w"> </span>troubleshooting
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start Datadog agent</span><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>systemctl<span class="w"> </span>start<span class="w"> </span>datadog-agent
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Stop Datadog agent</span><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>datadog-agent
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Restart Datadog agent</span><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>datadog-agent
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Enable Datadog agent on boot</span><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>datadog-agent
+</span></code></pre></div></p>
+<h3 id="metric-queries">Metric Queries</h3>
+<p><div class="language-bash highlight"><span class="filename">CPU usage</span><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>avg:system.cpu.user<span class="o">{</span>*<span class="o">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Top 5 disk users</span><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>top<span class="o">(</span>avg:system.disk.used<span class="o">{</span>*<span class="o">}</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="s1">&#39;mean&#39;</span><span class="o">)</span>
+</span></code></pre></div></p>
+<h3 id="datadog-api-commands">Datadog API Commands</h3>
+<div class="language-bash highlight"><span class="filename">List all metrics</span><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;https://api.datadoghq.com/api/v1/metrics&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;DD-API-KEY:&lt;API_KEY&gt;&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Submit a custom metric</span><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://api.datadoghq.com/api/v1/series&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-81-2"><a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>-H<span class="w"> </span><span class="s2">&quot;DD-API-KEY: &lt;API_KEY&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-81-3"><a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-81-4"><a id="__codelineno-81-4" name="__codelineno-81-4" href="#__codelineno-81-4"></a>--data<span class="w"> </span><span class="s1">&#39;{ &quot;series&quot;: [{ &quot;metric&quot;: &quot;custom.metric&quot;, &quot;points&quot;: [[1633000000, 10]],&quot;type&quot;: &quot;gauge&quot;, &quot;tags&quot;: [&quot;env:prod&quot;] }] }&#39;</span>
+</span></code></pre></div>
+<h3 id="datadog-configuration">Datadog Configuration</h3>
+<div class="language-yaml highlight"><span class="filename">/etc/datadog-agent/datadog.yaml</span><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;YOUR_API_KEY&gt;&quot;</span>
+</span><span id="__span-82-2"><a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a><span class="nt">site</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;datadoghq.com&quot;</span>
+</span><span id="__span-82-3"><a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a><span class="nt">apm_config</span><span class="p">:</span>
+</span><span id="__span-82-4"><a id="__codelineno-82-4" name="__codelineno-82-4" href="#__codelineno-82-4"></a><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div>
+<h3 id="datadog-log-collection-setup">Datadog Log Collection Setup</h3>
+<p><div class="language-yaml highlight"><span class="filename">/etc/datadog-agent/datadog.yaml</span><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a><span class="nt">logs_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>datadog-agent
+</span></code></pre></div></p>
+<h3 id="monitor-logs-in-datadog-ui">Monitor Logs in Datadog UI</h3>
+<ol>
+<li>Go to Datadog → Logs → Live Tail</li>
+<li>Filter logs by service, environment, or host</li>
+</ol>
+<h3 id="datadog-monitoring-commands">Datadog Monitoring Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">Check configuration validity</span><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>datadog-agent<span class="w"> </span>configcheck
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Get the hostname recognized by Datadog</span><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>datadog-agent<span class="w"> </span>hostname
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Check agent health</span><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>datadog-agent<span class="w"> </span>health
+</span></code></pre></div></p>
+<h3 id="datadog-kubernetes-agent-installation">Datadog Kubernetes Agent Installation</h3>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>datadog-secret<span class="w"> </span>--from-literal<span class="o">=</span>api-key<span class="o">=</span>&lt;YOUR_API_KEY&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-89-1"><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/DataDog/datadog-agent/main/Dockerfiles/manifests/agent.yaml
+</span></code></pre></div></p>
+<h3 id="datadog-kubernetes-monitoring">Datadog Kubernetes Monitoring</h3>
+<p><div class="language-bash highlight"><span class="filename">List Datadog agent pods</span><pre><span></span><code><span id="__span-90-1"><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>datadog
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Check logs of a Datadog agent pod</span><pre><span></span><code><span id="__span-91-1"><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>kubectl<span class="w"> </span>logs<span class="w"> </span>-n<span class="w"> </span>datadog<span class="w"> </span>&lt;pod-name&gt;
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Describe Datadog agent pod</span><pre><span></span><code><span id="__span-92-1"><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>kubectl<span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>&lt;pod-name&gt;<span class="w"> </span>-n<span class="w"> </span>datadog
+</span></code></pre></div></p>
+<h3 id="datadog-integrations-for-devops">Datadog Integrations for DevOps</h3>
+<p><div class="language-bash highlight"><span class="filename">Install Docker integration</span><pre><span></span><code><span id="__span-93-1"><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a>datadog-agent<span class="w"> </span>integration<span class="w"> </span>install<span class="w"> </span>-t<span class="w"> </span>docker
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Install Kubernetes integration</span><pre><span></span><code><span id="__span-94-1"><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a>datadog-agent<span class="w"> </span>integration<span class="w"> </span>install<span class="w"> </span>-t<span class="w"> </span>kubernetes
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Install AWS integration</span><pre><span></span><code><span id="__span-95-1"><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a>datadog-agent<span class="w"> </span>integration<span class="w"> </span>install<span class="w"> </span>-t<span class="w"> </span>aws
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Install Prometheus integration</span><pre><span></span><code><span id="__span-96-1"><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a>datadog-agent<span class="w"> </span>integration<span class="w"> </span>install<span class="w"> </span>-t<span class="w"> </span>prometheus
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Install Jenkins integration</span><pre><span></span><code><span id="__span-97-1"><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a>datadog-agent<span class="w"> </span>integration<span class="w"> </span>install<span class="w"> </span>-t<span class="w"> </span>jenkins
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Install GitLab integration</span><pre><span></span><code><span id="__span-98-1"><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a>datadog-agent<span class="w"> </span>integration<span class="w"> </span>install<span class="w"> </span>-t<span class="w"> </span>gitlab
+</span></code></pre></div></p>
+<h3 id="datadog-log-collection-for-docker">Datadog Log Collection for Docker</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-99-1"><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>datadog-agent<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-99-2"><a id="__codelineno-99-2" name="__codelineno-99-2" href="#__codelineno-99-2"></a>-e<span class="w"> </span><span class="nv">DD_API_KEY</span><span class="o">=</span>&lt;YOUR_API_KEY&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-99-3"><a id="__codelineno-99-3" name="__codelineno-99-3" href="#__codelineno-99-3"></a>-e<span class="w"> </span><span class="nv">DD_LOGS_ENABLED</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-99-4"><a id="__codelineno-99-4" name="__codelineno-99-4" href="#__codelineno-99-4"></a>-e<span class="w"> </span><span class="nv">DD_CONTAINER_EXCLUDE</span><span class="o">=</span><span class="s2">&quot;name:datadog-agent&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-99-5"><a id="__codelineno-99-5" name="__codelineno-99-5" href="#__codelineno-99-5"></a>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock:ro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-99-6"><a id="__codelineno-99-6" name="__codelineno-99-6" href="#__codelineno-99-6"></a>-v<span class="w"> </span>/proc/:/host/proc/:ro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-99-7"><a id="__codelineno-99-7" name="__codelineno-99-7" href="#__codelineno-99-7"></a>-v<span class="w"> </span>/sys/fs/cgroup/:/host/sys/fs/cgroup:ro<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-99-8"><a id="__codelineno-99-8" name="__codelineno-99-8" href="#__codelineno-99-8"></a>datadog/agent
+</span></code></pre></div>
+<h3 id="datadog-apm-application-performance-monitoring">Datadog APM (Application Performance Monitoring)</h3>
+<p><div class="language-bash highlight"><span class="filename">Check trace agent status</span><pre><span></span><code><span id="__span-100-1"><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a>datadog-agent<span class="w"> </span>trace-agent<span class="w"> </span>status
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Show trace agent configuration</span><pre><span></span><code><span id="__span-101-1"><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a>datadog-agent<span class="w"> </span>trace-agent<span class="w"> </span>config
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Restart the trace agent</span><pre><span></span><code><span id="__span-102-1"><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a>datadog-agent<span class="w"> </span>trace-agent<span class="w"> </span>restart
+</span></code></pre></div></p>
+<h3 id="datadog-cicd-monitoring">Datadog CI/CD Monitoring</h3>
+<div class="language-bash highlight"><span class="filename">Track CI/CD pipeline duration</span><pre><span></span><code><span id="__span-103-1"><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://api.datadoghq.com/api/v1/series&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-103-2"><a id="__codelineno-103-2" name="__codelineno-103-2" href="#__codelineno-103-2"></a>-H<span class="w"> </span><span class="s2">&quot;DD-API-KEY: &lt;API_KEY&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-103-3"><a id="__codelineno-103-3" name="__codelineno-103-3" href="#__codelineno-103-3"></a>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-103-4"><a id="__codelineno-103-4" name="__codelineno-103-4" href="#__codelineno-103-4"></a>--data<span class="w"> </span><span class="s1">&#39;{ &quot;series&quot;: [{ &quot;metric&quot;: &quot;ci.pipeline.duration&quot;, &quot;points&quot;: [[1633000000, 30]], &quot;type&quot;: &quot;gauge&quot;, &quot;tags&quot;: [&quot;pipeline:deploy&quot;] }] }&#39;</span>
+</span></code></pre></div>
+<h3 id="datadog-synthetic-monitoring-api-tests">Datadog Synthetic Monitoring (API Tests)</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-104-1"><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://api.datadoghq.com/api/v1/synthetics/tests&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-104-2"><a id="__codelineno-104-2" name="__codelineno-104-2" href="#__codelineno-104-2"></a>-H<span class="w"> </span><span class="s2">&quot;DD-API-KEY: &lt;API_KEY&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-104-3"><a id="__codelineno-104-3" name="__codelineno-104-3" href="#__codelineno-104-3"></a>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-104-4"><a id="__codelineno-104-4" name="__codelineno-104-4" href="#__codelineno-104-4"></a>--data<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-104-5"><a id="__codelineno-104-5" name="__codelineno-104-5" href="#__codelineno-104-5"></a><span class="s1">  &quot;config&quot;: { &quot;request&quot;: { &quot;method&quot;: &quot;GET&quot;, &quot;url&quot;: &quot;https://example.com&quot; },</span>
+</span><span id="__span-104-6"><a id="__codelineno-104-6" name="__codelineno-104-6" href="#__codelineno-104-6"></a><span class="s1">  &quot;assertions&quot;: [{ &quot;operator&quot;: &quot;is&quot;, &quot;type&quot;: &quot;statusCode&quot;, &quot;target&quot;: 200 }] },</span>
+</span><span id="__span-104-7"><a id="__codelineno-104-7" name="__codelineno-104-7" href="#__codelineno-104-7"></a><span class="s1">  &quot;locations&quot;: [&quot;aws:us-east-1&quot;],</span>
+</span><span id="__span-104-8"><a id="__codelineno-104-8" name="__codelineno-104-8" href="#__codelineno-104-8"></a><span class="s1">  &quot;message&quot;: &quot;Website should be reachable&quot;,</span>
+</span><span id="__span-104-9"><a id="__codelineno-104-9" name="__codelineno-104-9" href="#__codelineno-104-9"></a><span class="s1">  &quot;name&quot;: &quot;Website Availability Test&quot;,</span>
+</span><span id="__span-104-10"><a id="__codelineno-104-10" name="__codelineno-104-10" href="#__codelineno-104-10"></a><span class="s1">  &quot;options&quot;: { &quot;monitor_options&quot;: { &quot;renotify_interval&quot;: 0 } },</span>
+</span><span id="__span-104-11"><a id="__codelineno-104-11" name="__codelineno-104-11" href="#__codelineno-104-11"></a><span class="s1">  &quot;tags&quot;: [&quot;env:prod&quot;],</span>
+</span><span id="__span-104-12"><a id="__codelineno-104-12" name="__codelineno-104-12" href="#__codelineno-104-12"></a><span class="s1">  &quot;type&quot;: &quot;api&quot;</span>
+</span><span id="__span-104-13"><a id="__codelineno-104-13" name="__codelineno-104-13" href="#__codelineno-104-13"></a><span class="s1">}&#39;</span>
+</span></code></pre></div>
+<h3 id="datadog-dashboard-alerts">Datadog Dashboard &amp; Alerts</h3>
+<h4 id="create-a-new-dashboard">Create a new dashboard</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-105-1"><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://api.datadoghq.com/api/v1/dashboard&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-105-2"><a id="__codelineno-105-2" name="__codelineno-105-2" href="#__codelineno-105-2"></a>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-105-3"><a id="__codelineno-105-3" name="__codelineno-105-3" href="#__codelineno-105-3"></a>-H<span class="w"> </span><span class="s2">&quot;DD-API-KEY: &lt;API_KEY&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-105-4"><a id="__codelineno-105-4" name="__codelineno-105-4" href="#__codelineno-105-4"></a>--data<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-105-5"><a id="__codelineno-105-5" name="__codelineno-105-5" href="#__codelineno-105-5"></a><span class="s1"> &quot;title&quot;: &quot;DevOps Dashboard&quot;, </span>
+</span><span id="__span-105-6"><a id="__codelineno-105-6" name="__codelineno-105-6" href="#__codelineno-105-6"></a><span class="s1"> &quot;widgets&quot;: [</span>
+</span><span id="__span-105-7"><a id="__codelineno-105-7" name="__codelineno-105-7" href="#__codelineno-105-7"></a><span class="s1">    {</span>
+</span><span id="__span-105-8"><a id="__codelineno-105-8" name="__codelineno-105-8" href="#__codelineno-105-8"></a><span class="s1">       &quot;definition&quot;: {</span>
+</span><span id="__span-105-9"><a id="__codelineno-105-9" name="__codelineno-105-9" href="#__codelineno-105-9"></a><span class="s1">         &quot;type&quot;: &quot;timeseries&quot;, </span>
+</span><span id="__span-105-10"><a id="__codelineno-105-10" name="__codelineno-105-10" href="#__codelineno-105-10"></a><span class="s1">         &quot;requests&quot;: [</span>
+</span><span id="__span-105-11"><a id="__codelineno-105-11" name="__codelineno-105-11" href="#__codelineno-105-11"></a><span class="s1">            { &quot;q&quot;: &quot;avg:system.cpu.user{*}&quot; }</span>
+</span><span id="__span-105-12"><a id="__codelineno-105-12" name="__codelineno-105-12" href="#__codelineno-105-12"></a><span class="s1">         ]</span>
+</span><span id="__span-105-13"><a id="__codelineno-105-13" name="__codelineno-105-13" href="#__codelineno-105-13"></a><span class="s1">       }</span>
+</span><span id="__span-105-14"><a id="__codelineno-105-14" name="__codelineno-105-14" href="#__codelineno-105-14"></a><span class="s1">    }</span>
+</span><span id="__span-105-15"><a id="__codelineno-105-15" name="__codelineno-105-15" href="#__codelineno-105-15"></a><span class="s1"> ]</span>
+</span><span id="__span-105-16"><a id="__codelineno-105-16" name="__codelineno-105-16" href="#__codelineno-105-16"></a><span class="s1">}&#39;</span>
+</span></code></pre></div>
+<h4 id="create-an-alert">Create an alert</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-106-1"><a id="__codelineno-106-1" name="__codelineno-106-1" href="#__codelineno-106-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://api.datadoghq.com/api/v1/monitor&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-106-2"><a id="__codelineno-106-2" name="__codelineno-106-2" href="#__codelineno-106-2"></a>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-106-3"><a id="__codelineno-106-3" name="__codelineno-106-3" href="#__codelineno-106-3"></a>-H<span class="w"> </span><span class="s2">&quot;DD-API-KEY: &lt;API_KEY&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-106-4"><a id="__codelineno-106-4" name="__codelineno-106-4" href="#__codelineno-106-4"></a>--data<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-106-5"><a id="__codelineno-106-5" name="__codelineno-106-5" href="#__codelineno-106-5"></a><span class="s1">  &quot;name&quot;: &quot;High CPU Usage&quot;, </span>
+</span><span id="__span-106-6"><a id="__codelineno-106-6" name="__codelineno-106-6" href="#__codelineno-106-6"></a><span class="s1">  &quot;type&quot;: &quot;query alert&quot;,</span>
+</span><span id="__span-106-7"><a id="__codelineno-106-7" name="__codelineno-106-7" href="#__codelineno-106-7"></a><span class="s1">  &quot;query&quot;: &quot;avg(last_5m):avg:system.cpu.user{*} &gt; 80&quot;, </span>
+</span><span id="__span-106-8"><a id="__codelineno-106-8" name="__codelineno-106-8" href="#__codelineno-106-8"></a><span class="s1">  &quot;message&quot;: &quot;CPU usage is too high!&quot;,</span>
+</span><span id="__span-106-9"><a id="__codelineno-106-9" name="__codelineno-106-9" href="#__codelineno-106-9"></a><span class="s1">  &quot;tags&quot;: [&quot;env:prod&quot;]</span>
+</span><span id="__span-106-10"><a id="__codelineno-106-10" name="__codelineno-106-10" href="#__codelineno-106-10"></a><span class="s1">}&#39;</span>
+</span></code></pre></div>
+<h4 id="datadog-incident-management">Datadog Incident Management</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-107-1"><a id="__codelineno-107-1" name="__codelineno-107-1" href="#__codelineno-107-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://api.datadoghq.com/api/v1/incidents&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-107-2"><a id="__codelineno-107-2" name="__codelineno-107-2" href="#__codelineno-107-2"></a>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-107-3"><a id="__codelineno-107-3" name="__codelineno-107-3" href="#__codelineno-107-3"></a>-H<span class="w"> </span><span class="s2">&quot;DD-API-KEY: &lt;API_KEY&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-107-4"><a id="__codelineno-107-4" name="__codelineno-107-4" href="#__codelineno-107-4"></a>--data<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-107-5"><a id="__codelineno-107-5" name="__codelineno-107-5" href="#__codelineno-107-5"></a><span class="s1">  &quot;data&quot;: {</span>
+</span><span id="__span-107-6"><a id="__codelineno-107-6" name="__codelineno-107-6" href="#__codelineno-107-6"></a><span class="s1">  &quot;type&quot;: &quot;incidents&quot;,</span>
+</span><span id="__span-107-7"><a id="__codelineno-107-7" name="__codelineno-107-7" href="#__codelineno-107-7"></a><span class="s1">  &quot;attributes&quot;: {</span>
+</span><span id="__span-107-8"><a id="__codelineno-107-8" name="__codelineno-107-8" href="#__codelineno-107-8"></a><span class="s1">    &quot;title&quot;: &quot;Production Outage&quot;,</span>
+</span><span id="__span-107-9"><a id="__codelineno-107-9" name="__codelineno-107-9" href="#__codelineno-107-9"></a><span class="s1">    &quot;customer_impact_scope&quot;: &quot;global&quot;,</span>
+</span><span id="__span-107-10"><a id="__codelineno-107-10" name="__codelineno-107-10" href="#__codelineno-107-10"></a><span class="s1">    &quot;customer_impact_duration&quot;: 30,</span>
+</span><span id="__span-107-11"><a id="__codelineno-107-11" name="__codelineno-107-11" href="#__codelineno-107-11"></a><span class="s1">    &quot;severity&quot;: &quot;critical&quot;,</span>
+</span><span id="__span-107-12"><a id="__codelineno-107-12" name="__codelineno-107-12" href="#__codelineno-107-12"></a><span class="s1">    &quot;state&quot;: &quot;active&quot;,</span>
+</span><span id="__span-107-13"><a id="__codelineno-107-13" name="__codelineno-107-13" href="#__codelineno-107-13"></a><span class="s1">    &quot;commander&quot;: &quot;DevOps Team&quot;</span>
+</span><span id="__span-107-14"><a id="__codelineno-107-14" name="__codelineno-107-14" href="#__codelineno-107-14"></a><span class="s1">    }</span>
+</span><span id="__span-107-15"><a id="__codelineno-107-15" name="__codelineno-107-15" href="#__codelineno-107-15"></a><span class="s1">  }</span>
+</span><span id="__span-107-16"><a id="__codelineno-107-16" name="__codelineno-107-16" href="#__codelineno-107-16"></a><span class="s1">}&#39;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="new-relic">New Relic</h2>
+<h3 id="install-new-relic-agent">Install New Relic Agent</h3>
+<div class="language-bash highlight"><span class="filename">For Linux Servers</span><pre><span></span><code><span id="__span-108-1"><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a>curl<span class="w"> </span>-Ls<span class="w"> </span>https://download.newrelic.com/install/newrelic-cli/scripts/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>newrelic<span class="w"> </span>install
+</span></code></pre></div>
+<h3 id="query-logs-metrics">Query Logs &amp; Metrics</h3>
+<h4 id="nrql-queries-new-relic-query-language">NRQL Queries (New Relic Query Language)</h4>
+<p><div class="language-sql highlight"><pre><span></span><code><span id="__span-109-1"><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">average</span><span class="p">(</span><span class="n">cpuPercent</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">SystemSample</span><span class="w"> </span><span class="n">SINCE</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="n">minutes</span><span class="w"> </span><span class="n">ago</span>
+</span></code></pre></div>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-110-1"><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">Transaction</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">appName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;my-app&#39;</span>
+</span></code></pre></div></p>
+<h3 id="new-relic-agent-cli-commands">New Relic Agent CLI Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">Check New Relic agent version</span><pre><span></span><code><span id="__span-111-1"><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a>newrelic-daemon<span class="w"> </span>-v
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Start New Relic infrastructure agent</span><pre><span></span><code><span id="__span-112-1"><a id="__codelineno-112-1" name="__codelineno-112-1" href="#__codelineno-112-1"></a>systemctl<span class="w"> </span>start<span class="w"> </span>newrelic-infra
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Stop New Relic infrastructure agent</span><pre><span></span><code><span id="__span-113-1"><a id="__codelineno-113-1" name="__codelineno-113-1" href="#__codelineno-113-1"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>newrelic-infra
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Restart New Relic infrastructure agent</span><pre><span></span><code><span id="__span-114-1"><a id="__codelineno-114-1" name="__codelineno-114-1" href="#__codelineno-114-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>newrelic-infra
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Enable agent on boot</span><pre><span></span><code><span id="__span-115-1"><a id="__codelineno-115-1" name="__codelineno-115-1" href="#__codelineno-115-1"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>newrelic-infra
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">View New Relic agent logs</span><pre><span></span><code><span id="__span-116-1"><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>newrelic-infra<span class="w"> </span>-f
+</span></code></pre></div></p>
+<h3 id="new-relic-api-commands">New Relic API Commands</h3>
+<p><div class="language-bash highlight"><span class="filename">List all applications</span><pre><span></span><code><span id="__span-117-1"><a id="__codelineno-117-1" name="__codelineno-117-1" href="#__codelineno-117-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;https://api.newrelic.com/v2/applications.json&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-Api-Key:&lt;API_KEY&gt;&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">List monitored servers</span><pre><span></span><code><span id="__span-118-1"><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;https://api.newrelic.com/v2/servers.json&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-Api-Key:&lt;API_KEY&gt;&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Record a deployment</span><pre><span></span><code><span id="__span-119-1"><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://api.newrelic.com/v2/applications/&lt;APP_ID&gt;/deployments.json&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-Api-Key:&lt;API_KEY&gt;&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{ &quot;deployment&quot;: { &quot;revision&quot;: &quot;1.0.1&quot;, &quot;description&quot;: &quot;New deployment&quot;, &quot;user&quot;: &quot;DevOps Team&quot; } }&#39;</span>
+</span></code></pre></div></p>
+<h3 id="new-relic-configuration">New Relic Configuration</h3>
+<div class="language-yaml highlight"><span class="filename">/etc/newrelic-infra.yml</span><pre><span></span><code><span id="__span-120-1"><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a><span class="nt">license_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;YOUR_LICENSE_KEY&gt;&quot;</span>
+</span><span id="__span-120-2"><a id="__codelineno-120-2" name="__codelineno-120-2" href="#__codelineno-120-2"></a><span class="nt">log_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/newrelic-infra.log</span>
+</span><span id="__span-120-3"><a id="__codelineno-120-3" name="__codelineno-120-3" href="#__codelineno-120-3"></a><span class="nt">custom_attributes</span><span class="p">:</span>
+</span><span id="__span-120-4"><a id="__codelineno-120-4" name="__codelineno-120-4" href="#__codelineno-120-4"></a><span class="w">  </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+</span></code></pre></div>
+<h3 id="new-relic-log-monitoring-setup">New Relic Log Monitoring Setup</h3>
+<h4 id="enable-log-forwarding">Enable Log Forwarding</h4>
+<div class="language-yaml highlight"><span class="filename">Edit: /etc/newrelic-infra.yml:</span><pre><span></span><code><span id="__span-121-1"><a id="__codelineno-121-1" name="__codelineno-121-1" href="#__codelineno-121-1"></a><span class="nt">logs</span><span class="p">:</span>
+</span><span id="__span-121-2"><a id="__codelineno-121-2" name="__codelineno-121-2" href="#__codelineno-121-2"></a><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-121-3"><a id="__codelineno-121-3" name="__codelineno-121-3" href="#__codelineno-121-3"></a><span class="w">  </span><span class="nt">include</span><span class="p">:</span>
+</span><span id="__span-121-4"><a id="__codelineno-121-4" name="__codelineno-121-4" href="#__codelineno-121-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/syslog</span>
+</span><span id="__span-121-5"><a id="__codelineno-121-5" name="__codelineno-121-5" href="#__codelineno-121-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/nginx/access.log</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Restart the agent:</span><pre><span></span><code><span id="__span-122-1"><a id="__codelineno-122-1" name="__codelineno-122-1" href="#__codelineno-122-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>newrelic-infra
+</span></code></pre></div>
+<h4 id="view-logs-in-new-relic-ui">View Logs in New Relic UI</h4>
+<ul>
+<li>Go to New Relic → Logs</li>
+<li>Filter logs by application, environment, or tags</li>
+</ul>
+<h4 id="new-relic-monitoring-commands">New Relic Monitoring Commands</h4>
+<p><div class="language-bash highlight"><span class="filename">Check agent status</span><pre><span></span><code><span id="__span-123-1"><a id="__codelineno-123-1" name="__codelineno-123-1" href="#__codelineno-123-1"></a>newrelic-infra<span class="w"> </span>--status
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Run a diagnostic test</span><pre><span></span><code><span id="__span-124-1"><a id="__codelineno-124-1" name="__codelineno-124-1" href="#__codelineno-124-1"></a>newrelic-infra<span class="w"> </span>--test
+</span></code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../08_Configuration_Management/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuration Management">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Configuration Management
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../10_Security_Compliance/" class="md-footer__link md-footer__link--next" aria-label="Next: Security &amp;amp; Compliance">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Security &amp; Compliance
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/pbemkes" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/paulemkes/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

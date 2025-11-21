@@ -1765,10 +1765,9 @@ client = docker.from_env() containers = client.containers.list() for container i
 import yaml
 
 - with open('config.yaml', 'r') as file: config = yaml.safe_load(file) print(config)
-- Write to a YAML file:
 ```
 
-```py
+```py title="Write to a YAML file:"
 import yaml
 
 data = {'name': 'DevOps', 'version': '1.0'} with open('output.yaml', 'w') as file: yaml.dump(data, file)
